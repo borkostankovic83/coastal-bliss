@@ -1,0 +1,90 @@
+/*** 
+
+====================================================================
+Section Title
+====================================================================
+
+***/
+
+.sec-title {
+    position: relative;
+    margin-bottom: 50px;
+    .image {
+        margin-bottom: 15px;
+    }
+    .title-stroke-text {
+        position: relative;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 1px rgba(var(--theme-color-dark-rgb), .1);
+        font-size: 150px;
+        font-weight: 700;
+        line-height: 121.1px;
+        font-family: var(--title-font);
+        letter-spacing: 19.13px;
+        margin-bottom: -100px;
+        pointer-events: none;
+        text-transform: uppercase;
+        @include media-breakpoint-down(lg){
+            font-size: 80px;
+        }
+        @include media-breakpoint-down(md){
+            font-size: 60px;
+        }
+        @include media-breakpoint-down(sm){
+            font-size: 36px;
+        }
+        & +  .image {
+            position: relative;
+            z-index: 1;
+            & + .sub-title {
+                margin-bottom: 4px;
+                position: relative;
+                z-index: 1;
+            }
+        }
+    }
+    .sub-title {
+        position: relative;
+        display: inline-block;
+        font-size: var(--sec-title-subtitle-font-size);
+        line-height: var(--sec-title-subtitle-line-height);
+        font-weight: var(--sec-title-subtitle-font-weight);
+        font-family: var(--sec-title-subtitle-font-family);
+        color: var(--sec-title-subtitle-color);
+        margin-top: 0;
+    }
+    h1{
+        position: relative;
+        font-size: var(--h1-font-size);
+        font-weight: 700;
+        line-height: 1.211em;
+        margin-bottom: 0;
+    }
+    
+    h2 {
+        position: relative;
+        font-size: var(--sec-title-font-size);
+        color: var(--sec-title-color);
+        font-family: var(--sec-title-font-family);
+        font-weight: var(--sec-title-font-weight);
+        line-height: var(--sec-title-title-line-height);
+        margin-bottom: 0;
+        @include media-breakpoint-down(sm){
+            font-size: 36px;
+        }
+    }
+    .text {
+        font-weight: var(--body-font-weight);
+        font-size: 16px;
+        line-height: 29px;
+    }
+
+    &.light{
+        .sub-title,
+        .text,
+        h2,
+        h1{
+            color: #fff;
+        }
+    }
+}

@@ -1,0 +1,114 @@
+//Root 
+@function hexToRGB($hex) {
+  @return red($hex), green($hex), blue($hex);
+}
+
+//Define theme colors
+$theme-color1: #C2A74E;
+$theme-color2: #011425;
+$theme-color3: #666666;
+$theme-color4: #183425;
+$theme-color5: #f9f6f1;
+$theme-color-light: #FFFFFF;
+$theme-color-dark: #000000;
+$headings-color: #1C1A1D;
+
+:root {
+
+  //theme color
+  --theme-color1: #{$theme-color1};
+  --theme-color2: #{$theme-color2};
+  --theme-color3: #{$theme-color3};
+  --theme-color4: #{$theme-color4};
+  --theme-color5: #{$theme-color5};
+  
+  --bg-theme-color1: var(--theme-color1);
+  --bg-theme-color2: var(--theme-color2);
+  --bg-theme-color3: var(--theme-color3);
+  --bg-theme-color4: var(--theme-color4);
+
+  --border-theme-color1: var(--theme-color1);
+  --border-theme-color2: var(--theme-color2);
+
+  --theme-color-light: #{$theme-color-light};
+  --theme-color-dark:  #{$theme-color-dark};
+  
+  --theme-color-lighter: #F8F8F8;
+  --review-color: #FFAA18;
+
+  --theme-color1-dark: #B69D49;
+
+
+  //theme colors RGB
+  --theme-color1-rgb: #{hexToRGB($theme-color1)};
+  --theme-color2-rgb: #{hexToRGB($theme-color2)};
+  --theme-color3-rgb: #{hexToRGB($theme-color3)};
+  --theme-color4-rgb: #{hexToRGB($theme-color4)};
+  --theme-color5-rgb: #{hexToRGB($theme-color5)};
+  --headings-color-rgb: #{hexToRGB($headings-color)};
+  --theme-color-dark-rgb: #{hexToRGB($theme-color-dark)};
+  --theme-color-light-rgb: #{hexToRGB($theme-color-light)};
+
+
+  
+  //text heading color
+  --text-color:         #707070;
+  --headings-color:     #1C1A1D;
+  --link-color:         var(--theme-color-dark);
+  --link-hover-color:   var(--theme-color-dark);
+
+
+  //font family
+  --text-font: 'Plus Jakarta Sans', sans-serif;
+  --title-font: 'Cormorant';
+  --style-font: 'Alex Brush', cursive;
+  
+  //body
+  --body-font-size:   16px;
+  --body-line-height: 29px;
+  --body-font-weight: 400;
+
+  //heading font size + weight
+  --line-height-heading-h1: 1.2em;
+  --line-height-heading: 1.211em;
+  --line-height-heading-small: 1.4em;
+
+  --h1-font-size: 80px;
+  --h2-font-size: 60px;
+  --h3-font-size: 40px;
+  --h4-font-size: 30px;
+  --h5-font-size: 20px;
+  --h6-font-size: 18px;
+
+  --h1-font-weight: 700;
+  --h2-font-weight: 700;
+  --h3-font-weight: 700;
+  --h4-font-weight: 700;
+  --h5-font-weight: 700;
+  --h6-font-weight: 700;
+
+  //section sub title
+  --sec-title-subtitle-color: var(--theme-color1);
+  --sec-title-subtitle-font-size: 25px;
+  --sec-title-subtitle-font-family: var(--style-font);
+  --sec-title-subtitle-font-weight: 400;
+  --sec-title-subtitle-line-height: 31.25px;
+
+  //section title
+  --sec-title-color:                 var(--theme-color-dark);
+  --sec-title-font-size:             var(--h2-font-size);
+  --sec-title-font-family:           var(--title-font);
+  --sec-title-font-weight:           600;
+  --sec-title-title-line-height: 1.172em;
+
+  //news details page
+  --theme-light-background: #f8f6f1;
+  --theme-light-background-text-color: var(--headings-color);
+  --theme-black:        #000000;
+
+
+  //container
+  --container-width: 1320px;
+  --small-container-width: 1000px;
+  --large-container-width: 1326px;
+}

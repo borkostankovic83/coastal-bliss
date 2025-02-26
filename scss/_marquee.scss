@@ -1,0 +1,203 @@
+
+/***
+
+====================================================================
+    Marquee Section
+====================================================================
+
+***/
+
+.marquee-section {
+    position: relative;
+    padding: 0 0 100px;
+    @include media-breakpoint-down(md){
+        padding: 0 0 70px;
+    }
+}
+
+.marquee {
+    position: relative;
+    --duration: 30s;
+    --gap: 0px;
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: var(--gap);
+    .marquee-group {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: var(--gap);
+        min-width: 100%;
+        animation: scroll var(--duration) linear infinite;
+    }
+    .text {
+        position: relative;
+        -webkit-text-fill-color: white;
+        -webkit-text-stroke: 1px #606060;
+        font-size: 100px;
+        font-weight: 700;
+        line-height: 121.1px;
+        padding-left: 70px;
+        margin-left: 70px;
+        font-family: var(--title-font);
+        @include media-breakpoint-down(lg){
+            font-size: 80px;
+        }
+        &:after {
+            background-color: var(--theme-color-dark);
+            border-radius: 50%;
+            content: "";
+            position: absolute;
+            left: 0;
+            top: calc(50% - 2px);
+            height: 9px;
+            width: 9px;
+            @include transition(all 300ms ease);
+        }
+        &:hover {
+           &:after {
+            background-color: var(--theme-color-dark);
+           } 
+        }
+        &:before {
+            position: absolute;
+            content: attr(data-text);
+            top: -35px;
+            left: 70px;
+            -webkit-text-fill-color: var(--theme-color-dark);
+            width: 0;
+            @include transition(all 300ms ease);
+            overflow: hidden;
+            padding-top: 35px;
+            display: flex;
+            height: calc(100% + 55px);
+        }
+        &:hover {
+          &:before {
+            width: 100%;
+          }
+        }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .marquee-group {
+            animation-play-state: play;
+        }
+    }
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-100% - var(--gap)));
+        }
+    }
+
+    &.slide-right {
+        transform: scaleX(-1);
+        .text {
+            transform: scaleX(-1);
+        }
+    }
+}
+
+/***
+
+====================================================================
+    Marquee Section Two
+====================================================================
+
+***/
+
+.marquee-section-two {
+    background-color: var(--theme-color5);
+    position: relative;
+    padding: 21px 0 100px;
+    @include media-breakpoint-down(lg){
+        padding: 50px 0;
+    }
+}
+
+.marquee-two {
+    position: relative;
+    --duration: 30s;
+    --gap: 0px;
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: var(--gap);
+    .marquee-group {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: var(--gap);
+        min-width: 100%;
+        animation: scroll var(--duration) linear infinite;
+    }
+    .text {
+        position: relative;
+        -webkit-text-fill-color: var(--headings-color);
+        -webkit-text-stroke: 1px var(--headings-color);
+        font-size: 100px;
+        font-weight: 300;
+        line-height: 121.1px;
+        padding-left: 70px;
+        margin-left: 70px;
+        font-family: var(--title-font);
+        @include media-breakpoint-down(xl){
+            font-size: 80px;
+        }
+        @include media-breakpoint-down(md){
+            font-size: 60px;
+        }
+        @include media-breakpoint-down(sm){
+            font-size: 40px;
+        }
+        &:after {
+            background-image: url(../images/icons/shape-marquee1.png);
+            content: "";
+            position: absolute;
+            left: -50px;
+            top: calc(50% - 47px);
+            height: 105px;
+            width: 79px;
+            @include transition(all 300ms ease);
+            @include media-breakpoint-down(sm){
+                top: calc(50% - 42px);
+            }
+        }
+        &:before {
+            position: absolute;
+            content: attr(data-text);
+            top: -35px;
+            left: 70px;
+            -webkit-text-fill-color: var(--theme-color-light);
+            width: 0;
+            @include transition(all 300ms ease);
+            overflow: hidden;
+            padding-top: 35px;
+            display: flex;
+            height: calc(100% + 55px);
+        }
+        &:hover {
+          &:before {
+            width: 100%;
+          }
+        }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .marquee-group {
+            animation-play-state: play;
+        }
+    }
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-100% - var(--gap)));
+        }
+    }
+}

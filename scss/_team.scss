@@ -1,0 +1,347 @@
+/***
+
+====================================================================
+    Team Section
+====================================================================
+
+***/
+
+.team-section {
+  padding: 123px 0 100px;
+
+  .default-dots{
+    .owl-dots {
+      left: 0;
+      position: absolute;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      bottom: -78px;
+      .owl-dot {
+        height: 12px;
+        width: 12px;
+        margin: 0 8.5px;
+        background-color: transparent;
+        border: 1px solid #707070;
+        border-radius: 50%;
+        @include transition(all 300ms ease);
+        &.active {
+          width: 15px;
+          height: 15px;
+          background-color: var(--theme-color1);
+          border-color: var(--theme-color1);
+          @include transition(all 300ms ease);
+        }
+      }
+    }
+  }
+}
+
+// Team Block
+.team-block {
+  .inner-box {
+    position: relative;
+    margin-bottom: 26px;
+    &:hover {
+      &:before {
+        transform: scale(1);
+      }
+      .content-box {
+        .name {
+          transform: translateY(-40px);
+          opacity: 1;
+        }
+        .designation {
+          transform: translateY(-38px);
+          opacity: 1;
+        }
+      }
+    }
+    &:before {
+      background-color: rgba(194, 167, 78, 0.85);
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform: scale(0);
+      left: calc(50% - 50%);
+      top: calc(50% - 50%);
+      z-index: 1;
+      pointer-events: none;
+      border-radius: 91% 61% 68% 84% / 73% 62% 89% 79%;
+      @include transition(all 300ms ease);
+    }
+    .image-box {
+      .bg-image {
+        bottom: -26px;
+        left: -6px;
+        top: auto;
+        right: auto;
+        width: 397px;
+        height: 390px;
+        pointer-events: none;
+        z-index: 2;
+        border-radius: 91% 61% 68% 84%/73% 62% 89% 79%;
+        border: 1px solid #F3E9FF;
+        @include media-breakpoint-down(xl){
+          display: none;
+        }
+
+      }
+      .image {
+        img {
+          border-radius: 91% 61% 68% 84% / 73% 62% 89% 79%;
+        }
+      }
+    }
+  }
+  .content-box {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 2;
+    .name {
+      color: var(--theme-color-light);
+      font-weight: 500;
+      margin-bottom: 8px;
+      opacity: 0;
+      transform: translate(0);
+      @include transition(all 300ms ease);
+      a {
+        &:hover {
+          color: var(--theme-color-dark);
+        }
+      }
+    }
+    .designation {
+      color: var(--theme-color-light);
+      font-size: 22px;
+      font-weight: 500;
+      font-family: var(--title-font);
+      opacity: 0;
+      transform: translateY(0);
+      @include transition(all 300ms ease);
+    }
+  }
+}
+
+
+/***
+
+====================================================================
+    Team Section Two
+====================================================================
+
+***/
+
+.team-section-two {
+  padding: 100px 0 150px;
+  position: relative;
+  @include media-breakpoint-down(lg){
+    padding: 0 0 150px;
+  }
+  @include media-breakpoint-down(md){
+    padding: 0 0 100px;
+  }
+  .team-column {
+    .inner-column {
+      position: relative;
+    }
+  }
+  .team2-2 {
+    background-image: url(../images/resource/team2-2.png);
+    position: absolute;
+    width: 317px;
+    height: 329px;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    @include media-breakpoint-down(xl){
+      display: none;
+    }
+  }
+  .leaf4 {
+    background-image: url(../images/resource/leaf4.png);
+    position: absolute;
+    width: 253px;
+    height: 144px;
+    right: 0;
+    top: -21px;
+    pointer-events: none;
+    @include media-breakpoint-down(xl){
+      display: none;
+    }
+  }
+}
+
+// Team Block Two
+.team-block-two {
+  margin-bottom: 40px;
+  @include media-breakpoint-down(md){
+    margin-bottom: 28px;
+  }
+  @include media-breakpoint-down(sm){
+    margin-bottom: 20px;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+  .inner-box {
+    align-items: center;
+    border-bottom: 1px solid rgba(112, 112, 112, .25);
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 34px;
+    @include media-breakpoint-down(md){
+      padding-bottom: 28px;
+    }
+    @include media-breakpoint-down(sm){
+      padding-bottom: 20px;
+    }
+    &:hover {
+      .bg-image {
+        transform: scale(1);
+      }
+      .info-box {
+        .name {
+          a {
+            color: var(--theme-color1);
+          }
+        }
+      }
+      .icon {
+        color: var(--theme-color1);
+        transform: rotate(43deg);
+      }
+    }
+    .bg-image {
+      position: absolute;
+      top: 120px;
+      left: calc(100% + -526px);
+      width: 350px;
+      height: 405px;
+      pointer-events: none;
+      transform: scale(0);
+      z-index: 2;
+      @include transition(all 300ms ease);
+      @include media-breakpoint-down(md){
+        display: none;
+      }
+    }
+    .info-box {
+      display: flex;
+      align-items: center;
+      .name {
+        margin-bottom: 0;
+        margin-right: 58px;
+        @include media-breakpoint-down(md){
+          margin-right: 38px;
+          font-size: 24px;
+        }
+        @include media-breakpoint-down(sm){
+          margin-right: 18px;
+          font-size: 20px;
+        }
+        &:before {
+          background-color: var(--headings-color);
+          content: "";
+          position: absolute;
+          bottom: 23px;
+          right: -48px;
+          height: 1px;
+          width: 28.64px;
+          transform: rotate(114deg);
+          @include media-breakpoint-down(md){
+            bottom: 12px;
+            right: -32px;
+            width: 24px;
+          }
+          @include media-breakpoint-down(sm){
+            bottom: 11px;
+            right: -19px;
+            width: 18px;
+          }
+        }
+      }
+      .designation {
+        color: var(--theme-color-dark);
+        display: block;
+        font-size: 20px;
+        font-weight: 500;
+        font-family: var(--title-font);
+        text-transform: uppercase;
+        @include media-breakpoint-down(md){
+          font-size: 18px;
+        }
+        @include media-breakpoint-down(sm){
+          font-size: 16px;
+        }
+      }
+    }
+    .icon {
+      color: var(--theme-color-dark);
+      font-size: 40px;
+      @include transition(all 300ms ease);
+      @include media-breakpoint-down(md){
+        font-size: 28px;
+      }
+      @include media-breakpoint-down(sm){
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+
+/***
+
+====================================================================
+    Team Section Three
+====================================================================
+
+***/
+
+.team-section-three {
+  background-color: var(--theme-color-light);
+  padding: 90px 0 150px;
+  position: relative;
+  @include media-breakpoint-down(md){
+    padding: 90px 0 100px;
+  }
+  .team-column {
+    .inner-column {
+      position: relative;
+    }
+  }
+  .team2-2 {
+    background-image: url(../images/resource/team2-2.png);
+    position: absolute;
+    width: 317px;
+    height: 329px;
+    left: 0;
+    top: 235px;
+    pointer-events: none;
+    @include media-breakpoint-down(xl){
+      display: none;
+    }
+  }
+  .leaf4 {
+    background-image: url(../images/resource/leaf4.png);
+    position: absolute;
+    width: 253px;
+    height: 144px;
+    right: 0;
+    top: 265px;
+    pointer-events: none;
+    @include media-breakpoint-down(xl){
+      display: none;
+    }
+  }
+}
