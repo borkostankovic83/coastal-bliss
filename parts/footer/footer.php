@@ -23,7 +23,7 @@
 	  <div class="footer-column col-lg-4 col-md-6 order-0 order-lg-1">
 		<div class="footer-widget about-widget text-center">
 		  <div class="logo"><a href="index.php"><img src="images/logo-2.png" alt=""></a></div>
-		  <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore</div>
+		  <div class="text">Coming Soon!</div>
 		  <ul class="social-icon">
 			<li><a href="#"><i class="icon fab fa-twitter"></i></a></li>
 			<li><a href="#"><i class="icon fab fa-facebook-f"></i></a></li>
@@ -37,10 +37,10 @@
 	  <div class="footer-column col-lg-4 col-md-6 order-2">
 		<div class="footer-widget contacts-widget">
 		  <h3 class="widget-title">Contact</h3>
-		  <div class="text">2972 Westheimer Rd. Santa Ana, <br> Illinois 85486</div>
+		  <div class="text">XXX Rehoboth Avenue <br>Rehoboth Beach 19971</div>
 		  <ul class="contact-info">
-			<li><a href="tel:012-3456-789">012-3456-789</a></li>
-			<li><a href="mailto:yourmail@company.com">yourmail@company.com</a></li>
+			<li><a href="tel:012-3456-789">302-xxx-xxxx</a></li>
+			<li><a href="mailto:yourmail@company.com">info@coastalblissrehoboth.com</a></li>
 		  </ul>
 		</div>
 	  </div>
@@ -53,7 +53,7 @@
   <div class="auto-container">
 	<div class="inner-container">
 	  <figure class="image"><img src="images/icons/footer-bottom-img-1.png" alt="Image"></figure>
-	  <div class="copyright-text">&copy; Purerelax, <a href="index.php">Reserved By Kodesolution</a></div>
+	  <div class="copyright-text">&copy; Coastal Bliss Wellness, <a href="index.php"></a></div>
 	  <a class="link" href="index.php">Terms & Conditions</a>
 	</div>
   </div>
