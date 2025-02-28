@@ -1,2 +1,2 @@
 # coastal-bliss
-Small spa busyness in Rehoboth Beach
+Small spa business in Rehoboth Beach
