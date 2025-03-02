@@ -69,7 +69,7 @@
               </div>
               <div class="text ml-xs--0 mt-xs-10">
                 <h6>Have any question?</h6>
-                <a href="tel:980089850"><span>Free</span> +92 (020)-9850</a>
+                <a href="tel:3025697444"><span>Free</span> 302 569 7444</a>
               </div>
             </li>
             <li class="d-block d-sm-flex align-items-sm-center ">
@@ -78,7 +78,7 @@
               </div>
               <div class="text ml-xs--0 mt-xs-10">
                 <h6>Write email</h6>
-                <a href="mailto:needhelp@company.com">needhelp@company.com</a>
+                <a href="mailto:info@coastalblissrehoboth.com">info@coastalblissrehoboth.com</a>
               </div>
             </li>
             <li class="d-block d-sm-flex align-items-sm-center ">
@@ -87,7 +87,7 @@
               </div>
               <div class="text ml-xs--0 mt-xs-10">
                 <h6>Visit anytime</h6>
-                <span>66 broklyn golden street. New York</span>
+                <span>323c Rehoboth Ave, Rehoboth Beach DE 19971</span>
               </div>
             </li>
           </ul>
@@ -100,8 +100,18 @@
 
 <!-- Map Section-->
 <section class="map-section">
-  <iframe  class="map w-100"  src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+  <iframe
+    class="map w-100"
+    width="100%"
+    height="600"
+    style="border:0;"
+    loading="lazy"
+    allowfullscreen
+    referrerpolicy="no-referrer-when-downgrade"
+    src="https://maps.google.com/maps?q=323c+Rehoboth+Ave,+Rehoboth+Beach,+DE+19971&output=embed">
+  </iframe>
 </section>
+
 <!--End Map Section-->
 
 <?php require_once('parts/footer/footer.php'); ?>
