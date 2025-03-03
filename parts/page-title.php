@@ -1,6 +1,6 @@
 <!-- Start main-content -->
-<section class="page-title" style="background-image: url(images/background/page-title-bg.png);">
-    <h1 class="large-title"><?php if(isset($page_title)&&!empty($page_title)) { echo $page_title; } ?></h1>
+<section class="page-title" style="background-image: url(images/background/contact_background.jpg);">
+
     <div class="image-curve"></div>
     <div class="auto-container">
         <div class="title-outer text-center">
