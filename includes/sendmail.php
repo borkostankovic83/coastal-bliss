@@ -5,15 +5,13 @@ require_once('phpmailer/class.smtp.php');
 
 $mail = new PHPMailer();
 
-
-//$mail->SMTPDebug = 3;                               // Enable verbose debug output
-$mail->isSMTP();                                      // Set mailer to use SMTP
-$mail->Host = 'just55.justhost.com';                  // Specify main and backup SMTP servers
-$mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'themeforest@ismail-hossain.me';    // SMTP username
-$mail->Password = 'AsDf12**';                         // SMTP password
-$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
-$mail->Port = 465;                                    // TCP port to connect to
+$mail->isSMTP();
+$mail->Host = 'smtp.hostinger.com';
+$mail->SMTPAuth = true;
+$mail->Username = 'info@coastalblissrehoboth.com';
+$mail->Password = 'DanasJeDivanDan2!';
+$mail->SMTPSecure = 'tls';
+$mail->Port = 587;
 
 $message = "";
 $status = "false";
@@ -25,30 +23,57 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         $email = $_POST['form_email'];
         $subject = $_POST['form_subject'];
         $phone = $_POST['form_phone'];
-        $message = $_POST['form_message'];
-
-        $subject = isset($subject) ? $subject : 'New Message | Contact Form';
+        $messageContent  = $_POST['form_message'];
 
         $botcheck = $_POST['form_botcheck'];
-
-        $toemail = 'spam.thememascot@gmail.com'; // Your Email Address
-        $toname = 'ThemeMascot'; // Your Name
+        $toemail = 'info@coastalblissrehoboth.com';
+        $toname = 'Coastal Bliss ';
 
         if( $botcheck == '' ) {
 
             $mail->SetFrom( $toemail , $toname );
             $mail->AddReplyTo( $email , $name );
             $mail->AddAddress( $toemail , $toname );
+//             $mail->AddCC('milena.dubai93@gmail.com', 'Milena');
             $mail->Subject = $subject;
 
-            $name = isset($name) ? "Name: $name<br><br>" : '';
-            $email = isset($email) ? "Email: $email<br><br>" : '';
-            $phone = isset($phone) ? "Phone: $phone<br><br>" : '';
-            $message = isset($message) ? "Message: $message<br><br>" : '';
+            $logoUrl = "https://coastalblissrehoboth.com/images/logo.png";
 
-            $referrer = $_SERVER['HTTP_REFERER'] ? '<br><br><br>This Form was submitted from: ' . $_SERVER['HTTP_REFERER'] : '';
-
-            $body = "$name $email $phone $message $referrer";
+            $body = "
+            <html>
+            <head>
+                <style>
+                    body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+                    .container { background-color: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0px 0px 10px #ccc; }
+                    .header { text-align: center; }
+                    .header img { max-width: 150px; margin-bottom: 10px; }
+                    .content { padding: 10px; font-size: 16px; color: #333; }
+                    .footer { text-align: center; font-size: 12px; color: #666; margin-top: 20px; }
+                    .button { background-color: #008CBA; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; }
+                </style>
+            </head>
+            <body>
+                <div class='container'>
+                    <div class='header'>
+                        <img src='$logoUrl' alt='Coastal Bliss Spa'>
+                        <h3>You've Got a New Inquiry from Coastal Bliss Wellness!</h3>
+                    </div>
+                    <div class='content'>
+                        <p><strong>Name:</strong> $name</p>
+                        <p><strong>Email:</strong> $email</p>
+                        <p><strong>Phone:</strong> $phone</p>
+                        <p><strong>Message:</strong></p>
+                        <p>$messageContent</p>
+                        <br>
+                        <a class='button' href='mailto:$email'>Reply to $name</a>
+                    </div>
+                    <div class='footer'>
+                        <p>Coastal Bliss Wellness | Rehoboth Beach, DE</p>
+                    </div>
+                </div>
+            </body>
+            </html>
+            ";
 
             $mail->MsgHTML( $body );
             $sendEmail = $mail->Send();
@@ -69,10 +94,12 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         $status = "false";
     }
 } else {
-    $message = 'An <strong>unexpected error</strong> occured. Please Try Again later.';
+    $message = 'An <strong>unexpected error</strong> occurred. Please Try Again later.';
     $status = "false";
 }
 
 $status_array = array( 'message' => $message, 'status' => $status);
-echo json_encode($status_array);
+header("Location: ../page-contact.php?status=$status&message=" . urlencode($message));
+exit();
+
 ?>

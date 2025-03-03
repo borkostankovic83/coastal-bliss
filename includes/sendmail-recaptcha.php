@@ -34,12 +34,12 @@ if( isset( $_POST['submit'] ) ) {
 
         //$mail->SMTPDebug = 3;                               // Enable verbose debug output
         $mail->isSMTP();                                      // Set mailer to use SMTP
-        $mail->Host = 'just55.justhost.com';                  // Specify main and backup SMTP servers
+        $mail->Host = 'smtp.hostinger.com';                  // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail->Username = 'themeforest@ismail-hossain.me';    // SMTP username
-        $mail->Password = 'AsDf12**';                         // SMTP password
-        $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
-        $mail->Port = 465;                                    // TCP port to connect to
+        $mail->Username = 'info@coastalblissrehoboth.com';    // SMTP username
+        $mail->Password = 'DanasJeDivanDan2!';                         // SMTP password
+        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 587;                                    // TCP port to connect to
 
 
         if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
@@ -72,7 +72,7 @@ if( isset( $_POST['submit'] ) ) {
 
                     $referrer = $_SERVER['HTTP_REFERER'] ? '<br><br><br>This Form was submitted from: ' . $_SERVER['HTTP_REFERER'] : '';
 
-                    $body = "$name $email $phone $message $referrer";
+                    $body = "$name $email $phone $message ";
 
                     $mail->MsgHTML( $body );
                     $sendEmail = $mail->Send();

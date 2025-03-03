@@ -329,7 +329,6 @@ section > .container-fluid {
   outline: 0;
   background-color: #f4f5f8;
   border: 1px solid #f4f5f8;
-  color: #fff;
   font-size: 0.9rem;
   width: 100%;
 }
@@ -2920,7 +2919,7 @@ Main Header
   display: block;
 }
 .main-header .logo img {
-  max-width: 100%;
+  max-width: 200px;
   height: auto;
 }
 .main-header .main-box {
@@ -3814,7 +3813,7 @@ Main Header
   padding: 19px 0 20px;
 }
 .sticky-header .logo img {
-  max-height: 40px;
+  max-height: 120px;
 }
 .sticky-header .nav-outer {
   position: relative;
@@ -4092,7 +4091,7 @@ Main Header
   width: 100%;
 }
 .mobile-menu .nav-logo img {
-  max-height: 65px;
+  max-height: 80px;
 }
 .mobile-menu .menu-box {
   position: relative;

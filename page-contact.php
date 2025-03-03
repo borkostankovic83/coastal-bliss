@@ -1,5 +1,5 @@
 <?php 
-    $head_title="Purerelax | Spa & Beauty PHP Template | Contact Us";
+    $head_title="Coastal Bliss | Contact Us";
 ?>
 
 <?php require_once('parts/header/header.php'); ?>
@@ -7,6 +7,14 @@
 <?php
 	$page_title = "Contact Us";
 	require_once('parts/page-title.php');
+?>
+
+<?php
+if (isset($_GET['status']) && isset($_GET['message'])) {
+    $status = $_GET['status'];
+    $message = urldecode($_GET['message']);
+    echo "<div class='alert " . ($status == "true" ? "alert-success" : "alert-danger") . "'>$message</div>";
+}
 ?>
 
 <!-- Contact Details Start -->
@@ -23,7 +31,7 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="mb-3">
-                <input name="form_name" class="form-control" type="text" placeholder="Enter Name">
+                <input name="form_name" class="form-control required" type="text" placeholder="Enter Name">
               </div>
             </div>
             <div class="col-sm-6">
@@ -60,7 +68,7 @@
           <div class="sec-title">
             <span class="sub-title">Need any help?</span>
             <h2>Get in touch</h2>
-            <div class="text">Lorem ipsum is simply free text available dolor sit amet consectetur notted adipisicing elit sed do eiusmod tempor incididunt simply dolore magna.</div>
+            <div class="text">Relax and rejuvenate with us! Whether you have questions about our services or want to book an appointment, we’re here to help.</div>
           </div>
           <ul class="list-unstyled contact-details__info">
             <li class="d-block d-sm-flex align-items-sm-center ">
