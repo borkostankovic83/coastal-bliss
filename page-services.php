@@ -1,4 +1,4 @@
-<?php 
+<?php
     $head_title="Purerelax | Spa & Beauty PHP Template | Services";
 ?>
 
@@ -15,22 +15,7 @@
   <div class="auto-container">
     <div class="outer-box">
       <div class="row">
-        <div class="col-lg-3 col-sm-6">
-          <!-- Service Block -->
-          <div class="service-block">
-            <div class="inner-box">
-              <div class="image-box">
-                <div class="bg-image" style="background-image:url(./images/resource/service1-1.png);"></div>
-                <div class="bg-image-two" style="background-image:url(./images/resource/service1-2.png);"></div>
-              </div>
-              <div class="content-box">
-                <figure class="icon mb-0"><img src="images/icons/theme-icon5.png" alt="Image"></figure>
-                <h4 class="title"><a href="page-service-details.php">Sauna Relax</a></h4>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
+        <div class="col-lg-4 col-sm-6">
           <!-- Service Block -->
           <div class="service-block">
             <div class="inner-box">
@@ -40,12 +25,12 @@
               </div>
               <div class="content-box">
                 <figure class="icon mb-0"><img src="images/icons/theme-icon6.png" alt="Image"></figure>
-                <h4 class="title"><a href="page-service-details.php">Face Treatments</a></h4>
+                <h4 class="title"><a href="page-service-details.php">Facials</a></h4>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-sm-6">
+        <div class="col-lg-4 col-sm-6">
           <!-- Service Block -->
           <div class="service-block">
             <div class="inner-box">
@@ -55,27 +40,12 @@
               </div>
               <div class="content-box">
                 <figure class="icon mb-0"><img src="images/icons/theme-icon7.png" alt="Image"></figure>
-                <h4 class="title"><a href="page-service-details.php">Make-up</a></h4>
+                <h4 class="title"><a href="page-service-details.php">Manicure/Pedicure</a></h4>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-sm-6">
-          <!-- Service Block -->
-          <div class="service-block">
-            <div class="inner-box">
-              <div class="image-box">
-                <div class="bg-image" style="background-image:url(./images/resource/service1-1.png);"></div>
-                <div class="bg-image-two" style="background-image:url(./images/resource/service1-2.png);"></div>
-              </div>
-              <div class="content-box">
-                <figure class="icon mb-0"><img src="images/icons/theme-icon8.png" alt="Image"></figure>
-                <h4 class="title"><a href="page-service-details.php">Thai Massage</a></h4>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
+        <div class="col-lg-4 col-sm-6">
           <!-- Service Block -->
           <div class="service-block">
             <div class="inner-box">
@@ -85,56 +55,12 @@
               </div>
               <div class="content-box">
                 <figure class="icon mb-0"><img src="images/icons/theme-icon5.png" alt="Image"></figure>
-                <h4 class="title"><a href="page-service-details.php">Sauna Relax</a></h4>
+                <h4 class="title"><a href="page-service-details.php">Waxing</a></h4>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-sm-6">
-          <!-- Service Block -->
-          <div class="service-block">
-            <div class="inner-box">
-              <div class="image-box">
-                <div class="bg-image" style="background-image:url(./images/resource/service1-1.png);"></div>
-                <div class="bg-image-two" style="background-image:url(./images/resource/service1-2.png);"></div>
-              </div>
-              <div class="content-box">
-                <figure class="icon mb-0"><img src="images/icons/theme-icon6.png" alt="Image"></figure>
-                <h4 class="title"><a href="page-service-details.php">Face Treatments</a></h4>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-          <!-- Service Block -->
-          <div class="service-block">
-            <div class="inner-box">
-              <div class="image-box">
-                <div class="bg-image" style="background-image:url(./images/resource/service1-1.png);"></div>
-                <div class="bg-image-two" style="background-image:url(./images/resource/service1-2.png);"></div>
-              </div>
-              <div class="content-box">
-                <figure class="icon mb-0"><img src="images/icons/theme-icon7.png" alt="Image"></figure>
-                <h4 class="title"><a href="page-service-details.php">Make-up</a></h4>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-          <!-- Service Block -->
-          <div class="service-block">
-            <div class="inner-box">
-              <div class="image-box">
-                <div class="bg-image" style="background-image:url(./images/resource/service1-1.png);"></div>
-                <div class="bg-image-two" style="background-image:url(./images/resource/service1-2.png);"></div>
-              </div>
-              <div class="content-box">
-                <figure class="icon mb-0"><img src="images/icons/theme-icon8.png" alt="Image"></figure>
-                <h4 class="title"><a href="page-service-details.php">Thai Massage</a></h4>
-              </div>
-            </div>
-          </div>
-        </div>
+
       </div>
     </div>
   </div>

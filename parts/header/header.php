@@ -12,7 +12,7 @@
                     <div class="top-left">
                         <!-- Info List -->
                         <ul class="list-style-one">
-                            <li><a href="mailto:lawson@example.com">alma.lawson@example.com</a></li>
+                            <li><a href="mailto:info@coastalblissrehoboth.com">info@coastalblissrehoboth.com</a></li>
                         </ul>
                     </div>
 
@@ -106,7 +106,7 @@
                     <li>
                         <i class="icon lnr-icon-envelope1"></i>
                         <span class="title">Send Email</span>
-                        <div class="text"><a href="mailto:lawson@example.com">alma.lawson@example.com</a></div>
+                        <div class="text"><a href="mailto:info@coastalblissrehoboth.com">info@coastalblissrehoboth.com</a></div>
                     </li>
                 </ul>
                 <ul class="social-links">

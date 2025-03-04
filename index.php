@@ -26,4 +26,4 @@
 
 ?>
 
-<?php require_once('parts/footer/footer.php'); ?>
+<?php require_once('parts/footer/footer2.php'); ?>
