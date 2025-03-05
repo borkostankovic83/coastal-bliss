@@ -69,18 +69,6 @@
 
                     <!-- Outer Box -->
                     <div class="outer-box">
-                        <!-- Header Search -->
-                        <button class="ui-btn search-btn">
-                            <i class="icon fal fa-search"></i>
-                        </button>
-
-                        <div class="divider"></div>
-
-                        <!-- Button -->
-                        <div class="btn-box">
-                            <a href="page-contact.php" class="theme-btn btn-style-one"><span class="btn-title">Book Now</span></a>
-                        </div>
-
                         <!-- Mobile Nav toggler -->
                         <div class="mobile-nav-toggler"><span class="icon lnr-icon-bars"></span></div>
                     </div>

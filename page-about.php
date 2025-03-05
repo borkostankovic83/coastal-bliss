@@ -1,5 +1,5 @@
 <?php 
-    $head_title="Purerelax | Spa & Beauty PHP Template | About Us";
+    $head_title="Coastal Bliss| About Us";
 ?>
 
 <?php require_once('parts/header/header.php'); ?>

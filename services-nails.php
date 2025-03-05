@@ -1,5 +1,5 @@
 <?php
-    $head_title="Purerelax | Spa & Beauty PHP Template | Services";
+    $head_title="Coastal Bliss | Nails";
 ?>
 
 <?php require_once('parts/header/header.php'); ?>
@@ -54,12 +54,11 @@
 
  <section id="services" class="py-5" style="color: #222; background-color: #FAFAFA;">
      <div class="container">
-         <h2 class="text-center mb-4" style="color: #BEAC5A; font-weight: bold;">Manicure/Pedicure Services</h2>
 
          <!-- Manicure Services Section -->
          <?php foreach ($manicure_services as $service) : ?>
-             <div class="mb-5" style="padding-bottom: 20px; border-bottom: 2px solid #BEAC5A;">
-                 <h3 style="color: #BEAC5A; font-weight: bold; font-size: 1.5em; margin-bottom: 10px;"> <?= $service["title"] ?> </h3>
+             <div class="mb-5" style="padding-bottom: 20px; border-bottom: 2px solid #665d34;">
+                 <h3 style="color:#212936; font-weight: bold; font-size: 2.2em; margin-bottom: 10px;"> <?= $service["title"] ?> </h3>
                  <?php if (isset($service["price"])) : ?>
                      <h4 style="color: #666; font-weight: bold; font-size: 1.2em; margin-bottom: 10px;"> <?= $service["price"] ?> </h4>
                  <?php endif; ?>
@@ -67,7 +66,7 @@
                  <?php if (isset($service["services"])) : ?>
                      <ul style="color: #555; padding-left: 20px; line-height: 1.6;">
                          <?php foreach ($service["services"] as $subService) : ?>
-                             <li style="margin-bottom: 10px;"><strong style="color: #222; font-size: 1.1em;"> <?= $subService[0] ?>:</strong> <?= $subService[1] ?></li>
+                             <li style="margin-bottom: 10px;"><strong style="color: #665d34; font-size: 1.2em; font-weight: bold;"> <?= $subService[0] ?>:</strong> <?= $subService[1] ?></li>
                          <?php endforeach; ?>
                      </ul>
                  <?php endif; ?>
@@ -76,8 +75,8 @@
 
          <!-- Pedicure Services Section -->
          <?php foreach ($pedicure_services as $service) : ?>
-             <div class="mb-5" style="padding-bottom: 20px; border-bottom: 2px solid #BEAC5A;">
-                 <h3 style="color: #BEAC5A; font-weight: bold; font-size: 1.5em; margin-bottom: 10px;"> <?= $service["title"] ?> </h3>
+             <div class="mb-5" style="padding-bottom: 20px; border-bottom: 2px solid #665d34;">
+                 <h3 style="color:#212936; font-weight: bold; font-size: 2.2em; margin-bottom: 10px;"> <?= $service["title"] ?> </h3>
                  <?php if (isset($service["price"])) : ?>
                      <h4 style="color: #666; font-weight: bold; font-size: 1.2em; margin-bottom: 10px;"> <?= $service["price"] ?> </h4>
                  <?php endif; ?>
@@ -85,7 +84,7 @@
                  <?php if (isset($service["services"])) : ?>
                      <ul style="color: #555; padding-left: 20px; line-height: 1.6;">
                          <?php foreach ($service["services"] as $subService) : ?>
-                             <li style="margin-bottom: 10px;"><strong style="color: #222; font-size: 1.1em;"> <?= $subService[0] ?>:</strong> <?= $subService[1] ?></li>
+                             <li style="margin-bottom: 10px;"><strong style="color: #665d34; font-size: 1.2em; font-weight: bold;"> <?= $subService[0] ?>:</strong> <?= $subService[1] ?></li>
                          <?php endforeach; ?>
                      </ul>
                  <?php endif; ?>
@@ -94,12 +93,12 @@
 
          <!-- Customize Your Experience Section -->
          <?php foreach ($custom_services as $service) : ?>
-             <div class="mb-5" style="padding-bottom: 20px; border-bottom: 2px solid #BEAC5A;">
-                 <h3 style="color: #BEAC5A; font-weight: bold; font-size: 1.5em; margin-bottom: 10px;"> <?= $service["title"] ?> </h3>
+             <div class="mb-5" style="padding-bottom: 20px; border-bottom: 2px solid #665d34;">
+                 <h3 style="color:#212936; font-weight: bold; font-size: 2.2em; margin-bottom: 10px;"> <?= $service["title"] ?> </h3>
                  <?php if (isset($service["services"])) : ?>
                      <ul style="color: #555; padding-left: 20px; line-height: 1.6;">
                          <?php foreach ($service["services"] as $subService) : ?>
-                             <li style="margin-bottom: 10px;"><strong style="color: #222; font-size: 1.1em;"> <?= $subService[0] ?>:</strong> <?= $subService[1] ?></li>
+                             <li style="margin-bottom: 10px;"><strong style="color: #665d34; font-size: 1.2em; font-weight: bold;"> <?= $subService[0] ?>:</strong> <?= $subService[1] ?></li>
                          <?php endforeach; ?>
                      </ul>
                  <?php endif; ?>

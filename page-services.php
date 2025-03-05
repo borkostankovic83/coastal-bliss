@@ -1,5 +1,5 @@
 <?php
-    $head_title="Purerelax | Spa & Beauty PHP Template | Services";
+    $head_title="Coastal Bliss | Services";
 ?>
 
 <?php require_once('parts/header/header.php'); ?>
@@ -17,56 +17,68 @@
       <div class="row">
         <div class="col-lg-4 col-sm-6">
           <!-- Service Block -->
-          <div class="service-block">
+          <div class="service-block" data-link="services-facial.php">
             <div class="inner-box">
               <div class="image-box">
-                <div class="bg-image" style="background-image:url(./images/resource/service1-1.png);"></div>
+                <div class="bg-image" style="background-image:url(./images/resource/service1-2.png);"></div>
                 <div class="bg-image-two" style="background-image:url(./images/resource/service1-2.png);"></div>
               </div>
               <div class="content-box">
                 <figure class="icon mb-0"><img src="images/icons/theme-icon6.png" alt="Image"></figure>
-                <h4 class="title"><a href="page-service-details.php">Facials</a></h4>
+                <h4 class="title"><a href="services-facial.php">Facial Treatments</a></h4>
               </div>
             </div>
           </div>
         </div>
+
         <div class="col-lg-4 col-sm-6">
           <!-- Service Block -->
-          <div class="service-block">
+          <div class="service-block" data-link="services-nails.php">
             <div class="inner-box">
               <div class="image-box">
-                <div class="bg-image" style="background-image:url(./images/resource/service1-1.png);"></div>
+                <div class="bg-image" style="background-image:url(./images/resource/service1-2.png);"></div>
                 <div class="bg-image-two" style="background-image:url(./images/resource/service1-2.png);"></div>
               </div>
               <div class="content-box">
                 <figure class="icon mb-0"><img src="images/icons/theme-icon7.png" alt="Image"></figure>
-                <h4 class="title"><a href="page-service-details.php">Manicure/Pedicure</a></h4>
+                <h4 class="title"><a href="services-nails.php">Hand & Foot Care</a></h4>
               </div>
             </div>
           </div>
         </div>
+
         <div class="col-lg-4 col-sm-6">
           <!-- Service Block -->
-          <div class="service-block">
+          <div class="service-block" data-link="services-waxing.php">
             <div class="inner-box">
               <div class="image-box">
-                <div class="bg-image" style="background-image:url(./images/resource/service1-1.png);"></div>
+                <div class="bg-image" style="background-image:url(./images/resource/service1-2.png);"></div>
                 <div class="bg-image-two" style="background-image:url(./images/resource/service1-2.png);"></div>
               </div>
               <div class="content-box">
                 <figure class="icon mb-0"><img src="images/icons/theme-icon5.png" alt="Image"></figure>
-                <h4 class="title"><a href="page-service-details.php">Waxing</a></h4>
+                <h4 class="title"><a href="services-waxing.php">Waxing</a></h4>
               </div>
             </div>
           </div>
         </div>
-
-      </div>
     </div>
   </div>
 </section>
 <!--End Services Section -->
-
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll(".service-block").forEach(block => {
+        block.style.cursor = "pointer"; // Change cursor to indicate clickability
+        block.addEventListener("click", function (event) {
+          // Prevent triggering if clicking on an actual <a> tag (avoid double navigation)
+          if (!event.target.closest("a")) {
+            window.location.href = this.getAttribute("data-link");
+          }
+        });
+      });
+    });
+</script>
 <!-- Instagram Section -->
 <section class="instagram-section">
   <div class="icon-instagram1-6 bounce-x"></div>

@@ -4,8 +4,8 @@
     <li class="dropdown">
         <a href="page-services.php">Services</a>
         <ul>
-            <li><a href="services-facial.php">Facials</a></li>
-            <li><a href="services-nails.php">Manicure/Pedicure</a></li>
+            <li><a href="services-facial.php">Facial Treatments</a></li>
+            <li><a href="services-nails.php">Hand & Foot Care</a></li>
             <li><a href="services-waxing.php">Waxing</a></li>
         </ul>
     </li>
