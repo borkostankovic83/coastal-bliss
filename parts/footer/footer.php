@@ -23,12 +23,10 @@
 	  <div class="footer-column col-lg-4 col-md-6 order-0 order-lg-1">
 		<div class="footer-widget about-widget text-center">
 		  <div class="logo"><a href="index.php"><img src="images/logo-2.png" alt=""></a></div>
-		  <div class="text">Coming Soon!</div>
+		  <div class="text">Follow Us</div>
 		  <ul class="social-icon">
-			<li><a href="#"><i class="icon fab fa-twitter"></i></a></li>
 			<li><a href="#"><i class="icon fab fa-facebook-f"></i></a></li>
-			<li><a href="#"><i class="icon fab fa-pinterest-p"></i></a></li>
-			<li><a href="#"><i class="icon fab fa-vimeo-v"></i></a></li>
+			<li><a href="#"><i class="icon fab fa-instagram"></i></a></li>
 		  </ul>
 		</div>
 	  </div>
@@ -53,7 +51,7 @@
   <div class="auto-container">
 	<div class="inner-container">
 	  <figure class="image"><img src="images/icons/footer-bottom-img-1.png" alt="Image"></figure>
-	  <div class="copyright-text">&copy; Coastal Bliss Wellness, <a href="index.php"></a></div>
+	  <div class="copyright-text">&copy; Coastal Bliss Wellness<a href="index.php"></a></div>
 	  <a class="link" href="index.php">Terms & Conditions</a>
 	</div>
   </div>

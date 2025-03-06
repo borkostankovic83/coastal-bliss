@@ -1,0 +1,39 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+
+.card {
+    border-radius: 10px;
+    background-color: #ffffff;
+    max-width: 400px; /* Set a max width for the card */
+    width: 100%; /* Ensure it takes up full width within its max limit */
+}
+
+h2 {
+    color: #beac5a;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #beac5a;
+    border-color: #beac5a;
+}
+
+.btn-primary:hover {
+    background-color: #252f39;
+    border-color: #252f39;
+}
+
+a {
+    color: #beac5a;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #252f39;
+}

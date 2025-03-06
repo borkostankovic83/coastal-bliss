@@ -159,4 +159,4 @@
 </section>
 <!-- End Instagram Section -->
 
-<?php require_once('parts/footer/footer3.php'); ?>
+<?php require_once('parts/footer/footer.php'); ?>
