@@ -2,16 +2,22 @@
 
 require_once('phpmailer/class.phpmailer.php');
 require_once('phpmailer/class.smtp.php');
+// Load config
+$config = include('../../config.php');
+
+// Database Connection
+require_once('../../database.php');
+
+$conn = getDatabaseConnection();
 
 $mail = new PHPMailer();
-
 $mail->isSMTP();
-$mail->Host = 'smtp.hostinger.com';
+$mail->Host = $config['smtp_host'];
 $mail->SMTPAuth = true;
-$mail->Username = 'info@coastalblissrehoboth.com';
-$mail->Password = 'DanasJeDivanDan2!';
-$mail->SMTPSecure = 'tls';
-$mail->Port = 587;
+$mail->Username = $config['smtp_user'];
+$mail->Password = $config['smtp_pass'];
+$mail->SMTPSecure = $config['smtp_secure'];
+$mail->Port = $config['smtp_port'];
 
 $message = "";
 $status = "false";
@@ -19,11 +25,11 @@ $status = "false";
 if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
     if( $_POST['form_name'] != '' AND $_POST['form_email'] != '' AND $_POST['form_subject'] != '' ) {
 
-        $name = $_POST['form_name'];
-        $email = $_POST['form_email'];
-        $subject = $_POST['form_subject'];
-        $phone = $_POST['form_phone'];
-        $messageContent  = $_POST['form_message'];
+        $name = $conn->real_escape_string($_POST['form_name']);
+        $email = $conn->real_escape_string($_POST['form_email']);
+        $subject = $conn->real_escape_string($_POST['form_subject']);
+        $phone = isset($_POST['form_phone']) ? $conn->real_escape_string($_POST['form_phone']) : null;
+        $messageContent = $conn->real_escape_string($_POST['form_message']);
 
         $botcheck = $_POST['form_botcheck'];
         $toemail = 'info@coastalblissrehoboth.com';
@@ -31,6 +37,13 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
         if( $botcheck == '' ) {
 
+            // Insert into database
+            $stmt = $conn->prepare("INSERT INTO contact_submissions (name, email, phone, subject, message) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssss", $name, $email, $phone, $subject, $messageContent);
+            $stmt->execute();
+            $stmt->close();
+
+            // Email Setup
             $mail->SetFrom( $toemail , $toname );
             $mail->AddReplyTo( $email , $name );
             $mail->AddAddress( $toemail , $toname );
@@ -79,7 +92,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
             $sendEmail = $mail->Send();
 
             if( $sendEmail == true ):
-                $message = 'We have <strong>successfully</strong> received your Message and will get Back to you as soon as possible.';
+                $message = 'We have <strong>successfully</strong> received your Message and will get back to You as soon as possible.';
                 $status = "true";
             else:
                 $message = 'Email <strong>could not</strong> be sent due to some Unexpected Error. Please Try Again later.<br /><br /><strong>Reason:</strong><br />' . $mail->ErrorInfo . '';
