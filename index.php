@@ -12,13 +12,13 @@
     //require_once('parts/home1/slider.php');
 //     require_once('parts/home1/about.php');
     require_once('parts/home1/coming-soon.php');
-    // require_once('parts/home1/clients.php');
-    // require_once('parts/home1/services.php');
+    require_once('parts/home1/clients.php');
+    require_once('parts/home1/services.php');
     // require_once('parts/home1/marquee.php');
     // require_once('parts/home1/video.php');
     // require_once('parts/home1/gallery.php');
-    // require_once('parts/home1/pricing.php');
-    // require_once('parts/home1/contact.php');
+    require_once('parts/home1/pricing.php');
+    require_once('parts/home1/contact.php');
     // require_once('parts/home1/testimonial.php');
     // require_once('parts/home1/team.php');
     // require_once('parts/home1/instagram.php');

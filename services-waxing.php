@@ -21,10 +21,10 @@
              ["Lip or Chin", "$15 – Quick and effective hair removal for a smooth finish."],
              ["Full Face", "$50 – Includes brows, lip, chin, and sides of the face for a polished look."],
              ["Underarms", "$30 – Silky-smooth underarms with long-lasting results."],
-             ["Half Arm", "$40 / Full Arm", "$55 – Soft, hair-free skin from wrist to elbow or full arm."],
+             ["Half Arm / Full Arm", "$40 / $55 – Soft, hair-free skin from wrist to elbow or full arm."],
              ["Bikini Line", "$45 – A clean, natural look that removes hair along the bikini line."],
              ["Brazilian", "$75 – Complete hair removal for a smooth, confident feel."],
-             ["Half Leg", "$50 / Full Leg", "$80 – Long-lasting silky legs, from knee-down or full length."],
+             ["Half Leg / Full Leg", "$50 / $80 – Long-lasting silky legs, from knee-down or full length."],
          ]
      ],
      [
