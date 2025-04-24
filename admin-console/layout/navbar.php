@@ -19,6 +19,9 @@
                         <a class="nav-link" href="list_users.php">All Users</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="applicants.php">Applicants</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="auth/logout.php">Logout</a>
                     </li>
                 </ul>

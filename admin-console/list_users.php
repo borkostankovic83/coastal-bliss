@@ -31,7 +31,10 @@ while ($row = mysqli_fetch_assoc($result)) {
             <?php foreach ($users as $user): ?>
                 <tr>
                     <td>
-                        <img src="uploads/<?php echo htmlspecialchars($user['profile_picture']); ?>" alt="Profile Picture" class="profile-img">
+                        <?php
+                        $profilePic = !empty($user['profile_picture']) ? "../uploads/" . basename($user['profile_picture']) : "../assets/default-profile.png";
+                        ?>
+                        <img src="<?php echo $profilePic; ?>" alt="Profile Picture" class="profile-img">
                     </td>
                     <td><?php echo htmlspecialchars($user['first_name'] . ' ' . $user['last_name']); ?></td>
                     <td><?php echo htmlspecialchars($user['email']); ?></td>

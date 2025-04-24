@@ -1,44 +1,52 @@
 <?php
 session_start();
-require_once('layout/header.php');
-require_once('layout/navbar.php');
+require_once "../../database.php";
+require_once('layout/header.php');  // Include the header
+require_once('layout/navbar.php');  // Include the navbar
 
-// Redirect to login if not logged in
-if (!isset($_SESSION["user_email"])) {
-    header("Location: auth/login.php");
-    exit();
-}
-
-// Get current user data
+$conn = getDatabaseConnection();
+$current_email = $_SESSION["user_email"];
 $first_name = $_SESSION["first_name"];
 $last_name = $_SESSION["last_name"];
 $email = $_SESSION["user_email"];
 $profile_picture = !empty($_SESSION["profile_picture"]) ? "../uploads/" . basename($_SESSION["profile_picture"]) : "assets/default-profile.png";
 
-// Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $first_name = htmlspecialchars($_POST["first_name"]);
     $last_name = htmlspecialchars($_POST["last_name"]);
     $email = htmlspecialchars($_POST["email"]);
 
-    // Handle profile picture upload
+    // Default to existing profile picture
+    $profile_pic_filename = $_SESSION["profile_picture"];
+
+    // Handle profile picture upload if a new one is provided
     if (!empty($_FILES["profile_picture"]["name"])) {
         $target_dir = "../uploads/";
-        $target_file = $target_dir . basename($_FILES["profile_picture"]["name"]);
+        $timestamp = time();
+        $original_filename = basename($_FILES["profile_picture"]["name"]);
+        $extension = pathinfo($original_filename, PATHINFO_EXTENSION);
+        $unique_filename = pathinfo($original_filename, PATHINFO_FILENAME) . "_$timestamp." . $extension;
+        $target_file = $target_dir . $unique_filename;
 
-        // Move uploaded file to server
         if (move_uploaded_file($_FILES["profile_picture"]["tmp_name"], $target_file)) {
-            $_SESSION["profile_picture"] = $target_file;
+            $profile_pic_filename = $unique_filename;
+            $_SESSION["profile_picture"] = $unique_filename;
             $profile_picture = $target_file;
         }
     }
 
-    // Save updated data to session (replace with database update in production)
+    // Update user info in database
+    $stmt = $conn->prepare("UPDATE users SET first_name = ?, last_name = ?, email = ?, profile_picture = ? WHERE email = ?");
+    $stmt->bind_param("sssss", $first_name, $last_name, $email, $profile_pic_filename, $current_email);
+    $stmt->execute();
+    $stmt->close();
+
+    // Update session values
     $_SESSION["first_name"] = $first_name;
     $_SESSION["last_name"] = $last_name;
     $_SESSION["user_email"] = $email;
 
-    // Redirect back to profile page after saving
+    // Redirect back to profile
     header("Location: profile.php");
     exit();
 }

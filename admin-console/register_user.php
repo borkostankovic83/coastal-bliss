@@ -1,5 +1,7 @@
 <?php
 session_start();
+require_once('layout/header.php');
+require_once('layout/navbar.php');
 require_once "../../database.php"; // Include database connection file
 
 // Initialize variables
@@ -60,8 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 require_once "layout/header.php";
 ?>
-
-<div class="container d-flex justify-content-center align-items-center min-vh-100">
+<br>
+<div class="container d-flex justify-content-center align-items-center">
     <div class="card p-5 shadow-sm" style="max-width: 600px; width: 100%;">
         <h2 class="text-center mb-4">Register</h2>
 
@@ -99,4 +101,3 @@ require_once "layout/header.php";
     </div>
 </div>
 
-<?php require_once "layout/footer.php"; ?>
