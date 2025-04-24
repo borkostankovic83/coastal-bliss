@@ -11,11 +11,12 @@
     <ul style="list-style: none; padding: 0; font-size: 1.1em;">
       <li>✨ Massage Therapists</li>
       <li>✨ Nail Technicians</li>
-      <li>✨ Estheticians</li>
-      <li>✨ Front Desk Associates</li>
+<!--      <li>✨ Estheticians</li> -->
+<!--      <li>✨ Front Desk Associates</li> /> -->
     </ul>
-
+    <br>
     <h4>Requirements:</h4>
+
     <ul style="list-style: none; padding: 0;">
       <li>🔹 Active Delaware professional license (for applicable positions)</li>
       <li>🔹 Friendly, reliable, and wellness-focused</li>
