@@ -96,8 +96,10 @@ $result = $conn->query($sql);
                     <th><a href="?sort=id&order=<?php echo ($sort_column == 'id' && $sort_order == 'ASC') ? 'desc' : 'asc'; ?>">ID</a></th>
                     <th><a href="?sort=name&order=<?php echo ($sort_column == 'name' && $sort_order == 'ASC') ? 'desc' : 'asc'; ?>">Name</a></th>
                     <th><a href="?sort=email&order=<?php echo ($sort_column == 'email' && $sort_order == 'ASC') ? 'desc' : 'asc'; ?>">Email</a></th>
+                    <th><a href="?sort=email&order=<?php echo ($sort_column == 'phone' && $sort_order == 'ASC') ? 'desc' : 'asc'; ?>">Phone</a></th>
                     <th><a href="?sort=subject&order=<?php echo ($sort_column == 'subject' && $sort_order == 'ASC') ? 'desc' : 'asc'; ?>">Subject</a></th>
-                    <th><a href="?sort=submitted_at&order=<?php echo ($sort_column == 'submitted_at' && $sort_order == 'ASC') ? 'desc' : 'asc'; ?>">Submitted At</a></th>
+                    <th><a href="?sort=subject&order=<?php echo ($sort_column == 'message' && $sort_order == 'ASC') ? 'desc' : 'asc'; ?>">Message</a></th>
+                    <th><a href="?sort=submitted_at&order=<?php echo ($sort_column == 'submitted_at' && $sort_order == 'ASC') ? 'desc' : 'asc'; ?>">Date</a></th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -109,7 +111,9 @@ $result = $conn->query($sql);
                         <td><?php echo $row['id']; ?></td>
                         <td><?php echo htmlspecialchars($row['name']); ?></td>
                         <td><?php echo htmlspecialchars($row['email']); ?></td>
+                        <td><?php echo htmlspecialchars($row['phone']); ?></td>
                         <td><?php echo htmlspecialchars($row['subject']); ?></td>
+                        <td><?php echo htmlspecialchars($row['message']); ?></td>
                         <td><?php echo $row['submitted_at']; ?></td>
                         <td>
                             <button class="btn btn-sm <?php echo $isLiked ? 'btn-danger' : 'btn-success'; ?>"

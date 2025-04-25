@@ -20,12 +20,12 @@ if ($conn->connect_error) {
 // Upload resume
 $resumePath = '';
 if (isset($_FILES['resume']) && $_FILES['resume']['error'] === UPLOAD_ERR_OK) {
-    $uploadDir = __DIR__ . '/../../uploads/';
+    $uploadDir = __DIR__ . './../uploads/resumes/';
     if (!is_dir($uploadDir)) {
         mkdir($uploadDir, 0755, true);
     }
     $fileName = uniqid() . '_' . basename($_FILES['resume']['name']);
-    $resumePath = '/uploads/' . $fileName;
+    $resumePath = '/uploads/resumes/' . $fileName;
     move_uploaded_file($_FILES['resume']['tmp_name'], $uploadDir . $fileName);
 }
 
@@ -73,7 +73,12 @@ $mail->addAddress('info@coastalblissrehoboth.com', 'Milena');
 // Build the resume URL dynamically based on current environment
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://';
 $host = $_SERVER['HTTP_HOST'];
-$resumeURL = $protocol . $host . $resumePath;
+
+// Check if it's running locally
+$basePath = ($host === 'localhost') ? '/coastal-bliss' : '';
+
+$resumeURL = $protocol . $host . $basePath . $resumePath;
+
 
 // Email subject and body
 $mail->Subject = "New Job Application - " . $_POST['position'];

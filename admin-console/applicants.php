@@ -79,6 +79,10 @@ $result = $conn->query($sql);
 <body>
   <div class="container">
     <h2 class="mb-4">Applicants List</h2>
+    <?php
+      $host = $_SERVER['HTTP_HOST'];
+      $basePath = ($host === 'localhost') ? '/coastal-bliss' : '';
+    ?>
     <?php if ($result && $result->num_rows > 0): ?>
       <div class="table-responsive">
         <table class="table table-bordered table-striped">
@@ -107,7 +111,7 @@ $result = $conn->query($sql);
                     // Render each column's value
                     if ($column === 'resume_path') {
                       // Handle resume column separately with a preview button
-                      echo "<td><button class='btn btn-view view-resume-btn' data-resume='" . htmlspecialchars($row[$column]) . "'>Preview</button></td>";
+                      echo "<td><button class='btn btn-view view-resume-btn' data-resume='" . $basePath . htmlspecialchars($row[$column]) . "'>Preview</button></td>";
                     } else {
                       echo "<td>" . htmlspecialchars($row[$column]) . "</td>";
                     }
