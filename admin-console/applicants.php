@@ -107,15 +107,48 @@ $result = $conn->query($sql);
             ?>
               <tr>
                 <?php
-                  foreach ($columns as $column) {
-                    // Render each column's value
-                    if ($column === 'resume_path') {
-                      // Handle resume column separately with a preview button
-                      echo "<td><button class='btn btn-view view-resume-btn' data-resume='" . $basePath . htmlspecialchars($row[$column]) . "'>Preview</button></td>";
-                    } else {
-                      echo "<td>" . htmlspecialchars($row[$column]) . "</td>";
-                    }
+                foreach ($columns as $column) {
+                 if ($column === 'cover_letter' || $column === 'experience' || $column === 'referral' || $column === 'availability') {
+                   $fullTextRaw = trim($row[$column]);
+                   $isShort = mb_strlen($fullTextRaw) <= 20;
+
+                   $previewText = htmlspecialchars(mb_strimwidth($fullTextRaw, 0, 20, '...'));
+                   $fullText = nl2br(htmlspecialchars($fullTextRaw));
+
+                   echo "<td>
+                     <div class='text-preview-container'>";
+
+                   if ($isShort) {
+                     // Just show the full content (no toggle)
+                     echo "<div class='text-full' style='display: block;'>$fullText</div>";
+                   } else {
+                     // Show preview and toggle controls
+                     echo "
+                       <div class='text-preview' style='display: block;'>$previewText
+                         <a href='javascript:void(0);' class='toggle-more' style='color: #beac5a;'>more</a>
+                       </div>
+                       <div class='text-full' style='display: none;'>$fullText
+                         <a href='javascript:void(0);' class='toggle-less' style='color: #beac5a;'>less</a>
+                       </div>";
+                   }
+
+                   echo "</div></td>";
+                   continue;
+                 }
+
+
+                  if ($column === 'resume_path') {
+                    echo "<td>
+                      <button class='btn btn-view view-resume-btn d-none d-md-inline' data-resume='" . $basePath . htmlspecialchars($row[$column]) . "'>Preview</button>
+                      <a href='" . $basePath . htmlspecialchars($row[$column]) . "' class='btn btn-view d-inline d-md-none' download>Download</a>
+                    </td>";
+                    continue; // 🔥 skip to next column
                   }
+
+                  // Fallback render for normal columns
+                  echo "<td>" . htmlspecialchars($row[$column]) . "</td>";
+                }
+
                 ?>
               </tr>
             <?php endwhile; ?>
@@ -200,6 +233,25 @@ $result = $conn->query($sql);
 
 </body>
 </html>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.toggle-more').forEach(btn => {
+      btn.addEventListener('click', function () {
+        const container = this.closest('.text-preview-container');
+        container.querySelector('.text-preview').style.display = 'none';
+        container.querySelector('.text-full').style.display = 'block';
+      });
+    });
+
+    document.querySelectorAll('.toggle-less').forEach(btn => {
+      btn.addEventListener('click', function () {
+        const container = this.closest('.text-preview-container');
+        container.querySelector('.text-full').style.display = 'none';
+        container.querySelector('.text-preview').style.display = 'block';
+      });
+    });
+  });
+</script>
 
 <?php
 $conn->close();
