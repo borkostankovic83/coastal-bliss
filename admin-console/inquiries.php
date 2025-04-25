@@ -111,9 +111,9 @@ $result = $conn->query($sql);
                         <td><?php echo $row['id']; ?></td>
                         <td><?php echo htmlspecialchars($row['name']); ?></td>
                         <td><?php echo htmlspecialchars($row['email']); ?></td>
-                        <td><?php echo htmlspecialchars($row['phone']); ?></td>
+                        <td><?php echo !empty($row['phone']) ? htmlspecialchars($row['phone']) : 'No phone number provided'; ?></td>
                         <td><?php echo htmlspecialchars($row['subject']); ?></td>
-                        <td><?php echo htmlspecialchars($row['message']); ?></td>
+                        <td><?php echo !empty($row['message']) ? nl2br(htmlspecialchars($row['message'])) : 'No message provided'; ?></td>
                         <td><?php echo $row['submitted_at']; ?></td>
                         <td>
                             <button class="btn btn-sm <?php echo $isLiked ? 'btn-danger' : 'btn-success'; ?>"
