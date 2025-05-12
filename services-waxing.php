@@ -10,34 +10,35 @@
 ?>
 
 <?php
- // Waxing Services Section
- $waxing_services = [
-     [
-         "title" => "Waxing Services ✨",
-         "price" => "",
-         "description" => "Smooth, flawless skin with our gentle and effective waxing techniques.",
-         "services" => [
-             ["Brow Shaping and Wax", "$25 – Expertly shaped brows to frame your face beautifully."],
-             ["Lip or Chin", "$15 – Quick and effective hair removal for a smooth finish."],
-             ["Full Face", "$50 – Includes brows, lip, chin, and sides of the face for a polished look."],
-             ["Underarms", "$30 – Silky-smooth underarms with long-lasting results."],
-             ["Half Arm / Full Arm", "$40 / $55 – Soft, hair-free skin from wrist to elbow or full arm."],
-             ["Bikini Line", "$45 – A clean, natural look that removes hair along the bikini line."],
-             ["Brazilian", "$75 – Complete hair removal for a smooth, confident feel."],
-             ["Half Leg / Full Leg", "$50 / $80 – Long-lasting silky legs, from knee-down or full length."],
-         ]
-     ],
-     [
-         "title" => "Men’s Waxing",
-         "price" => "",
-         "description" => "Achieve smooth, hair-free skin with our tailored waxing services for men.",
-         "services" => [
-             ["Back", "$65 – Removes hair for a clean, well-groomed appearance."],
-             ["Chest", "$60 – Smooth, hair-free skin for a sleek look."],
-         ]
-     ]
- ];
- ?>
+// Waxing Services Section
+$waxing_services = [
+    [
+        "title" => "Waxing Services ✨",
+        "price" => "",
+        "description" => "Smooth, flawless skin with our gentle and effective waxing techniques.",
+        "services" => [
+            ["Brow Shaping and Wax", "$25 – Expert shaping to enhance your natural features and define your brows."],
+            ["Lip or Chin", "$15 – Quick, gentle hair removal for a smooth, clean look."],
+            ["Full Face", "$50 – Includes brows, lip, chin, and cheeks for a radiant, polished finish."],
+            ["Underarms", "$30 – Achieve soft, hair-free underarms with long-lasting results."],
+            ["Half Arm / Full Arm", "$40 / $55 – Silky smooth skin from wrist to elbow or full arm."],
+            ["Bikini Line", "$45 – Cleans up the sides and top for a neat, natural bikini look."],
+            ["Brazilian", "$75 – Complete front-to-back hair removal for a smooth and confident feel."],
+            ["Brazilian Bikini", "$100 – A premium treatment including front, back, and sides for the ultimate clean, smooth look."],
+            ["Half Leg / Full Leg", "$50 / $80 – Smooth legs from knee down or full length, perfect for any season."],
+        ]
+    ],
+    [
+        "title" => "Men’s Waxing",
+        "price" => "",
+        "description" => "Achieve smooth, hair-free skin with our tailored waxing services for men.",
+        "services" => [
+            ["Back", "$65 – Full back waxing for a clean, groomed appearance."],
+            ["Chest", "$60 – Removes chest hair for a sleek and smooth result."],
+        ]
+    ]
+];
+?>
 
  <section id="services" class="py-5" style="color: #222; background-color: #FAFAFA;">
      <div class="container">
