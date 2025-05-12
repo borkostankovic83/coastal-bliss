@@ -32,43 +32,47 @@
         <div class="mb-5">
             <h3 class="facial-heading">Sun-Kissed Glow Facial</h3>
             <h4 class="text-gray">$170 (60 min)</h4>
-            <p class="text-dark">Reveal radiant, dewy skin with this brightening, antioxidant-rich facial. Includes fruit enzyme exfoliation, extractions, facial massage, a stimulating honey mask, biocellulose treatment, and hydrating finishers.</p>
+            <p class="text-dark">Reveal radiant, dewy skin with this brightening, antioxidant-rich facial. Featuring a deep double cleanse, fruit enzyme exfoliation, extractions, facial massage, and a stimulating honey mask paired with a cooling bio cellulose treatment. Finished with hydrating serums, eye care, moisturizer, SPF, and a tinted lip hydrator for that perfect sun-kissed glow.</p>
         </div>
 
         <div class="mb-5">
             <h3 class="facial-heading">Vitamin C Infusion Facial</h3>
             <h4 class="text-gray">$170 (60 min)</h4>
-            <p class="text-dark">A glow-boosting facial with cherry pepper exfoliation, peach & honey hydration, and botanical serums for a luminous, refreshed look.</p>
+            <p class="text-dark">Restore your natural glow with this radiance-boosting treatment featuring cherry pepper exfoliation, peach & honey hydration, and a rejuvenating facial massage. Packed with botanical serums, nourishing masks, and finished with SPF and lip hydration for a luminous, refreshed complexion.</p>
         </div>
 
         <div class="mb-5">
             <h3 class="facial-heading">Luminous Lift Facial</h3>
             <h4 class="text-gray">$170 (60 min)</h4>
-            <p class="text-dark">Exfoliating acids and hydrating actives work to firm, brighten, and refresh. Perfect for special occasions or an effortless, camera-ready glow.</p>
+            <p class="text-dark">Unveil your most luminous self with our Luminous Lift Facial, where gentle exfoliating acids work harmoniously with hydrating actives to brighten, firm, and refresh your complexion instantly. Whether you're preparing for a milestone celebration, an intimate dinner, or simply craving that extra touch of radiance – emerge with an effortless,
+                camera-ready glow that captures every spotlight. This signature treatment reveals your skin's natural luminosity while lifting your confidence to new heights.</p>
         </div>
 
         <div class="mb-5">
             <h3 class="facial-heading">Fresh Face Teen Facial</h3>
             <h4 class="text-gray">$170 (60 min)</h4>
-            <p class="text-dark">A gentle cleanse, mild exfoliation, and soothing mask ideal for teens managing acne or maintaining a healthy complexion.</p>
+            <p class="text-dark">The Fresh Face Teen Facial begins with a gentle cleanse and mild exfoliation to remove impurities and dead skin cells. Then followed by a soothing mask to calm and nourish the skin, and finished with a lightweight moisturizer to maintain balanced hydration. Ideal for teens dealing with acne or wanting to maintain a healthy complexion,
+                this facial promotes good skincare habits while leaving their skin refreshed and glowing.</p>
         </div>
 
         <div class="mb-5">
             <h3 class="facial-heading">Quench & Sculpt Facial</h3>
             <h4 class="text-gray">$170 (60 min)</h4>
-            <p class="text-dark">A moisture-boosting facial featuring gua sha massage with rose quartz for contouring, elasticity, and collagen promotion.</p>
+            <p class="text-dark">Deeply nourish skin with a decadent deep dive into restorative moisture. Patented formulas boost moisture levels by 16%! Lymphatic drainage massages are performed with rose
+                                 quartz gua sha stones for contouring and smoothing of the face, neck and décolleté. Healthy aging is achieved through plumping nutrients, increased skin elasticity and promotion of collagen production, resulting in a vibrant complexion.</p>
         </div>
 
         <div class="mb-5">
             <h3 class="facial-heading">Superfood Facial</h3>
             <h4 class="text-gray">$170 (60 min)</h4>
-            <p class="text-dark">Infused with oats, chia seeds, and prebiotics to cleanse, exfoliate, and hydrate for calm, radiant skin.</p>
+            <p class="text-dark">Treat your skin to the ultimate rejuvenation with our Superfood Facial. Packed with oats, chia seeds, and prebiotics, this luxurious facial cleanses, exfoliates, and hydrates for a soft, glowing complexion. Relax with a soothing massage, calming mask, and targeted eye care. Perfect for restoring radiance and calming stressed skin.</p>
         </div>
 
         <div class="mb-5">
           <h3 class="facial-heading">Glow On the Go – Back Facial</h3>
           <h4 class="text-gray">$150 (60 min)</h4>
-          <p class="text-dark">Show some love to the area you can’t reach! This treatment is designed to cleanse, exfoliate, and hydrate the skin on your back. It targets breakouts, dryness, and buildup in those hard-to-reach areas. Enjoy a relaxing massage across the shoulders and arms to melt away tension while your skin soaks in nourishing goodness. Perfect for glowing skin and total relaxation.</p>
+          <p class="text-dark">Show some love to the area you can’t reach! This treatment is designed to cleanse, exfoliate, and hydrate the skin on your back. It targets breakouts, dryness, and buildup in those hard-to-reach areas. Enjoy a relaxing massage across the shoulders and arms to melt away tension while your skin soaks in nourishing goodness.
+              Perfect for glowing skin and total relaxation.</p>
         </div>
 
         <div class="mb-5">
@@ -84,19 +88,20 @@
         <div class="mb-5">
             <h3 class="facial-heading">DermaplanePro & Sorella Luxe Radiance Facial</h3>
             <h4 class="text-gray">$200 (75 min)</h4>
-            <p class="text-dark">Expert dermaplaning paired with Sorella’s botanicals and a Marine Mermaid Mask. Includes enzyme exfoliation, massage, and luxe finishing serums.</p>
+            <p class="text-dark">Indulge in the ultimate skin transformation with DermaplanePro’s precision exfoliation, paired with the rich, botanical power of Sorella. This luxurious facial includes a deep cleansing ritual, enzyme-infused exfoliation, expert dermaplaning, and a revitalizing Marine Mermaid Mask.
+                Enjoy a soothing facial massage and upper body relaxation, followed by potent serums and finishing treatments that leave your skin radiant, smooth, and glowing.</p>
         </div>
 
         <div class="mb-5">
             <h3 class="facial-heading">Coastal Bliss Luxe Facial</h3>
             <h4 class="text-gray">$250 (90 min)</h4>
-            <p class="text-dark">An elevated ritual with prolonged massage and targeted care for the eye and lip area. Deeply restorative and calming.</p>
+            <p class="text-dark">Unwind with this elevated facial ritual designed for those who crave more.It includes prolonged massage, and targeted eye and lip care to restore glow, calm the mind, and elevate your skincare experience.</p>
         </div>
 
         <div class="mb-5">
             <h3 class="facial-heading">Coastal Bliss Ritual Facial</h3>
             <h4 class="text-gray">$340 (120 min)</h4>
-            <p class="text-dark">Two hours of indulgence with extended massage, rose quartz gua sha, and full-body renewal. Ultimate relaxation and skin transformation.</p>
+            <p class="text-dark">The ultimate indulgence. Melt into two hours of pure relaxation with extended facial, neck, and décolleté massage, rose quartz gua sha, and soothing eye treatment. A full-body reset for luminous skin and total renewal.</p>
         </div>
 
         <div class="mb-5 facials-section"></div>
@@ -107,19 +112,22 @@
 
             <h4 class="addon-heading">$20 Add-On</h4>
             <ul class="text-dark">
-                <li><span class="text-brown">Gua Sha Facial Massage:</span> Sculpt, lift, and promote lymphatic drainage.</li>
-                <li><span class="text-brown">Eye-Luronic Eye Enhancement:</span> Glacier Ice Globes + hydrating patches for puffiness and brightening.</li>
+                <li><span class="text-brown">Gua Sha Facial Massage:</span> A traditional facial massage technique that sculpts, lifts, and promotes lymphatic drainage.</li>
+                <li><span class="text-brown">Eye-Luronic Eye Enhancement:</span> Choose this add-on to reduce puffiness and hydrate the delicate eye area.
+                Feel the cooling sensation of Glacier Ice Globes and the soothing effects of Eye-luronic Hydrating Patches as your skin is refreshed and rejuvenated for a brighter,
+                more youthful appearance.</li>
             </ul>
 
             <h4 class="addon-heading">$15 Add-On</h4>
             <ul class="text-dark">
-                <li><span class="text-brown">Hot Stone:</span> Warm stones for circulation, relaxation, and deep muscle release.</li>
-                <li><span class="text-brown">Soothing CBD & Peppermint Crème Massage:</span> Relieves hand/arm tension and hydrates deeply.</li>
+                <li><span class="text-brown">Hot Stone:</span> Warm stones are gently massaged over the face to promote circulation, relaxation, and deeper muscle release.</li>
+                <li><span class="text-brown">Soothing CBD & Peppermint Crème Massage:</span> Infused with CBD and peppermint, this calming massage relieves hand and arm tension and inflammation while deeply hydrating the skin.</li>
             </ul>
 
             <h4 class="addon-heading">$45 Add-On</h4>
             <ul class="text-dark">
-                <li><span class="text-brown">Refined Radiance Dermaplaning:</span> Gently exfoliate and boost product absorption for flawless skin.</li>
+                <li><span class="text-brown">Refined Radiance Dermaplaning:</span> Enhance any facial with the soothing benefits of gentle dermaplaning, designed to smooth skin texture, eliminate peach fuzz,
+                and boost the absorption of your skincare for a flawless, radiant finish.</li>
             </ul>
         </div>
 
