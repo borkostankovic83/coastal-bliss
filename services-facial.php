@@ -18,12 +18,12 @@
         <div class="mb-5 facials-section">
             <h3 class="facial-heading">Coastal Bliss Signature Facial</h3>
             <h4 class="text-gray">$150 (60 min)</h4>
-            <p class="head_title">Experience a luxurious, personalized facial that caters to your skin’s unique needs with the finest natural ingredients from Sorella Apothecary. Choose from these options:</p>
+            <p class="text-dark">Experience a luxurious, personalized facial that caters to your skin’s unique needs with the finest natural ingredients from Sorella Apothecary. Choose from these options:</p>
             <ul class="text-dark">
-                <li><span class="text-brown">Radiant Renewal:</span> Deep hydration for a glowing complexion. (Dry/Dehydrated Skin)</li>
-                <li><span class="text-brown">Clear & Clarify:</span> Purify and balance for smooth, clear skin. (Oily/Acne-Prone Skin)</li>
-                <li><span class="text-brown">Calm & Restore:</span> Soothe and calm irritation for refreshed skin. (Sensitive Skin)</li>
-                <li><span class="text-brown">Glow & Balance:</span> Even oil and hydration for a radiant, balanced complexion. (Combination Skin)</li>
+                <li><span class="text-gold">Radiant Renewal:</span> Deep hydration for a glowing complexion. (Dry/Dehydrated Skin)</li>
+                <li><span class="text-gold">Clear & Clarify:</span> Purify and balance for smooth, clear skin. (Oily/Acne-Prone Skin)</li>
+                <li><span class="text-gold">Calm & Restore:</span> Soothe and calm irritation for refreshed skin. (Sensitive Skin)</li>
+                <li><span class="text-gold">Glow & Balance:</span> Even oil and hydration for a radiant, balanced complexion. (Combination Skin)</li>
             </ul>
             <p>Each facial includes a relaxing massage, exfoliation, and customized mask for the ultimate glow.</p>
         </div>
@@ -112,25 +112,26 @@
 
             <h4 class="addon-heading">$20 Add-On</h4>
             <ul class="text-dark">
-                <li><span class="text-brown">Gua Sha Facial Massage:</span> A traditional facial massage technique that sculpts, lifts, and promotes lymphatic drainage.</li>
-                <li><span class="text-brown">Eye-Luronic Eye Enhancement:</span> Choose this add-on to reduce puffiness and hydrate the delicate eye area.
+                <li><span class="text-gold">Gua Sha Facial Massage:</span> A traditional facial massage technique that sculpts, lifts, and promotes lymphatic drainage.</li>
+                <li><span class="text-gold">Eye-Luronic Eye Enhancement:</span> Choose this add-on to reduce puffiness and hydrate the delicate eye area.
                 Feel the cooling sensation of Glacier Ice Globes and the soothing effects of Eye-luronic Hydrating Patches as your skin is refreshed and rejuvenated for a brighter,
                 more youthful appearance.</li>
             </ul>
 
             <h4 class="addon-heading">$15 Add-On</h4>
             <ul class="text-dark">
-                <li><span class="text-brown">Hot Stone:</span> Warm stones are gently massaged over the face to promote circulation, relaxation, and deeper muscle release.</li>
-                <li><span class="text-brown">Soothing CBD & Peppermint Crème Massage:</span> Infused with CBD and peppermint, this calming massage relieves hand and arm tension and inflammation while deeply hydrating the skin.</li>
+                <li><span class="text-gold">Hot Stone:</span> Warm stones are gently massaged over the face to promote circulation, relaxation, and deeper muscle release.</li>
+                <li><span class="text-gold">Soothing CBD & Peppermint Crème Massage:</span> Infused with CBD and peppermint, this calming massage relieves hand and arm tension and inflammation while deeply hydrating the skin.</li>
             </ul>
 
             <h4 class="addon-heading">$45 Add-On</h4>
             <ul class="text-dark">
-                <li><span class="text-brown">Refined Radiance Dermaplaning:</span> Enhance any facial with the soothing benefits of gentle dermaplaning, designed to smooth skin texture, eliminate peach fuzz,
+                <li><span class="text-gold">Refined Radiance Dermaplaning:</span> Enhance any facial with the soothing benefits of gentle dermaplaning, designed to smooth skin texture, eliminate peach fuzz,
                 and boost the absorption of your skincare for a flawless, radiant finish.</li>
             </ul>
         </div>
 
+        <img src="images/Feed-Your-Skin-Treat-Your-Soul-.png" alt="Sorella Apothecary" class="img-center">
 
     </div>
 </section>
@@ -138,8 +139,8 @@
 <?php require_once('parts/footer/footer3.php'); ?>
 
 <style>
-.text-brown {
-    color: #665d34;
+.text-gold {
+    color: #9f8958;
     font-size: 1.2em;
     font-weight: bold;
 }
@@ -166,7 +167,7 @@
 }
 .facials-section {
     padding-bottom: 20px;
-    border-bottom: 2px solid #665d34;
+    border-bottom: 2px solid #9f8958;
 }
 .head_title {
     color: #333;

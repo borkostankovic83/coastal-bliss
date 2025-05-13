@@ -44,7 +44,7 @@ $waxing_services = [
      <div class="container">
          <!-- Waxing Services Section -->
          <?php foreach ($waxing_services as $service) : ?>
-             <div class="mb-5" style="padding-bottom: 20px; border-bottom: 2px solid #665d34;">
+             <div class="mb-5" style="padding-bottom: 20px; border-bottom: 2px solid #9f8958;">
                  <h3 style="color:#212936; font-weight: bold; font-size: 2.2em; margin-bottom: 10px;"> <?= $service["title"] ?> </h3>
                  <?php if (isset($service["price"])) : ?>
                      <h4 style="color: #666; font-weight: bold; font-size: 1.2em; margin-bottom: 10px;"> <?= $service["price"] ?> </h4>
@@ -53,7 +53,7 @@ $waxing_services = [
                  <?php if (isset($service["services"])) : ?>
                      <ul style="color: #555; padding-left: 20px; line-height: 1.6;">
                          <?php foreach ($service["services"] as $subService) : ?>
-                             <li style="margin-bottom: 10px;"><strong style="color: #665d34; font-size: 1.2em; font-weight: bold;"> <?= $subService[0] ?>:</strong> <?= $subService[1] ?></li>
+                             <li style="margin-bottom: 10px;"><strong style="color: #9f8958; font-size: 1.2em; font-weight: bold;"> <?= $subService[0] ?>:</strong> <?= $subService[1] ?></li>
                          <?php endforeach; ?>
                      </ul>
                  <?php endif; ?>
