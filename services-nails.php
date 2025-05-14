@@ -17,9 +17,9 @@
          "price" => "",
          "description" => "Treat your hands to rejuvenating nail care with our signature manicures, designed to hydrate, restore, and beautify your hands.",
          "services" => [
-             ["The Coastal Bliss Manicure", "$50 (Classic Spa Manicure) – A timeless treatment for beautifully groomed hands. Includes nail shaping, a warm hand soak, cuticle care, sugar scrub, warm towel wrap, and a deeply soothing hand massage."],
-             ["The Luxe Gel Manicure", "$60 – A flawless, chip-resistant finish with expert nail shaping, detailed cuticle care, and strengthening gel polish for a glossy, long-lasting effect."],
-             ["European Precision Gel Manicure", "$70 – A refined manicure using European e-file technique for meticulous cuticle care and a polished, long-lasting gel finish."],
+             ["$50 (45 min)","The Coastal Bliss Manicure", "A timeless treatment for beautifully groomed hands. Includes nail shaping, a warm hand soak, cuticle care, sugar scrub, warm towel wrap, and a deeply soothing hand massage."],
+             ["$60 (60 min)","The Luxe Gel Manicure", "A flawless, chip-resistant finish with expert nail shaping, detailed cuticle care, and strengthening gel polish for a glossy, long-lasting effect."],
+             ["$70 (90 min)","European Precision Gel Manicure", "A refined manicure using European e-file technique for meticulous cuticle care and a polished, long-lasting gel finish."],
          ]
      ]
  ];
@@ -31,8 +31,8 @@
          "price" => "",
          "description" => "Pamper your feet with luxurious pedicures designed to refresh, nourish, and provide lasting beauty.",
          "services" => [
-             ["The Coastal Bliss Pedicure", "$85 (Classic Spa Pedicure) – A rejuvenating pedicure with a warm foot soak, nail and cuticle care, exfoliation, relaxing foot massage, and polish application."],
-             ["The Luxe Gel Pedicure", "$95 – A refined, long-lasting pedicure with a gel polish application for a flawless, chip-free finish and a hydrating foot massage."],
+             ["$85 (60 min)","The Coastal Bliss Pedicure", "A rejuvenating pedicure with a warm foot soak, nail and cuticle care, exfoliation, relaxing foot massage, and polish application."],
+             ["$95 (60 min)","The Luxe Gel Pedicure", "A refined, long-lasting pedicure with a gel polish application for a flawless, chip-free finish and a hydrating foot massage."],
          ]
      ]
  ];
@@ -67,7 +67,8 @@
                  <?php if (isset($service["services"])) : ?>
                      <ul style="color: #555; padding-left: 20px; line-height: 1.6;">
                          <?php foreach ($service["services"] as $subService) : ?>
-                             <li style="margin-bottom: 10px;"><strong style="color: #9f8958; font-size: 1.2em; font-weight: bold;"> <?= $subService[0] ?>:</strong> <?= $subService[1] ?></li>
+                            <h4 class="text-gray"><?= $subService[0] ?></h4>
+                            <li style="margin-bottom: 10px;"><strong style="color: #9f8958; font-size: 1.2em; font-weight: bold;"> <?= $subService[1] ?>:</strong> <?= $subService[2] ?></li>
                          <?php endforeach; ?>
                      </ul>
                  <?php endif; ?>
@@ -85,7 +86,8 @@
                  <?php if (isset($service["services"])) : ?>
                      <ul style="color: #555; padding-left: 20px; line-height: 1.6;">
                          <?php foreach ($service["services"] as $subService) : ?>
-                             <li style="margin-bottom: 10px;"><strong style="color: #9f8958; font-size: 1.2em; font-weight: bold;"> <?= $subService[0] ?>:</strong> <?= $subService[1] ?></li>
+                            <h4 class="text-gray"><?= $subService[0] ?></h4>
+                            <li style="margin-bottom: 10px;"><strong style="color: #9f8958; font-size: 1.2em; font-weight: bold;"> <?= $subService[1] ?>:</strong> <?= $subService[2] ?></li>
                          <?php endforeach; ?>
                      </ul>
                  <?php endif; ?>
@@ -109,3 +111,11 @@
  </section>
 
 <?php require_once('parts/footer/footer.php'); ?>
+<style>
+    .text-gray {
+    color: #666;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 20px;
+    }
+</style>
