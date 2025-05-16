@@ -62,6 +62,22 @@
             </div>
           </div>
         </div>
+
+        <div class="col-lg-4 col-sm-6">
+          <!-- Service Block -->
+          <div class="service-block" data-link="services-massages.php">
+            <div class="inner-box">
+              <div class="image-box">
+                <div class="bg-image" style="background-image:url(./images/resource/service1-2.png);"></div>
+                <div class="bg-image-two" style="background-image:url(./images/resource/service1-2.png);"></div>
+              </div>
+              <div class="content-box">
+                <figure class="icon mb-0"><img src="images/icons/theme-icon3.png" alt="Image"></figure>
+                <h4 class="title"><a href="services-massages.php">Massage</a></h4>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
 </section>
@@ -85,11 +101,11 @@
   <div class="icon-instagram1-7 bounce-y"></div>
   <div class="auto-container">
     <div class="sec-title text-center">
-      <h4 class="words-slide-up text-split">Follow On Instagram</h4>
+      <h4 class="words-slide-up text-split">Welcome to Coastal Bliss</h4>
     </div>
     <div class="row">
       <!-- pricing-block -->
-      <div class="instagram-block col-lg-2 col-md-3 col-sm-6">
+      <!-- <div class="instagram-block col-lg-2 col-md-3 col-sm-6">
         <div class="inner-box">
           <div class="image-box">
             <figure class="image">
@@ -98,9 +114,9 @@
             <i class="icon fab fa-instagram"></i>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- pricing-block -->
-      <div class="instagram-block col-lg-2 col-md-3 col-sm-6">
+      <!-- <div class="instagram-block col-lg-2 col-md-3 col-sm-6">
         <div class="inner-box">
           <div class="image-box">
             <figure class="image">
@@ -109,9 +125,9 @@
             <i class="icon fab fa-instagram"></i>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- pricing-block -->
-      <div class="instagram-block col-lg-2 col-md-3 col-sm-6">
+      <!-- <div class="instagram-block col-lg-2 col-md-3 col-sm-6">
         <div class="inner-box">
           <div class="image-box">
             <figure class="image">
@@ -120,9 +136,9 @@
             <i class="icon fab fa-instagram"></i>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- pricing-block -->
-      <div class="instagram-block col-lg-2 col-md-3 col-sm-6">
+      <!-- <div class="instagram-block col-lg-2 col-md-3 col-sm-6">
         <div class="inner-box">
           <div class="image-box">
             <figure class="image">
@@ -131,9 +147,9 @@
             <i class="icon fab fa-instagram"></i>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- pricing-block -->
-      <div class="instagram-block col-lg-2 col-md-3 col-sm-6">
+      <!-- <div class="instagram-block col-lg-2 col-md-3 col-sm-6">
         <div class="inner-box">
           <div class="image-box">
             <figure class="image">
@@ -142,9 +158,9 @@
             <i class="icon fab fa-instagram"></i>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- pricing-block -->
-      <div class="instagram-block col-lg-2 col-md-3 col-sm-6">
+      <!-- <div class="instagram-block col-lg-2 col-md-3 col-sm-6">
         <div class="inner-box">
           <div class="image-box">
             <figure class="image">
@@ -153,7 +169,7 @@
             <i class="icon fab fa-instagram"></i>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>

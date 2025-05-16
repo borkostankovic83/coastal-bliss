@@ -45,12 +45,14 @@
                     <div class="logo-box">
                         <div class="logo">
 							<?php
-								$default_logo_url = "images/logo.png";
+								$default_logo_url = "images/COASTAL BLISS WELLNESS.png";
 								if(isset($dark_logo_url)&&!empty($dark_logo_url)) {
 									$default_logo_url = $dark_logo_url;
 								}
 							?>
-							<a href="index.php" title=""><img src="<?php echo $default_logo_url;?>" alt="" title=""></a>
+                            <a href="index.php" title="">
+                            <img src="<?php echo $default_logo_url;?>" alt="Logo" title="" style="transform: scale(1.4);">
+                            </a>
                         </div>
                     </div>
 
@@ -83,7 +85,7 @@
             <nav class="menu-box">
                 <div class="upper-box">
                     <div class="nav-logo">
-                        <a href="index.php"><img src="images/logo-2.png" alt="" /></a>
+                        <a href="index.php"><img src="images/COASTAL BLISS WELLNESS DARK.png" alt="" style="transform: scale(1.6);"/></a>
                     </div>
                     <div class="close-btn"><i class="icon fa fa-times"></i></div>
                 </div>
@@ -138,12 +140,12 @@
                     <!--Logo-->
                     <div class="logo">
 						<?php
-							$default_sticky_logo_url = "images/logo.png";
+							$default_sticky_logo_url = "images/COASTAL BLISS WELLNESS.png";
 							if(isset($sticky_logo_url)&&!empty($sticky_logo_url)) {
 								$default_sticky_logo_url = $sticky_logo_url;
 							}
 						?>
-						<a href="index.php" title=""><img src="<?php echo $default_sticky_logo_url;?>" alt="" title=""></a>
+						<a href="index.php" title=""><img src="<?php echo $default_sticky_logo_url;?>" alt="" title="" style="transform: scale(1.6);"></a>
                     </div>
 
                     <!--Right Col-->

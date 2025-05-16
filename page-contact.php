@@ -77,7 +77,7 @@ if (isset($_GET['status']) && isset($_GET['message'])) {
               </div>
               <div class="text ml-xs--0 mt-xs-10">
                 <h6>Have any question?</h6>
-                <a href="tel:3025697444"><span>Free</span> 302 569 7444</a>
+                <a href="tel:3022609667"><span>Free</span> 302 260 9667</a>
               </div>
             </li>
             <li class="d-block d-sm-flex align-items-sm-center ">

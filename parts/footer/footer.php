@@ -22,7 +22,7 @@
 	  <!--Footer Column-->
 	  <div class="footer-column col-lg-4 col-md-6 order-0 order-lg-1">
 		<div class="footer-widget about-widget text-center">
-		  <div class="logo"><a href="index.php"><img src="images/logo-2.png" alt=""></a></div>
+		  <div class="logo"><a href="index.php"><img src="images/COASTAL BLISS WELLNESS DARK.png" alt=""></a></div>
 		  <div class="text">Follow Us</div>
 		  <ul class="social-icon">
 			<li><a href="#"><i class="icon fab fa-facebook-f"></i></a></li>
@@ -37,7 +37,7 @@
 		  <h3 class="widget-title">Contact</h3>
 		  <div class="text">323c Rehoboth Avenue <br>Rehoboth Beach 19971</div>
 		  <ul class="contact-info">
-			<li><a href="tel:302-569-7444">302-569-7444</a></li>
+			<li><a href="tel:302-260-9667">302-260-9667</a></li>
 			<li><a href="mailto:yourmail@company.com">info@coastalblissrehoboth.com</a></li>
 		  </ul>
 		</div>

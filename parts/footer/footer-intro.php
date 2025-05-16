@@ -7,7 +7,7 @@
 					<!--Footer Column-->
 					<div class="footer-column col-md-6">
 						<div class="footer-widget about-widget">
-							<div class="logo"><a href="index.php"><img src="images/logo-2.png" alt="" ></a></div>
+							<div class="logo"><a href="index.php"><img src="images/COASTAL BLISS WELLNESS DARK.png" alt="" ></a></div>
 							<h3 class="mt-30 mb-50 text-white">24/7 Effective And Friendly Premium Support</h3>
 							<a href="https://1.envato.market/Gm7YPB" target="_blank" class="theme-btn btn-style-one"><span class="btn-title">Purchase Now</span></a>
 						</div>
