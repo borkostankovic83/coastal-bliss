@@ -5,7 +5,7 @@
 <?php require_once('parts/header/header.php'); ?>
 
 <?php
-    $page_title = "Services";
+    $page_title = "Services - Nails";
     require_once('parts/page-title.php');
 ?>
 

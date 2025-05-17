@@ -11,10 +11,13 @@
 
 <section id="services" class="py-5 container">
     <div class="container">
+    <h2>Massages in progress</h2>
 
-        <img src="images/Sorella_wordmark-gold.png" alt="Sorella Apothecary" class="img-center">
 
-        <h2>Massages in progress</h2>
+    <img src="images/ART-Provider Logo.png" alt="Sorella Apothecary" style="display: block; margin: 0 auto; width: 20%;">
+
+    <img src="images/ART-Provider-certs.png" alt="Sorella Apothecary" style="display: block; margin: 0 auto; width: 50%;">
+
     </div>
 </section>
 
