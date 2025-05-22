@@ -53,7 +53,7 @@
 				<div class="sign">
 					<img src="images/resource/about-sign1.png" alt="Signature">
 				</div>
-				<div class="name">Michale - <span class="designation">Co Founder</span></div>
+				<div class="name">Milena - <span class="designation">Founder</span></div>
 				</div>
 			</div>
 			</div>
