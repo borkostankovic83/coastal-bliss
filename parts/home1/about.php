@@ -57,11 +57,11 @@
 						<div class="content">
 							<div class="time-box">
 								<div class="opening-days">Monday to Friday :</div>
-								<div class="opening-hours">09:00 am - 06:00 pm</div>
+								<div class="opening-hours">09:00 am - 08:00 pm</div>
 							</div>
 							<div class="time-box m-0">
 								<div class="opening-days">Saturday :</div>
-								<div class="opening-hours">11:00 am to 3:00 pm</div>
+								<div class="opening-hours">09:00 am - 08:00 pm</div>
 							</div>
 							<div class="bg bg-image" style="background-image: url(./images/resource/about1-5.png)"></div>
 						</div>

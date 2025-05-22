@@ -13,8 +13,8 @@
 		  <h3 class="widget-title">Open Hours</h3>
 		  <ul class="timetable">
 			<li>Monday to Friday : <span>09:00-20:00</span></li>
-			<li>Saturday: <span>09:00-18:00</span></li>
-			<li>Sunday: <span>09:00-18:00</span></li>
+			<li>Saturday: <span>09:00-20:00</span></li>
+			<li>Sunday: <span>09:00-20:00</span></li>
 		  </ul>
 		</div>
 	  </div>

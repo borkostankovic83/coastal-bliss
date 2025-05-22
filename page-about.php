@@ -21,7 +21,7 @@
 			<div class="exp-box">
 				<div class="bg bg-image" style="background-image: url(./images/resource/about1-6.png)"></div>
 				<div class="inner">
-				<h2 class="title" data-text="25+">20+</h2>
+				<h2 class="title" data-text="25+">10+</h2>
 				<span class="text">Experience</span>
 				</div>
 			</div>
@@ -69,11 +69,11 @@
 			<div class="content">
 			<div class="time-box">
 				<div class="opening-days">Monday to Friday :</div>
-				<div class="opening-hours">09:00 am - 06:00 pm</div>
+				<div class="opening-hours">09:00 am - 08:00 pm</div>
 			</div>
 			<div class="time-box m-0">
-				<div class="opening-days">Saturday :</div>
-				<div class="opening-hours">11:00 am to 3:00 pm</div>
+				<div class="opening-days">Saturday and Sunday:</div>
+				<div class="opening-hours">09:00 am to 8:00 pm</div>
 			</div>
 			<div class="bg bg-image" style="background-image: url(./images/resource/about1-5.png)"></div>
 			</div>
@@ -178,7 +178,7 @@
 <!-- End Video Section -->
 
 <!-- Pricing Section -->
-<section class="pricing-section">
+<!-- <section class="pricing-section">
 <div class="leaf1 bounce-x"></div>
 <div class="leaf2 bounce-x"></div>
 <div class="auto-container">
@@ -190,7 +190,6 @@
 	<div class="row align-items-center">
 	<div class="content-column col-lg-4">
 
-		<!-- pricing-block -->
 		<div class="pricing-block">
 		<div class="inner-box">
 			<div class="image-box">                                        
@@ -208,7 +207,6 @@
 		</div>
 		</div>
 
-		<!-- pricing-block -->
 		<div class="pricing-block">
 		<div class="inner-box">
 			<div class="image-box">                                        
@@ -224,7 +222,6 @@
 		</div>
 		</div>
 
-		<!-- pricing-block -->
 		<div class="pricing-block">
 		<div class="inner-box">
 			<div class="image-box">                                        
@@ -250,7 +247,6 @@
 	</div>
 	<div class="content-column col-lg-4">
 
-		<!-- pricing-block -->
 		<div class="pricing-block">
 		<div class="inner-box">
 			<div class="image-box">                                        
@@ -268,7 +264,6 @@
 		</div>
 		</div>
 
-		<!-- pricing-block -->
 		<div class="pricing-block">
 		<div class="inner-box">
 			<div class="image-box">                                        
@@ -284,7 +279,6 @@
 		</div>
 		</div>
 
-		<!-- pricing-block -->
 		<div class="pricing-block">
 		<div class="inner-box">
 			<div class="image-box">                                        
@@ -302,7 +296,7 @@
 	</div>
 	</div>
 </div>
-</section>
+</section> -->
 <!-- End Pricing Section -->
 
 <!-- Contact Section -->

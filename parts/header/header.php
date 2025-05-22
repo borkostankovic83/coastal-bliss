@@ -18,7 +18,7 @@
 
                     <div class="top-right">
                         <ul class="list-style-two">
-                            <li>Mon to Sat: 9:00am – 6:00pm Sun: <a class="active" href="#">Closed</a></li>
+                            <li>Mon to Sat: 9:00am – 8:00pm Sun: <a class="active" href="#">Closed</a></li>
                         </ul>
                         <ul class="social-icon-one">
                             <li>
