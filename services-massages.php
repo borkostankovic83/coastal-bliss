@@ -38,7 +38,7 @@ $massages = json_decode($massagesJson, true);
     </div>
 </section>
 
-<?php require_once('parts/footer/footer3.php'); ?>
+<?php require_once('parts/footer/footer.php'); ?>
 
 <style>
 .text-gold {
