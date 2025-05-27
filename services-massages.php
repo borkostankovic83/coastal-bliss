@@ -33,7 +33,7 @@ $massages = json_decode($massagesJson, true);
     <?php endforeach; ?>
    
 
-    <img src="images/ART-Provider-certs.png" alt="Sorella Apothecary" style="display: block; margin: 0 auto; width: 50%;">
+    <img src="images/ART-Provider-certs.PNG" alt="ART Provider" style="display: block; margin: 0 auto; width: 50%;">
 
     </div>
 </section>
