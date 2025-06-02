@@ -4,27 +4,27 @@
       "services": [
         {
           "name": "Swedish Relaxation",
-          "duration": "$145 (60 min) or  $220 (90 min)",
+          "duration": "$145 (60 min) or $220 (90 min)",
           "description": "A traditional massage that focuses on relaxing the body through gentle techniques that improve circulation, relieves muscle tension and promotes overall well-being. This massage is often used to ease stress."
         },
         {
           "name": "Deep Tissue Recovery",
-          "duration": "$170 (60 min) or  $255 (90 min)",
+          "duration": "$170 (60 min) or $255 (90 min)",
           "description": "Targeting deeper layers of the muscle and connective tissue, this massage is curated for those seeking a release from chronic patterns of tension and pain by addressing the root cause. Techniques used but not limited to include myofascial release, pinch and pull, trigger point therapy as well as slow strokes with firm pressure. From athletes with sports related injuries or to the person who simply feels overworked you are bound to find relief with this massage."
         },
         {
           "name": "Dreamscape Massage",
-          "duration": "$185 (75 min) or  $245 (90 min)",
+          "duration": "$185 (75 min) or $245 (90 min)",
           "description": "A treatment with the intention of putting you in a deep state of relaxation. This session begins with a head massage that progresses down to the face and neck targeting high tension points using cold stones along with aromatherapy inhalation. From there we then treat the rest of the body. Swedish massage techniques are primarily used that are traditionally lighter in pressure. This is for the person looking to drift away from life stresses here by the beach."
         },
         {
           "name": "CBD Bliss",
-          "duration": "$200 (60 min) or  $300 (90 min)",
+          "duration": "$200 (60 min) or $300 (90 min)",
           "description": "A relaxing treatment that uses Full Spectrum Spagyric (spuh-jeer-ik) CBD oil, with your choice of scent (Lavender, Orange Blossom, Lemongrass or Unscented), to alleviate pain and inflammation to the fullest. Spagyric CBD extracts are the fullest full spectrum available on the market to date. This treatment also includes a serving of 25mg broad spectrum CBD gummies. If you are looking to calm your body and mind while seeking immediate relief from pains and aches then this is for you."
         },
         {
           "name": "Prenatal Massage",
-          "duration": "$175 (60 min) or  $260 (90 min)",
+          "duration": "$175 (60 min) or $260 (90 min)",
           "description": "Appropriate accommodations can be made for guests in the second or third trimester to ensure safety and comfort for both mother and child. Light to medium pressure and specific prenatal techniques are employed during service. Massage will assist in relieving muscle pain and tension, and reducing stress. Please note guests must be out of the first trimester to receive this service."
         },
         {
@@ -36,6 +36,11 @@
           "name": "Bamboo Stick Massage",
           "duration": "$225 (75 min)",
           "description": "Bamboo massage therapy uses specially designed bamboo sticks to deliver a deep, relaxing massage. This technique allows therapists to apply deeper pressure than traditional hand massage, combining benefits of Swedish, deep tissue, and trigger point therapies. It effectively releases muscle tension and promotes relaxation and well-being."
+        },
+        {
+          "name": "Quench + Refresh Body Exfoliation",
+          "duration": "$135 (60 min) or $255 (120 min)",
+          "description": "Glow from head to toe with this rejuvenating body ritual. Start with dry brushing to energize and exfoliate, followed by Sorella’s Body Buff, a waterless scrub that smooths and softens. A refreshing Watermelon Mint Mist preps the skin before a deeply hydrating massage with Body Balm and Body Nectar. Includes a take-home Sorella Dry Brush."
         },
         {
           "name": "Custom Massage with Vesna",

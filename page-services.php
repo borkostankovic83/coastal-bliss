@@ -81,14 +81,14 @@
 
           <div class="col-lg-4 col-sm-6">
           <!-- Service Block -->
-          <div class="service-block" data-link="services-massages.php">
+          <div class="service-block" data-link="services-lash-n-brow.php">
             <div class="inner-box">
               <div class="image-box">
                 <div class="bg-image" style="background-image:url(./images/resource/service1-2.png);"></div>
                 <div class="bg-image-two" style="background-image:url(./images/resource/service1-2.png);"></div>
               </div>
               <div class="content-box">
-                <figure class="icon mb-0"><img src="images/icons/theme-icon1.png" alt="Image"></figure>
+                <figure class="icon mb-0"><img src="images/icons/theme-icon9.png" alt="Image"></figure>
                   <h4 class="title"><a href="./services-lash-n-brow.php">Lash And Brow</a></h4>
               </div>
             </div>

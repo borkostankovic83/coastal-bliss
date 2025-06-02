@@ -12,9 +12,8 @@
 		<div class="footer-widget timetable-widget">
 		  <h3 class="widget-title">Open Hours</h3>
 		  <ul class="timetable">
-			<li>Monday to Friday : <span>09:00-20:00</span></li>
-			<li>Saturday: <span>09:00-20:00</span></li>
-			<li>Sunday: <span>09:00-20:00</span></li>
+			<li>Wed to Mon:<span>09:00-19:00</span></li>
+			<li>Tue: <span>Closed</span></li>
 		  </ul>
 		</div>
 	  </div>

@@ -28,6 +28,7 @@ $massages = json_decode($massagesJson, true);
                     <h4 class="text-gray"><?= htmlspecialchars($service['duration']) ?></h4>
                     <p style="color: #333; font-size: 1.1em; line-height: 1.5; margin-bottom: 15px;"><?= nl2br(htmlspecialchars($service['description'])) ?></p>
                 </div>
+                <div class="mb-5 facials-section"></div>
             <?php endforeach; ?>
         </div>
     <?php endforeach; ?>

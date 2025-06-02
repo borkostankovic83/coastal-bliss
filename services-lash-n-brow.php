@@ -27,7 +27,7 @@ $lashBrowServices = [
             ],
             [
                 "name" => "Lash Tint",
-                "duration" => "30 min | $30",
+                "duration" => "20 min | $25",
                 "description" => "Darkens and defines lashes with a custom shade to suit your features."
             ],
             [

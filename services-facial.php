@@ -110,16 +110,12 @@
         <div class="mb-5 facials-section">
             <h3 class="facial-heading">Enhance Any Facial</h3>
 
-            <h4 class="addon-heading">$20 Add-On</h4>
+            <h4 class="addon-heading">$15 Add-On</h4>
             <ul class="text-dark">
                 <li><span class="text-gold">Gua Sha Facial Massage:</span> A traditional facial massage technique that sculpts, lifts, and promotes lymphatic drainage.</li>
                 <li><span class="text-gold">Eye-Luronic Eye Enhancement:</span> Choose this add-on to reduce puffiness and hydrate the delicate eye area.
                 Feel the cooling sensation of Glacier Ice Globes and the soothing effects of Eye-luronic Hydrating Patches as your skin is refreshed and rejuvenated for a brighter,
-                more youthful appearance.</li>
-            </ul>
-
-            <h4 class="addon-heading">$15 Add-On</h4>
-            <ul class="text-dark">
+                more youthful appearance.</li>      
                 <li><span class="text-gold">Hot Stone:</span> Warm stones are gently massaged over the face to promote circulation, relaxation, and deeper muscle release.</li>
                 <li><span class="text-gold">Soothing CBD & Peppermint Crème Massage:</span> Infused with CBD and peppermint, this calming massage relieves hand and arm tension and inflammation while deeply hydrating the skin.</li>
                 <li><span class="text-gold">Glow Wave Boost:</span> Give your skin an energizing jolt with our Glow Wave Boost. This high-frequency treatment stimulates circulation, kills acne-causing bacteria, and supports clear, glowing skin. Perfect for targeting breakouts, reducing inflammation, and minimizing pores. Add this boost to any facial for radiant, refreshed results.</li>
