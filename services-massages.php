@@ -32,6 +32,25 @@ $massages = json_decode($massagesJson, true);
         </div>
     <?php endforeach; ?>
    
+    <div class="service-section">
+        <h3 class="addon-heading">Massage Add-Ons</h3>
+        <ul style="font-size: 1.1em; line-height: 1.6; margin-top: 15px; padding-left: 20px; list-style-type: disc;">
+            <li>Hot stones - $25</li>
+            <li>Aromatherapy - $15</li>
+            <li>CBD Sports Cream - $35</li>
+            <li>Sinus & Headache Oil - $15</li>
+            <li>Scalp Treatment - $20</li>
+            <li>Beard Treatment - $30</li>
+            <li>Cupping - $25</li>
+            <li>Scraping - $45</li>
+            <li>Reflexology - $30</li>
+            <li>Theragun - $25</li>
+            <li>Red light therapy - $65</li>
+            <li>TMJ Release - $35</li>
+            <li>Body Scrub Sampler - $20</li>
+            <li>Guided meditation - $25</li>
+        </ul>
+    </div>
 
     <img src="images/ART-Provider-certs.PNG" alt="ART Provider" style="display: block; margin: 0 auto; width: 50%;">
 
@@ -76,6 +95,12 @@ $massages = json_decode($massagesJson, true);
     margin-bottom: 15px;
 }
 li {
+    margin-bottom: 10px;
+}
+.addon-heading {
+    color: #9f8958;
+    font-weight: bold;
+    font-size: 2.2em;
     margin-bottom: 10px;
 }
 </style>
