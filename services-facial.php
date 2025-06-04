@@ -1,147 +1,158 @@
 <?php
-    $head_title="Coastal Bliss | Facials";
+$head_title = "Coastal Bliss | Facials";
+require_once('parts/header/header.php');
+
+$page_title = "Services - Facials";
+require_once('parts/page-title.php');
+
+// Connect to database
+require_once "../database.php";
+$conn = getDatabaseConnection();
+
+// Query facial treatments ordered by section and price
+$facials_sql = "SELECT * FROM facials ORDER BY section ASC, price ASC";
+$result = mysqli_query($conn, $facials_sql);
+$facials = [];
+while ($row = mysqli_fetch_assoc($result)) {
+    $facials[$row['section']][] = $row;
+}
+
+// Query grouped facial add-ons
+$addons_sql = "SELECT 
+    fa.price,
+    GROUP_CONCAT(
+      CONCAT(
+         fa.id, '::',
+         fa.name, ': ', fa.description,
+         IF(fa.id = 6, 
+            CONCAT('||', (
+              SELECT GROUP_CONCAT(fo.option_text SEPARATOR '||') 
+              FROM facial_add_on_options fo 
+              WHERE fo.add_on_id = fa.id
+            )), 
+            ''
+         )
+      ) SEPARATOR '##'
+    ) AS addon_group
+FROM facial_add_ons fa
+GROUP BY fa.price
+ORDER BY fa.price ASC;
+";
+$addons_result = mysqli_query($conn, $addons_sql);
+$addons = array();
+while ($row = mysqli_fetch_assoc($addons_result)) {
+    $addons[] = $row;
+};
+
 ?>
-
-<?php require_once('parts/header/header.php'); ?>
-
-<?php
-    $page_title = "Services - Facials";
-    require_once('parts/page-title.php');
-?>
-
 <section id="services" class="py-5 container">
     <div class="container">
-
         <img src="images/Sorella_wordmark-gold.png" alt="Sorella Apothecary" class="img-center">
+        
+        <!-- Display Facials Dynamically by Section -->
+        <?php foreach ($facials as $section => $facialGroup): ?>
+            <div class="mb-5">
+                <?php if ($section == 'Basic Facials'): ?>
+                    <div class="mb-5 facials-section"></div>
+                    <h3 style="color: #9f8958">Everyday Glow</h3>
+                    <div class="mb-5 facials-section"></div>
+                <?php else: ?>
+                    <div class="mb-5 facials-section"></div>
+                    <h3 style="color: #9f8958">Extend the moment. Elevate the glow.</h3>
+                    <div class="mb-5 facials-section"></div>
+                <?php endif; ?>
 
-        <!-- Signature Facials -->
-        <div class="mb-5 facials-section">
-            <h3 class="facial-heading">Coastal Bliss Signature Facial</h3>
-            <h4 class="text-gray">$135 (60 min)</h4>
-            <p class="text-dark">Experience a luxurious, personalized facial that caters to your skin’s unique needs with the finest natural ingredients from Sorella Apothecary. Choose from these options:</p>
-            <ul class="text-dark">
-                <li><span class="text-gold">Radiant Renewal:</span> Deep hydration for a glowing complexion. (Dry/Dehydrated Skin)</li>
-                <li><span class="text-gold">Clear & Clarify:</span> Purify and balance for smooth, clear skin. (Oily/Acne-Prone Skin)</li>
-                <li><span class="text-gold">Calm & Restore:</span> Soothe and calm irritation for refreshed skin. (Sensitive Skin)</li>
-                <li><span class="text-gold">Glow & Balance:</span> Even oil and hydration for a radiant, balanced complexion. (Combination Skin)</li>
-            </ul>
-            <p>Each facial includes a relaxing massage, exfoliation, and customized mask for the ultimate glow.</p>
-        </div>
+                <?php foreach ($facialGroup as $facial): ?>
+                    <div class="mb-5">
+                        <h3 class="facial-heading"><?php echo htmlspecialchars($facial['name']); ?></h3>
+                        <h4 class="text-gray">$<?php echo number_format($facial['price'], 2); ?> (<?php echo htmlspecialchars($facial['duration']); ?>)</h4>
+                        <p class="text-dark"><?php echo nl2br(htmlspecialchars($facial['description'])); ?></p>
 
-        <!-- Individual Facials -->
-        <div class="mb-5">
-            <h3 class="facial-heading">Sun-Kissed Glow Facial</h3>
-            <h4 class="text-gray">$150 (60 min)</h4>
-            <p class="text-dark">Reveal radiant, dewy skin with this brightening, antioxidant-rich facial. Featuring a deep double cleanse, fruit enzyme exfoliation, extractions, facial massage, and a stimulating honey mask paired with a cooling bio cellulose treatment. Finished with hydrating serums, eye care, moisturizer, SPF, and a tinted lip hydrator for that perfect sun-kissed glow.</p>
-        </div>
+                        <?php
+                        // Retrieve options dynamically for this specific facial
+                        $stmt = $conn->prepare("SELECT option_title, option_description FROM facial_options WHERE facial_id = ?");
+                        $stmt->bind_param("i", $facial['id']);
+                        $stmt->execute();
+                        $result = $stmt->get_result();
+                        $options = $result->fetch_all(MYSQLI_ASSOC);
+                        $stmt->close();
 
-        <div class="mb-5">
-            <h3 class="facial-heading">Vitamin C Infusion Facial</h3>
-            <h4 class="text-gray">$150 (60 min)</h4>
-            <p class="text-dark">Restore your natural glow with this radiance-boosting treatment featuring cherry pepper exfoliation, peach & honey hydration, and a rejuvenating facial massage. Packed with botanical serums, nourishing masks, and finished with SPF and lip hydration for a luminous, refreshed complexion.</p>
-        </div>
-
-        <div class="mb-5">
-            <h3 class="facial-heading">Luminous Lift Facial</h3>
-            <h4 class="text-gray">$150 (60 min)</h4>
-            <p class="text-dark">Unveil your most luminous self with our Luminous Lift Facial, where gentle exfoliating acids work harmoniously with hydrating actives to brighten, firm, and refresh your complexion instantly. Whether you're preparing for a milestone celebration, an intimate dinner, or simply craving that extra touch of radiance – emerge with an effortless,
-                camera-ready glow that captures every spotlight. This signature treatment reveals your skin's natural luminosity while lifting your confidence to new heights.</p>
-        </div>
-
-        <div class="mb-5">
-            <h3 class="facial-heading">Fresh Face Teen Facial</h3>
-            <h4 class="text-gray">$150 (60 min)</h4>
-            <p class="text-dark">The Fresh Face Teen Facial begins with a gentle cleanse and mild exfoliation to remove impurities and dead skin cells. Then followed by a soothing mask to calm and nourish the skin, and finished with a lightweight moisturizer to maintain balanced hydration. Ideal for teens dealing with acne or wanting to maintain a healthy complexion,
-                this facial promotes good skincare habits while leaving their skin refreshed and glowing.</p>
-        </div>
-
-        <div class="mb-5">
-            <h3 class="facial-heading">Quench & Sculpt Facial</h3>
-            <h4 class="text-gray">$150 (60 min)</h4>
-            <p class="text-dark">Deeply nourish skin with a decadent deep dive into restorative moisture. Patented formulas boost moisture levels by 16%! Lymphatic drainage massages are performed with rose
-                                 quartz gua sha stones for contouring and smoothing of the face, neck and décolleté. Healthy aging is achieved through plumping nutrients, increased skin elasticity and promotion of collagen production, resulting in a vibrant complexion.</p>
-        </div>
-
-        <div class="mb-5">
-            <h3 class="facial-heading">Superfood Facial</h3>
-            <h4 class="text-gray">$150 (60 min)</h4>
-            <p class="text-dark">Treat your skin to the ultimate rejuvenation with our Superfood Facial. Packed with oats, chia seeds, and prebiotics, this luxurious facial cleanses, exfoliates, and hydrates for a soft, glowing complexion. Relax with a soothing massage, calming mask, and targeted eye care. Perfect for restoring radiance and calming stressed skin.</p>
-        </div>
-
-        <div class="mb-5">
-          <h3 class="facial-heading">Glow On the Go – Back Facial</h3>
-          <h4 class="text-gray">$150 (60 min)</h4>
-          <p class="text-dark">Show some love to the area you can’t reach! This treatment is designed to cleanse, exfoliate, and hydrate the skin on your back. It targets breakouts, dryness, and buildup in those hard-to-reach areas. Enjoy a relaxing massage across the shoulders and arms to melt away tension while your skin soaks in nourishing goodness.
-              Perfect for glowing skin and total relaxation.</p>
-        </div>
-
-        <div class="mb-5">
-          <h3 class="facial-heading">Gentleman’s Facial</h3>
-          <h4 class="text-gray">$150 (60 min)</h4>
-          <p class="text-dark">This results-driven facial is designed specifically for men’s skin. It includes a deep cleanse, exfoliation, extractions, and a purifying mask to target congestion and irritation. Finished with hydrating serums, eye treatment, and SPF protection—plus a relaxing facial, shoulder, and arm massage to ease stress.</p>
-        </div>
+                        // Display options
+                        if (!empty($options)) {
+                            echo "<ul>";
+                            foreach ($options as $option) {
+                                echo "<li>";
+                                echo "<span class='text-gold'>" . htmlspecialchars($option['option_title']) . "</span> ";
+                                echo "<span>" . htmlspecialchars($option['option_description']) . "</span>";
+                                echo "</li>";
+                            }
+                            echo "</ul>";
+                            echo "<p>Each facial includes a relaxing massage, exfoliation, and customized mask for the ultimate glow.</p>";
+                            echo "<div class='mb-5 facials-section'></div>";
+                        }
+                        ?>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        <?php endforeach; ?>
 
         <div class="mb-5 facials-section"></div>
-        <h3 style="color: #9f8958">Extend the moment. Elevate the glow.</h3>
-        <div class="mb-5 facials-section"></div>
-
-        <div class="mb-5">
-            <h3 class="facial-heading">DermaplanePro & Sorella Luxe Radiance Facial</h3>
-            <h4 class="text-gray">$200 (75 min)</h4>
-            <p class="text-dark">Indulge in the ultimate skin transformation with DermaplanePro’s precision exfoliation, paired with the rich, botanical power of Sorella. This luxurious facial includes a deep cleansing ritual, enzyme-infused exfoliation, expert dermaplaning, and a revitalizing Marine Mermaid Mask.
-                Enjoy a soothing facial massage and upper body relaxation, followed by potent serums and finishing treatments that leave your skin radiant, smooth, and glowing.</p>
-        </div>
-
-        <div class="mb-5">
-            <h3 class="facial-heading">Coastal Bliss Luxe Facial</h3>
-            <h4 class="text-gray">$250 (90 min)</h4>
-            <p class="text-dark">Unwind with this elevated facial ritual designed for those who crave more.It includes prolonged massage, and targeted eye and lip care to restore glow, calm the mind, and elevate your skincare experience.</p>
-        </div>
-
-        <div class="mb-5">
-            <h3 class="facial-heading">Coastal Bliss Ritual Facial</h3>
-            <h4 class="text-gray">$340 (120 min)</h4>
-            <p class="text-dark">The ultimate indulgence. Melt into two hours of pure relaxation with extended facial, neck, and décolleté massage, rose quartz gua sha, and soothing eye treatment. A full-body reset for luminous skin and total renewal.</p>
-        </div>
-
-        <div class="mb-5 facials-section"></div>
-
-        <!-- Add-Ons -->
+        
+        <!-- Display Facial Add-Ons Dynamically -->
         <div class="mb-5 facials-section">
             <h3 class="facial-heading">Enhance Any Facial</h3>
+            <?php foreach ($addons as $addon_row): ?>
+                <h4 class="addon-heading">$<?php echo number_format($addon_row['price'], 2); ?> Add-On</h4>
+                <ul class="text-dark">
+                    <?php 
+                    // Explode the concatenated add-on entries by the "##" separator.
+                    $add_on_items = explode('##', $addon_row['addon_group']);
+                    foreach ($add_on_items as $item): 
+                        // Split by "::" to get the id and the rest
+                        $temp = explode('::', $item, 2);
+                        $id = trim($temp[0]);
+                        $rest = isset($temp[1]) ? $temp[1] : '';
 
-            <h4 class="addon-heading">$15 Add-On</h4>
-            <ul class="text-dark">
-                <li><span class="text-gold">Gua Sha Facial Massage:</span> A traditional facial massage technique that sculpts, lifts, and promotes lymphatic drainage.</li>
-                <li><span class="text-gold">Eye-Luronic Eye Enhancement:</span> Choose this add-on to reduce puffiness and hydrate the delicate eye area.
-                Feel the cooling sensation of Glacier Ice Globes and the soothing effects of Eye-luronic Hydrating Patches as your skin is refreshed and rejuvenated for a brighter,
-                more youthful appearance.</li>      
-                <li><span class="text-gold">Hot Stone:</span> Warm stones are gently massaged over the face to promote circulation, relaxation, and deeper muscle release.</li>
-                <li><span class="text-gold">Soothing CBD & Peppermint Crème Massage:</span> Infused with CBD and peppermint, this calming massage relieves hand and arm tension and inflammation while deeply hydrating the skin.</li>
-                <li><span class="text-gold">Glow Wave Boost:</span> Give your skin an energizing jolt with our Glow Wave Boost. This high-frequency treatment stimulates circulation, kills acne-causing bacteria, and supports clear, glowing skin. Perfect for targeting breakouts, reducing inflammation, and minimizing pores. Add this boost to any facial for radiant, refreshed results.</li>
-                <li>
-                <span class="text-gold">Illuminé Red Light Boost:</span> Soak in the warm, restorative energy of red LED light. Ideal for calming sensitive skin, stimulating collagen, and reducing signs of aging. A perfect enhancement to any holistic skincare treatment.
-                <ul class="mt-2 mb-3">
-                    <li>• Stimulates collagen & elastin</li>
-                    <li>• Calms inflammation & redness</li>
-                    <li>• Improves skin tone & texture</li>
-                    <li>• Speeds healing after extractions or peels</li>
+                        // Now, check if sub-options are present using "||" separator.
+                        // We assume that if "||" is found, the first segment is the main text.
+                        $parts = explode('||', $rest);
+                        // The main add-on text (name: description) is in $parts[0]
+                        // Any additional parts become sub-options.
+                        $mainText = trim($parts[0]);
+                        $subOptions = array_slice($parts, 1);
+                    ?>
+                        <li>
+                            <!-- Here, we can style the main add-on text -->
+                            <span class="text-gold"><?php 
+                                // Extract the name by splitting at ": "
+                                $temp2 = explode(': ', $mainText, 2);
+                                echo htmlspecialchars(trim($temp2[0])); 
+                            ?></span>: 
+                            <span><?php 
+                                echo isset($temp2[1]) ? htmlspecialchars(trim($temp2[1])) : ''; 
+                            ?></span>
+                            
+                            <?php if (!empty($subOptions)): ?>
+                                <ul class="sub-option-list mt-2 mb-3">
+                                    <?php foreach ($subOptions as $option): ?>
+                                        <li><?php echo htmlspecialchars(trim($option)); ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
-                </li>
-            </ul>
-
-            <h4 class="addon-heading">$45 Add-On</h4>
-            <ul class="text-dark">
-                <li><span class="text-gold">Refined Radiance Dermaplaning:</span> Enhance any facial with the soothing benefits of gentle dermaplaning, designed to smooth skin texture, eliminate peach fuzz,
-                and boost the absorption of your skincare for a flawless, radiant finish.</li>
-            </ul>
+            <?php endforeach; ?>
         </div>
 
-        <img src="images/Feed-Your-Skin-Treat-Your-Soul-.png" alt="Sorella Apothecary" class="img-center">
 
+
+
+
+
+        <img src="images/Feed-Your-Skin-Treat-Your-Soul-.png" alt="Sorella Apothecary" class="img-center">
     </div>
 </section>
-
 <?php require_once('parts/footer/footer.php'); ?>
 
 <style>
@@ -150,6 +161,15 @@
     font-size: 1.2em;
     font-weight: bold;
 }
+.sub-option-list {
+    list-style-type: disc !important;
+    list-style: disc !important;
+    margin-left: 1.5rem;
+    /* Additional styling as desired */
+    font-style: normal;
+    color: #333;
+}
+
 .text-dark {
     color: #212936;
 }

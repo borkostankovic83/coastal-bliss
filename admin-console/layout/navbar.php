@@ -29,6 +29,9 @@
                     <a class="nav-link <?= $currentPage == 'edit-massages.php' ? 'active' : '' ?>" href="edit-massages.php">Edit Massages</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link <?= $currentPage == 'edit-facials.php' ? 'active' : '' ?>" href="edit-facials.php">Edit Facials</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="auth/logout.php">Logout</a>
                 </li>
             </ul>
