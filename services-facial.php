@@ -24,20 +24,23 @@ $addons_sql = "SELECT
       CONCAT(
          fa.id, '::',
          fa.name, ': ', fa.description,
-         IF(fa.id = 6, 
+         IF(
+           (SELECT COUNT(*) 
+            FROM facial_add_on_options fo 
+            WHERE fo.add_on_id = fa.id) > 0, 
             CONCAT('||', (
               SELECT GROUP_CONCAT(fo.option_text SEPARATOR '||') 
               FROM facial_add_on_options fo 
               WHERE fo.add_on_id = fa.id
-            )), 
+            )),
             ''
          )
       ) SEPARATOR '##'
     ) AS addon_group
 FROM facial_add_ons fa
 GROUP BY fa.price
-ORDER BY fa.price ASC;
-";
+ORDER BY fa.price ASC";
+
 $addons_result = mysqli_query($conn, $addons_sql);
 $addons = array();
 while ($row = mysqli_fetch_assoc($addons_result)) {
@@ -144,12 +147,6 @@ while ($row = mysqli_fetch_assoc($addons_result)) {
                 </ul>
             <?php endforeach; ?>
         </div>
-
-
-
-
-
-
         <img src="images/Feed-Your-Skin-Treat-Your-Soul-.png" alt="Sorella Apothecary" class="img-center">
     </div>
 </section>

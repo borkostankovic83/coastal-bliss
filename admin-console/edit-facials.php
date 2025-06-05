@@ -5,28 +5,46 @@ require_once('layout/header.php');  // Include the header
 require_once('layout/navbar.php');  // Include the navbar
 $conn = getDatabaseConnection();
 $head_title = "Admin Panel | Edit Facials";
-
-// ----------------------
-// AJAX Deletion Processing
-// ----------------------
+// ──────────────────────────────────────────────
+// Handle AJAX deletions first, before any redirects
+// ──────────────────────────────────────────────
 if (isset($_GET['ajax_action'])) {
-    header('Content-Type: application/json'); // Ensure JSON format
-    ob_clean(); // Clean any existing output before sending JSON response
-
+    header('Content-Type: application/json');
+    // Clean any buffered output to avoid extra content in response
+    if (ob_get_length()) {
+        ob_clean();
+    }
+    
     $response = ['status' => 'error', 'message' => 'Unknown action'];
-
-    if ($_GET['ajax_action'] === 'delete_facial') {
+    $action = $_GET['ajax_action'];  // Expected: 'delete_facial_option'
+    
+    if ($action === 'delete_facial_option') {
         $id = intval($_GET['id']);
-        $delete_sql = "DELETE FROM facials WHERE id='$id'";
-
+        // Delete from the facial_options table
+        $delete_sql = "DELETE FROM facial_options WHERE id='$id'";
         if (mysqli_query($conn, $delete_sql)) {
-            $response = ['status' => 'success', 'message' => 'Facial deleted', 'id' => $id];
+            $response = ['status' => 'success', 'message' => 'Option deleted', 'id' => $id];
         } else {
             $response = ['status' => 'error', 'message' => mysqli_error($conn)];
         }
     }
 
-    if ($_GET['ajax_action'] === 'delete_addon') {
+    if ($action === 'delete_facial') {
+        $id = intval($_GET['id']);
+        
+        // First, delete the associated options:
+        $delete_options_sql = "DELETE FROM facial_options WHERE facial_id='$id'";
+        mysqli_query($conn, $delete_options_sql);
+        
+        // Then delete the facial record:
+        $delete_facial_sql = "DELETE FROM facials WHERE id='$id'";
+        if (mysqli_query($conn, $delete_facial_sql)) {
+            $response = ['status' => 'success', 'message' => 'Facial and associated options deleted', 'id' => $id];
+        } else {
+            $response = ['status' => 'error', 'message' => mysqli_error($conn)];
+        }
+    }
+    if ($action === 'delete_addon') {
         $id = intval($_GET['id']);
         $delete_sql = "DELETE FROM facial_add_ons WHERE id='$id'";
 
@@ -36,32 +54,96 @@ if (isset($_GET['ajax_action'])) {
             $response = ['status' => 'error', 'message' => mysqli_error($conn)];
         }
     }
-
+    if ($action === 'delete_addon_option') {
+        $id = intval($_GET['id']);
+        $delete_sql = "DELETE FROM facial_add_on_options WHERE id='$id'";
+        if (mysqli_query($conn, $delete_sql)) {
+            $response = ['status' => 'success', 'message' => 'Add‑on option deleted', 'id' => $id];
+        } else {
+            $response = ['status' => 'error', 'message' => mysqli_error($conn)];
+        }
+    }
+    
     echo json_encode($response);
     exit;
 }
-
-
 // ==================
-// Process Facial Updates
+// Process Facial Updates (incl. Options)
 // ==================
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_facials'])) {
-    foreach ($_POST['facials'] as $id => $data) {
+
+    // 1) UPDATE each facial’s main fields
+    foreach ($_POST['facials'] as $facialId => $data) {
+        $facialId   = (int) $facialId;
         $name        = mysqli_real_escape_string($conn, $data['name']);
         $price       = mysqli_real_escape_string($conn, $data['price']);
         $duration    = mysqli_real_escape_string($conn, $data['duration']);
         $description = mysqli_real_escape_string($conn, $data['description']);
         $section     = mysqli_real_escape_string($conn, $data['section']);
         
-        $update_sql = "UPDATE facials 
-                       SET name='$name', price='$price', duration='$duration', 
-                           description='$description', section='$section'
-                       WHERE id='$id'";
+        $update_sql = "
+            UPDATE facials 
+               SET name        = '$name',
+                   price       = '$price',
+                   duration    = '$duration',
+                   description = '$description',
+                   section     = '$section'
+             WHERE id = $facialId
+        ";
         mysqli_query($conn, $update_sql);
     }
+
+    // 2) If the form included option updates, process them
+    if (isset($_POST['update_facial_options'])) {
+
+        // 2a) UPDATE all EXISTING options
+        if (isset($_POST['facial_options_existing']) && is_array($_POST['facial_options_existing'])) {
+            foreach ($_POST['facial_options_existing'] as $optionId => $optionData) {
+                $optionId = (int) $optionId;
+                $title    = mysqli_real_escape_string($conn, trim($optionData['option_title']));
+                $desc     = mysqli_real_escape_string($conn, trim($optionData['option_description']));
+
+                // Only update if title is not empty (you could optionally also check desc)
+                if ($title !== '') {
+                    $stmt = $conn->prepare("
+                        UPDATE facial_options
+                           SET option_title       = ?,
+                               option_description = ?
+                         WHERE id = ?
+                    ");
+                    $stmt->bind_param("ssi", $title, $desc, $optionId);
+                    $stmt->execute();
+                    $stmt->close();
+                }
+            }
+        }
+
+        // 2b) INSERT any NEW option per facial
+        if (isset($_POST['facial_options_new']) && is_array($_POST['facial_options_new'])) {
+            foreach ($_POST['facial_options_new'] as $facialId => $newOption) {
+                $facialId = (int) $facialId;
+                $title    = mysqli_real_escape_string($conn, trim($newOption['title']));
+                $desc     = mysqli_real_escape_string($conn, trim($newOption['description']));
+
+                // Only insert if the “New Option Title” isn’t blank
+                if ($title !== '') {
+                    $stmt = $conn->prepare("
+                        INSERT INTO facial_options (facial_id, option_title, option_description)
+                        VALUES (?, ?, ?)
+                    ");
+                    $stmt->bind_param("iss", $facialId, $title, $desc);
+                    $stmt->execute();
+                    $stmt->close();
+                }
+            }
+        }
+    }
+
+    // 3) Redirect back (so the page reloads with updated data)
     header("Location: edit-facials.php");
     exit;
 }
+
 
 // ==================
 // Process New Facial Submission
@@ -79,6 +161,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_facial'])) {
     header("Location: edit-facials.php");
     exit;
 }
+// Save EXISTING options
+if (isset($_POST['facial_options_existing'])) {
+    foreach ($_POST['facial_options_existing'] as $optionId => $optionData) {
+        $optionId = (int) $optionId;
+        $title = trim($optionData['option_title']);
+        $desc = trim($optionData['option_description']);
+
+        // Only update if title is not empty
+        if ($title !== '') {
+            $stmt = $conn->prepare("UPDATE facial_options SET option_title = ?, option_description = ? WHERE id = ?");
+            $stmt->bind_param("ssi", $title, $desc, $optionId);
+            $stmt->execute();
+            $stmt->close();
+        }
+    }
+}
+
+// Save NEW options
+if (isset($_POST['facial_options_new'])) {
+    foreach ($_POST['facial_options_new'] as $facialId => $newOption) {
+        $facialId = (int) $facialId;
+        $title = trim($newOption['title']);
+        $desc = trim($newOption['description']);
+
+        if ($title !== '') {
+            $stmt = $conn->prepare("INSERT INTO facial_options (facial_id, option_title, option_description) VALUES (?, ?, ?)");
+            $stmt->bind_param("iss", $facialId, $title, $desc);
+            $stmt->execute();
+            $stmt->close();
+        }
+    }
+}
+
+
 
 // ==================
 // Process Add-On Updates / New Add-On Insertion
@@ -108,9 +224,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_addons'])) {
             mysqli_query($conn, $sql);
         }
     }
+    if (isset($_POST['update_add_on_options'])) {
+    // Update existing add-on options:
+        foreach ($_POST['add_on_options_existing'] as $option_id => $data) {
+            $option_id = (int) $option_id;
+            $description = mysqli_real_escape_string($conn, trim($data['description']));
+            if ($description !== '') {
+                $stmt = $conn->prepare("UPDATE facial_add_on_options SET option_text = ? WHERE id = ?");
+                $stmt->bind_param("si", $description, $option_id);
+                $stmt->execute();
+                $stmt->close();
+            }
+        }
+        // Insert new add-on options:
+        if (isset($_POST['facial_add_on_options_new']) && is_array($_POST['facial_add_on_options_new'])) {
+            foreach ($_POST['facial_add_on_options_new'] as $addon_id => $newOption) {
+                $addon_id = (int) $addon_id;
+                $option_text = mysqli_real_escape_string($conn, trim($newOption['option_text']));
+                if ($option_text !== '') {
+                    $stmt = $conn->prepare("INSERT INTO facial_add_on_options (add_on_id, option_text) VALUES (?, ?)");
+                    $stmt->bind_param("is", $addon_id, $option_text);
+                    $stmt->execute();
+                    $stmt->close();
+                }
+            }
+        }
+
+    }
     header("Location: edit-facials.php");
     exit;
 }
+// ==================
+// Process Add-On Updates / New Add-On Insertion
+// ==================
+
+
+
 
 // ==================
 // Retrieve Data
@@ -123,14 +272,30 @@ $facials = [];
 while ($row = mysqli_fetch_assoc($result)) {
     $facials[] = $row;
 }
+// Retrieve facial options grouped by facial_id
+$facial_options = [];
+$options_sql = "SELECT * FROM facial_options ORDER BY facial_id ASC, id ASC";
+$result = mysqli_query($conn, $options_sql);
+while ($row = mysqli_fetch_assoc($result)) {
+    $facial_options[$row['facial_id']][] = $row;
+}
 
-// Get all stand-alone add-ons ordered by price ascending.
-$addons = [];
-$addons_sql = "SELECT * FROM facial_add_ons ORDER BY id ASC";
+// Retrieve facial add‑ons (stand‑alone add‑ons) ordered by price (or any order you need)
+$addons_sql = "SELECT * FROM facial_add_ons ORDER BY price ASC";
 $result = mysqli_query($conn, $addons_sql);
+$addons = [];
 while ($row = mysqli_fetch_assoc($result)) {
     $addons[] = $row;
 }
+
+// Retrieve add‑on options grouped by add_on_id
+$add_on_options = [];
+$options_sql = "SELECT * FROM facial_add_on_options ORDER BY add_on_id ASC, id ASC";
+$result = mysqli_query($conn, $options_sql);
+while ($row = mysqli_fetch_assoc($result)) {
+    $add_on_options[$row['add_on_id']][] = $row;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -156,7 +321,8 @@ while ($row = mysqli_fetch_assoc($result)) {
   <h2>Edit Facials</h2>
   <form method="post" action="edit-facials.php">
     <input type="hidden" name="update_facials" value="1">
-    <table>
+    <input type="hidden" name="update_facial_options" value="1">
+    <table class="table table-striped custom-striped">
       <thead>
         <tr>
           <th>ID</th>
@@ -191,13 +357,59 @@ while ($row = mysqli_fetch_assoc($result)) {
               </select>
             </td>
             <td class="action-links">
-              <button class="delete-facial btn btn-outline-danger" data-id="<?php echo $facial['id']; ?>">Delete Facial</button>
+              <button class="delete-facial btn btn-danger" data-id="<?php echo $facial['id']; ?>">Delete Facial</button>
+            </td>
+          </tr>
+          <!-- Display Facial Options for this facial -->
+          <tr class="options-table-row">
+            <td colspan="7">
+              <div class="options-header">Options for <?php echo htmlspecialchars($facial['name']); ?></div>
+              <table class="options-table">
+                <thead>
+                  <tr>
+                    <th>Option ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <?php 
+                  $options = isset($facial_options[$facial['id']]) ? $facial_options[$facial['id']] : [];
+                  foreach ($options as $option):
+                ?>
+                  <tr id="facial-option-row-<?php echo $option['id']; ?>">
+                    <td><?php echo htmlspecialchars($option['id']); ?></td>
+                    <td>
+                      <input type="text" name="facial_options_existing[<?php echo $option['id']; ?>][option_title]" value="<?php echo htmlspecialchars($option['option_title']); ?>">
+                    </td>
+                    <td>
+                      <textarea name="facial_options_existing[<?php echo $option['id']; ?>][option_description]" rows="2"><?php echo htmlspecialchars($option['option_description']); ?></textarea>
+                    </td>
+                    <td>
+                    <button type="button" class="delete-facial-option btn btn-outline-danger" data-id="<?php echo $option['id']; ?>">Delete Option</button>
+                    </td>
+                  </tr>
+                <?php endforeach; ?>
+               <!-- New Option Row for this facial -->
+                <tr class="new-option">
+                  <td>New</td>
+                  <td>
+                    <input type="text" name="facial_options_new[<?php echo $facial['id']; ?>][title]" placeholder="New Option Title">
+                  </td>
+                  <td>
+                    <textarea name="facial_options_new[<?php echo $facial['id']; ?>][description]" rows="2" placeholder="New Option Description"></textarea>
+                  </td>
+                  <td></td>
+                </tr>
+                </tbody>
+              </table>
             </td>
           </tr>
         <?php endforeach; ?>
       </tbody>
     </table>
-    <button type="submit"  class="btn btn-outline-success" >Save Facial Changes</button>
+    <button type="submit" class="btn btn-outline-success" >Save Facial Changes</button>
   </form>
   
   <!-- 2. Add New Facial -->
@@ -205,6 +417,7 @@ while ($row = mysqli_fetch_assoc($result)) {
   <h2>Add New Facial</h2>
   <form method="post" action="edit-facials.php">
     <input type="hidden" name="new_facial" value="1">
+    <input type="hidden" name="update_facial_options" value="1">
     <table>
       <tr>
         <td><label for="new_name">Facial Name:</label></td>
@@ -239,11 +452,12 @@ while ($row = mysqli_fetch_assoc($result)) {
   
   <hr>
   
-  <!-- 3. Edit/Add Stand-Alone Add‑Ons -->
-  <h2>Edit/Add Stand-Alone Add‑Ons</h2>
+    <h2>Edit/Add Stand-Alone Add‑Ons and Their Options</h2>
   <form method="post" action="edit-facials.php">
+    <!-- This hidden input is used by your processing code for add‑on updates -->
     <input type="hidden" name="update_addons" value="1">
-    <table>
+    <input type="hidden" name="update_add_on_options" value="1">
+    <table class="table table-striped custom-striped">
       <thead>
         <tr>
           <th>Add‑On ID</th>
@@ -254,58 +468,156 @@ while ($row = mysqli_fetch_assoc($result)) {
         </tr>
       </thead>
       <tbody>
-        <?php foreach($addons as $addon): ?>
-        <tr id="addon-row-<?php echo $addon['id']; ?>">
+        <?php foreach($addons as $addon): 
+                $addon_id = $addon['id'];
+        ?>
+        <!-- Add-On Row -->
+        <tr id="addon-row-<?php echo $addon_id; ?>">
           <td><?php echo htmlspecialchars($addon['id']); ?></td>
           <td>
-            <input type="text" name="addons[<?php echo $addon['id']; ?>][name]" value="<?php echo htmlspecialchars($addon['name']); ?>">
+            <input type="text" name="addons[<?php echo $addon_id; ?>][name]" value="<?php echo htmlspecialchars($addon['name']); ?>">
           </td>
           <td>
-            <textarea name="addons[<?php echo $addon['id']; ?>][description]" rows="3"><?php echo htmlspecialchars($addon['description']); ?></textarea>
+            <textarea name="addons[<?php echo $addon_id; ?>][description]" rows="3"><?php echo htmlspecialchars($addon['description']); ?></textarea>
           </td>
           <td>
-            <input type="text" name="addons[<?php echo $addon['id']; ?>][price]" value="<?php echo htmlspecialchars($addon['price']); ?>">
+            <input type="text" name="addons[<?php echo $addon_id; ?>][price]" value="<?php echo htmlspecialchars($addon['price']); ?>">
           </td>
           <td>
-            <button class="delete-addon btn btn-outline-danger" data-id="<?php echo $addon['id']; ?>">Delete Add On</button>
+            <button type="button" class="delete-addon btn btn-danger" data-id="<?php echo $addon_id; ?>">Delete Add On</button>
           </td>
         </tr>
-        <?php endforeach; ?>
-        <!-- New add‑on row -->
+        <!-- Nested Row for Add-On Options -->
+        <?php if(isset($add_on_options[$addon_id]) && !empty($add_on_options[$addon_id])): ?>
         <tr>
-          <td>New</td>
-          <td><input type="text" name="addons[new][name]" placeholder="New Add‑On Name"></td>
-          <td><textarea name="addons[new][description]" rows="3" placeholder="New Add‑On Description"></textarea></td>
-          <td><input type="text" name="addons[new][price]" placeholder="Price"></td>
+          <td colspan="5">
+            <h5>Options for Add‑On: <?php echo htmlspecialchars($addon['name']); ?></h5>
+            <table class="nested-table">
+              <thead>
+                <tr>
+                  <th>Option ID</th>
+                  <th>Description</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach($add_on_options[$addon_id] as $option): ?>
+                <tr id="addon-option-row-<?php echo $option['id']; ?>">
+                  <td><?php echo htmlspecialchars($option['id']); ?></td>
+                  <td>
+                    <textarea name="add_on_options_existing[<?php echo $option['id']; ?>][description]" rows="2"><?php echo htmlspecialchars($option['option_text']); ?></textarea>
+                  </td>
+                  <td>
+                    <button class="delete-addon-option btn btn-outline-danger" data-id="<?php echo $option['id']; ?>">Delete option</button>
+                  </td>
+                </tr>
+                <?php endforeach; ?>
+                <!-- New Option Row for This Add-On -->
+                <tr class="new-option">
+                  <td>New option</td>        
+                  <td>              
+                    <input type="text" name="facial_add_on_options_new[<?php echo $addon_id; ?>][option_text]" placeholder="New Option Text">
+                  </td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <?php else: ?>
+        <!-- If no options exist for this add-on, still show a row to add a new option -->
+        <tr>
+          <td colspan="5">
+            <h5>Options for Add‑On: <?php echo htmlspecialchars($addon['name']); ?></h5>
+            <table class="nested-table">
+              <tbody>
+                <tr class="new-option">
+                  <td>New option</td>
+                  <td>
+                    <input type="text" name="facial_add_on_options_new[<?php echo $addon_id; ?>][option_text]" placeholder="New Option Text">
+                  </td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <?php endif; ?>
+        <?php endforeach; ?>
+        <!-- New Add-On Row -->
+        <tr class="new-option">
+          <td>New Facial Add-on</td>
+          <td>
+            <input type="text" name="addons[new][name]" placeholder="New Add-On Name">
+          </td>
+          <td>
+            <textarea name="addons[new][description]" rows="3" placeholder="New Add-On Description"></textarea>
+          </td>
+          <td>
+            <input type="text" name="addons[new][price]" placeholder="New Add-On Price">
+          </td>
           <td></td>
         </tr>
       </tbody>
     </table>
-    <button type="submit"  class="btn btn-outline-success">Save Add‑On Changes</button>
+    <button type="submit" class="btn btn-outline-success">Save Add‑On Changes</button>
   </form>
   
   <!-- JavaScript for AJAX deletion -->
   <script>
-    // Delete Facial via AJAX
-    document.querySelectorAll('.delete-facial').forEach(function(link) {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        var id = this.getAttribute('data-id');
-        if (!confirm('Are you sure you want to delete this facial?')) return;
-        fetch('edit-facials.php?ajax_action=delete_facial&id=' + id)
-          .then(response => response.json())
-          .then(data => {
-            if (data.status === 'success') {
-              var row = document.getElementById('facial-row-' + id);
-              if (row) row.remove();
-            } else {
-              alert('Deletion failed: ' + data.message);
-            }
-          })
-          .catch(error => alert('Error: ' + error));
-      });
+    // Attach AJAX deletion for add‑on options
+    // JavaScript for AJAX deletion (add this to your existing script)
+    document.querySelectorAll('.delete-addon-option').forEach(function(button) {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            var id = this.getAttribute('data-id');
+            if (!confirm('Are you sure you want to delete this add‑on option?')) return;
+            
+            fetch('edit-facials.php?ajax_action=delete_addon_option&id=' + id)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        // Remove the option row from the table
+                        var row = document.getElementById('addon-option-row-' + id);
+                        if (row) row.remove();
+                    } else {
+                        alert('Deletion failed: ' + data.message);
+                    }
+                })
+                .catch(error => alert('Error: ' + error));
+        });
     });
-    
+
+    // Delete Facial via AJAX (including its nested options row)
+    document.querySelectorAll('.delete-facial').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var id = this.getAttribute('data-id');
+            if (!confirm('Are you sure you want to delete this facial?')) return;
+            fetch('edit-facials.php?ajax_action=delete_facial&id=' + id)
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                // Remove the facial row
+                var facialRow = document.getElementById('facial-row-' + id);
+                if (facialRow) {
+                    // Option 1: If you know the next row is the options container,
+                    // remove it if it has the designated class.
+                    var nextRow = facialRow.nextElementSibling;
+                    if (nextRow && nextRow.classList.contains('options-table-row')) {
+                    nextRow.remove();
+                    }
+                    // Finally, remove the main facial row.
+                    facialRow.remove();
+                }
+                } else {
+                alert('Deletion failed: ' + data.message);
+                }
+            })
+            .catch(error => alert('Error: ' + error));
+        });
+    });
+
     // Delete Add‑On via AJAX
     document.querySelectorAll('.delete-addon').forEach(function(link) {
       link.addEventListener('click', function(e) {
@@ -326,27 +638,33 @@ while ($row = mysqli_fetch_assoc($result)) {
       });
     });
 
-    function deleteItem(type, id) {
-    if (!confirm(`Are you sure you want to delete this ${type}?`)) return;
+// AJAX deletion for facial options
+document.querySelectorAll('.delete-facial-option').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    var id = this.getAttribute('data-id');
+    if (!confirm('Are you sure you want to delete this option?')) return;
+    fetch('edit-facials.php?ajax_action=delete_facial_option&id=' + id)
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === 'success') {
+          var row = document.getElementById('facial-option-row-' + id);
+          if (row) row.remove();
+        } else {
+          alert('Deletion failed: ' + data.message);
+        }
+      })
+      .catch(error => alert('Error: ' + error));
+  });
+});
 
-    fetch(`admin-edit-facials.php?ajax_action=delete_${type}&id=` + id)
-        .then(response => response.text()) // Read response as text first
-        .then(text => {
-            try {
-                const data = JSON.parse(text); // Try parsing JSON
-                if (data.status === 'success') {
-                    document.getElementById(`${type}-row-${id}`).remove();
-                } else {
-                    alert('Deletion failed: ' + data.message);
-                }
-            } catch (error) {
-                console.error('Invalid JSON response:', text);
-                alert('Error: Server returned invalid response.');
-            }
-        })
-        .catch(error => alert('Error: ' + error));
-}
 
-  </script>
+</script>
 </body>
 </html>
+
+<style>
+    .custom-striped {
+  --bs-table-striped-bg: #e0afff; /* light yellow */
+}
+</style>
