@@ -489,7 +489,7 @@ while ($row = mysqli_fetch_assoc($result)) {
         </tr>
         <!-- Nested Row for Add-On Options -->
         <?php if(isset($add_on_options[$addon_id]) && !empty($add_on_options[$addon_id])): ?>
-        <tr>
+        <tr class="options-table-row">
           <td colspan="5">
             <h5>Options for Add‑On: <?php echo htmlspecialchars($addon['name']); ?></h5>
             <table class="nested-table">
@@ -601,7 +601,6 @@ while ($row = mysqli_fetch_assoc($result)) {
                 // Remove the facial row
                 var facialRow = document.getElementById('facial-row-' + id);
                 if (facialRow) {
-                    // Option 1: If you know the next row is the options container,
                     // remove it if it has the designated class.
                     var nextRow = facialRow.nextElementSibling;
                     if (nextRow && nextRow.classList.contains('options-table-row')) {
@@ -618,24 +617,32 @@ while ($row = mysqli_fetch_assoc($result)) {
         });
     });
 
-    // Delete Add‑On via AJAX
+    // Delete Add‑On via AJAX, including its nested options row if present
     document.querySelectorAll('.delete-addon').forEach(function(link) {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        var id = this.getAttribute('data-id');
-        if (!confirm('Are you sure you want to delete this add‑on?')) return;
-        fetch('edit-facials.php?ajax_action=delete_addon&id=' + id)
-          .then(response => response.json())
-          .then(data => {
-            if (data.status === 'success') {
-              var row = document.getElementById('addon-row-' + id);
-              if (row) row.remove();
-            } else {
-              alert('Deletion failed: ' + data.message);
-            }
-          })
-          .catch(error => alert('Error: ' + error));
-      });
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var id = this.getAttribute('data-id');
+            if (!confirm('Are you sure you want to delete this add‑on?')) return;
+            fetch('edit-facials.php?ajax_action=delete_addon&id=' + id)
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                // Remove the main add-on row
+                var row = document.getElementById('addon-row-' + id);
+                if (row) {
+                    // Check if the immediately following row is the options row and remove it, too
+                    var nextRow = row.nextElementSibling;
+                    if (nextRow && nextRow.classList.contains('options-table-row')) {
+                    nextRow.remove();
+                    }
+                    row.remove();
+                }
+                } else {
+                alert('Deletion failed: ' + data.message);
+                }
+            })
+            .catch(error => alert('Error: ' + error));
+        });
     });
 
 // AJAX deletion for facial options
