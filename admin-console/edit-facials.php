@@ -674,4 +674,13 @@ document.querySelectorAll('.delete-facial-option').forEach(function(link) {
     .custom-striped {
   --bs-table-striped-bg: #e0afff; /* light yellow */
 }
+
+@media (max-width: 768px) {
+  .table, .table-striped, .custom-striped, table, .nested-table, .options-table {
+    display: block;
+    overflow-x: auto;
+    width: 100vw;
+    max-width: 100vw;
+  }
+}
 </style>

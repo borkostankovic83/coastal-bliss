@@ -32,6 +32,9 @@
                     <a class="nav-link <?= $currentPage == 'edit-facials.php' ? 'active' : '' ?>" href="edit-facials.php">Edit Facials</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link <?= $currentPage == 'edit-waxing.php' ? 'active' : '' ?>" href="edit-waxing.php">Edit Waxing</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="auth/logout.php">Logout</a>
                 </li>
             </ul>
