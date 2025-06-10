@@ -1,121 +1,79 @@
 <?php
-    $head_title="Coastal Bliss | Nails";
+$head_title="Coastal Bliss | Nails";
+require_once('parts/header/header.php');
+$page_title = "Services - Nails";
+require_once('parts/page-title.php');
+require_once "../database.php";
+$conn = getDatabaseConnection();
+
+// Fetch sections
+$sections = [];
+$sec_sql = "SELECT * FROM nail_service_sections ORDER BY sort_order, name";
+$sec_result = mysqli_query($conn, $sec_sql);
+while ($sec = mysqli_fetch_assoc($sec_result)) {
+    $sections[$sec['id']] = $sec;
+    $sections[$sec['id']]['services'] = [];
+}
+
+// Fetch services and group by section_id
+$svc_sql = "SELECT * FROM nail_services ORDER BY section_id, sort_order";
+$svc_result = mysqli_query($conn, $svc_sql);
+while ($svc = mysqli_fetch_assoc($svc_result)) {
+    if (isset($sections[$svc['section_id']])) {
+        $sections[$svc['section_id']]['services'][] = $svc;
+    }
+}
 ?>
-
-<?php require_once('parts/header/header.php'); ?>
-
-<?php
-    $page_title = "Services - Nails";
-    require_once('parts/page-title.php');
-?>
-
-<?php
- // Manicure Services Section
- $manicure_services = [
-     [
-         "title" => "Manicure Services",
-         "price" => "",
-         "description" => "Treat your hands to rejuvenating nail care with our signature manicures, designed to hydrate, restore, and beautify your hands.",
-         "services" => [
-             ["$50 (45 min)","The Coastal Bliss Manicure", "A timeless treatment for beautifully groomed hands. Includes nail shaping, a warm hand soak, cuticle care, sugar scrub, warm towel wrap, and a deeply soothing hand massage."],
-             ["$60 (60 min)","The Luxe Gel Manicure", "A flawless, chip-resistant finish with expert nail shaping, detailed cuticle care, and strengthening gel polish for a glossy, long-lasting effect."],
-             ["$70 (90 min)","European Precision Gel Manicure", "A refined manicure using European e-file technique for meticulous cuticle care and a polished, long-lasting gel finish."],
-         ]
-     ]
- ];
-
- // Pedicure Services Section
- $pedicure_services = [
-     [
-         "title" => "Pedicure Services",
-         "price" => "",
-         "description" => "Pamper your feet with luxurious pedicures designed to refresh, nourish, and provide lasting beauty.",
-         "services" => [
-             ["$85 (60 min)","The Coastal Bliss Pedicure", "A rejuvenating pedicure with a warm foot soak, nail and cuticle care, exfoliation, relaxing foot massage, and polish application."],
-             ["$95 (60 min)","The Luxe Gel Pedicure", "A refined, long-lasting pedicure with a gel polish application for a flawless, chip-free finish and a hydrating foot massage."],
-         ]
-     ]
- ];
-
- // Customize Your Experience Section
- $custom_services = [
-     [
-         "title" => "Customize Your Experience for Extra Luxury",
-         "services" => [
-             ["Extended Massage", "$25 – Enjoy an additional 15 minutes of therapeutic massage on hands, feet, or both."],
-             ["Hot Stone Massage", "$15 – Experience deep relaxation with warm basalt stones during your hand or foot massage."],
-             ["CBD & Peppermint Crème", "$15 – A soothing, anti-inflammatory treatment to hydrate and calm tired hands and feet."],
-             ["Hydrating Paraffin Treatment", "$20 – A warm, ultra-moisturizing infusion for silky-smooth hands or feet."],
-             ["Gel Polish Removal", "Complimentary for services done at Coastal Bliss Wellness / $15 for outside gel removal."],
-             ["French Polish", "$20 - Complete your manicure or pedicure with a classic French polish for a timeless, elegant finish. Perfect for any occasion!"],
-         ]
-     ]
- ];
- ?>
-
- <section id="services" class="py-5" style="color: #222; background-color: #FAFAFA;">
-     <div class="container">
-
-         <!-- Manicure Services Section -->
-         <?php foreach ($manicure_services as $service) : ?>
-             <div class="mb-5" style="padding-bottom: 20px; border-bottom: 2px solid #9f8958;">
-                 <h3 style="color:#212936; font-weight: bold; font-size: 2.2em; margin-bottom: 10px;"> <?= $service["title"] ?> </h3>
-                 <?php if (isset($service["price"])) : ?>
-                     <h4 style="color: #666; font-weight: bold; font-size: 1.2em; margin-bottom: 10px;"> <?= $service["price"] ?> </h4>
-                 <?php endif; ?>
-                 <p style="color: #333; font-size: 1.1em; line-height: 1.5; margin-bottom: 15px;"> <?= $service["description"] ?? "" ?> </p>
-                 <?php if (isset($service["services"])) : ?>
-                     <ul style="color: #555; padding-left: 20px; line-height: 1.6;">
-                         <?php foreach ($service["services"] as $subService) : ?>
-                            <h4 class="text-gray"><?= $subService[0] ?></h4>
-                            <li style="margin-bottom: 10px;"><strong style="color: #9f8958; font-size: 1.2em; font-weight: bold;"> <?= $subService[1] ?>:</strong> <?= $subService[2] ?></li>
-                         <?php endforeach; ?>
-                     </ul>
-                 <?php endif; ?>
-             </div>
-         <?php endforeach; ?>
-
-         <!-- Pedicure Services Section -->
-         <?php foreach ($pedicure_services as $service) : ?>
-             <div class="mb-5" style="padding-bottom: 20px; border-bottom: 2px solid #9f8958;">
-                 <h3 style="color:#212936; font-weight: bold; font-size: 2.2em; margin-bottom: 10px;"> <?= $service["title"] ?> </h3>
-                 <?php if (isset($service["price"])) : ?>
-                     <h4 style="color: #666; font-weight: bold; font-size: 1.2em; margin-bottom: 10px;"> <?= $service["price"] ?> </h4>
-                 <?php endif; ?>
-                 <p style="color: #333; font-size: 1.1em; line-height: 1.5; margin-bottom: 15px;"> <?= $service["description"] ?? "" ?> </p>
-                 <?php if (isset($service["services"])) : ?>
-                     <ul style="color: #555; padding-left: 20px; line-height: 1.6;">
-                         <?php foreach ($service["services"] as $subService) : ?>
-                            <h4 class="text-gray"><?= $subService[0] ?></h4>
-                            <li style="margin-bottom: 10px;"><strong style="color: #9f8958; font-size: 1.2em; font-weight: bold;"> <?= $subService[1] ?>:</strong> <?= $subService[2] ?></li>
-                         <?php endforeach; ?>
-                     </ul>
-                 <?php endif; ?>
-             </div>
-         <?php endforeach; ?>
-
-         <!-- Customize Your Experience Section -->
-         <?php foreach ($custom_services as $service) : ?>
-             <div class="mb-5" style="padding-bottom: 20px; border-bottom: 2px solid #9f8958;">
-                 <h3 style="color:#212936; font-weight: bold; font-size: 2.2em; margin-bottom: 10px;"> <?= $service["title"] ?> </h3>
-                 <?php if (isset($service["services"])) : ?>
-                     <ul style="color: #555; padding-left: 20px; line-height: 1.6;">
-                         <?php foreach ($service["services"] as $subService) : ?>
-                             <li style="margin-bottom: 10px;"><strong style="color: #9f8958; font-size: 1.2em; font-weight: bold;"> <?= $subService[0] ?>:</strong> <?= $subService[1] ?></li>
-                         <?php endforeach; ?>
-                     </ul>
-                 <?php endif; ?>
-             </div>
-         <?php endforeach; ?>
-     </div>
- </section>
-
-<?php require_once('parts/footer/footer.php'); ?>
+<section id="services" class="py-5" style="color: #222; background-color: #FAFAFA;">
+    <div class="container">
+        <?php foreach ($sections as $section): ?>
+            <?php
+                $is_addons = !empty($section['is_addons']) && $section['is_addons'] == 1;
+            ?>
+            <div class="mb-5" style="padding-bottom: 20px; border-bottom: 2px solid #9f8958;">
+                <h3 style="color:#212936; font-weight: bold; font-size: 2.2em; margin-bottom: 10px;">
+                    <?= htmlspecialchars($section['name']) ?>
+                </h3>
+                <?php if (!empty($section['description'])): ?>
+                    <p style="color: #333; font-size: 1.1em; line-height: 1.5; margin-bottom: 15px;">
+                        <?= nl2br(htmlspecialchars($section['description'])) ?>
+                    </p>
+                <?php endif; ?>
+                <?php if (!empty($section['services'])): ?>
+                    <ul style="color: #555; padding-left: 20px; line-height: 1.6;">
+                        <?php foreach ($section['services'] as $service): ?>
+                            <?php if (!$is_addons): ?>
+                                <li style="margin-bottom: 10px;">
+                                    <h4 class="text-gray"><?= $service['price'] ? htmlspecialchars($service['price']) : '' ?></h4>
+                                    <strong style="color: #9f8958; font-size: 1.2em; font-weight: bold;">
+                                        <?= htmlspecialchars($service['title']) ?>
+                                    </strong>
+                                    <?= htmlspecialchars($service['description']) ?>
+                                </li>
+                            <?php else: ?>
+                                <li style="margin-bottom: 10px;">
+                                    <span style="color: #9f8958; font-weight: bold; font-size: 1.2em;">
+                                        <?= htmlspecialchars($service['title']) .': '?>
+                                    </span>
+                                    <?php if ($service['price']): ?>
+                                        <span><?= htmlspecialchars($service['price']) .' – ' ?></span>
+                                    <?php endif; ?>
+                                    <span style="color:#555;"><?= htmlspecialchars($service['description']) ?></span>
+                                </li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</section>
 <style>
-    .text-gray {
+.text-gray {
     color: #666;
     font-weight: bold;
     font-size: 1.2em;
     margin-top: 20px;
-    }
+}
 </style>
+<?php require_once('parts/footer/footer.php'); ?>
