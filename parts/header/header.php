@@ -17,10 +17,7 @@
                     </div>
 
                     <div class="top-right">
-                        <ul class="list-style-two">
-                            <li>Wed to Mon: 9:00am – 7:00pm Tue: <a class="active" href="#">Closed</a></li>
-                        </ul>
-                        <ul class="social-icon-one">
+                            <ul class="social-icon-one">
                             <li>
                                 <a href="#"><span class="icon fab fa-twitter"></span></a>
                             </li>

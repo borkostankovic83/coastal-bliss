@@ -1,8 +1,8 @@
 <?php // edit-facials.php – Admin interface for managing facial treatments
 session_start();
 require_once "../../database.php";
-require_once('layout/header.php');  // Include the header
-require_once('layout/navbar.php');  // Include the navbar
+require_once('layout/header.php');
+require_once('layout/navbar.php');
 $conn = getDatabaseConnection();
 $head_title = "Admin Panel | Edit Facials";
 // ──────────────────────────────────────────────
@@ -297,24 +297,6 @@ while ($row = mysqli_fetch_assoc($result)) {
 }
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Admin Panel | Edit Facials & Add‑Ons</title>
-  <style>
-      body { font-family: Arial, sans-serif; padding: 20px; }
-      table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
-      th, td { border: 1px solid #ccc; padding: 8px; vertical-align: top; }
-      input[type="text"], textarea, select { width: 100%; box-sizing: border-box; }
-      textarea { resize: vertical; }
-      .section-header { background: #eee; padding: 10px; margin: 20px 0 10px; }
-      .action-links a { margin-right: 10px; text-decoration: none; color: #0066cc; cursor: pointer; }
-      /* Make the description field wider and more visible */
-      .facial-description { min-width: 300px; }
-  </style>
-</head>
-<body>
   <h1>Admin - Manage Facials and Add-Ons</h1>
   
   <!-- 1. Edit Existing Facials -->
@@ -667,14 +649,22 @@ document.querySelectorAll('.delete-facial-option').forEach(function(link) {
 
 
 </script>
-</body>
-</html>
+
 
 <style>
     .custom-striped {
   --bs-table-striped-bg: #e0afff; /* light yellow */
 }
 
+table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+th, td { border: 1px solid #ccc; padding: 8px; vertical-align: top; }
+input[type="text"], textarea, select { width: 100%; box-sizing: border-box; }
+textarea { resize: vertical; }
+.section-header { background: #eee; padding: 10px; margin: 20px 0 10px; }
+.action-links a { margin-right: 10px; text-decoration: none; color: #0066cc; cursor: pointer; }
+/* Make the description field wider and more visible */
+.facial-description { min-width: 300px; }
+ 
 @media (max-width: 768px) {
   .table, .table-striped, .custom-striped, table, .nested-table, .options-table {
     display: block;

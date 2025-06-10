@@ -189,14 +189,6 @@ while ($row = mysqli_fetch_assoc($result)) {
     $addons[] = $row;
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Admin - Edit Massage Services & Add-Ons</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-</head>
-<body>
 <div class="container-fluid my-5">
     <h1>Edit Massage Services</h1>
     <!-- Massage Services Update Form -->
@@ -376,9 +368,6 @@ function addNewOption() {
     container.insertAdjacentHTML('beforeend', html);
 }
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
 <style>
 .wide-textarea {
     width: 100%;

@@ -31,7 +31,8 @@
                         'edit-facials.php',
                         'edit-waxing.php',
                         'edit-nails.php',
-                        'edit-lash-n-brow.php'
+                        'edit-lash-n-brow.php',
+                        'edit-info.php'
                     ]) ? 'active' : '' ?>" href="#" id="editServicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Edit Services
                     </a>
@@ -50,6 +51,9 @@
                         </li>
                         <li>
                             <a class="dropdown-item <?= $currentPage == 'edit-lash-n-brow.php' ? 'active' : '' ?>" href="edit-lash-n-brow.php">Edit Lash N Brow</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item <?= $currentPage == 'edit-info.php' ? 'active' : '' ?>" href="edit-info.php">Edit Info</a>
                         </li>
                     </ul>
                 </li>

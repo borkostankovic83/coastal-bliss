@@ -33,50 +33,6 @@ $sql = "SELECT * FROM job_applications ORDER BY id DESC";
 
 $result = $conn->query($sql);
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Applicants List</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    th a {
-      text-decoration: none;
-      color: inherit;
-     }
-    th a:hover {
-      text-decoration: underline;
-     }
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-    }
-    h2 {
-        color: #beac5a !important;
-    }
-    .container {
-      margin-top: 30px;
-    }
-    .table thead {
-      background-color: #beac5a;
-      color: white;
-    }
-    .table-striped tbody tr:nth-of-type(odd) {
-      background-color: #f9f9f9;
-    }
-    .btn-view {
-      color: #fff;
-      background-color: #474c55;
-      border: none;
-    }
-    .btn-view:hover {
-      background-color: #2c2f36;
-    }
-  </style>
-</head>
-<body>
   <div class="container">
     <h2 class="mb-4">Applicants List</h2>
     <?php
@@ -199,7 +155,6 @@ $result = $conn->query($sql);
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const resumeModal = new bootstrap.Modal(document.getElementById('resumeModal'));
@@ -231,8 +186,6 @@ $result = $conn->query($sql);
     });
   </script>
 
-</body>
-</html>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.toggle-more').forEach(btn => {
@@ -256,3 +209,37 @@ $result = $conn->query($sql);
 <?php
 $conn->close();
 ?>
+  <style>
+    th a {
+      text-decoration: none;
+      color: inherit;
+     }
+    th a:hover {
+      text-decoration: underline;
+     }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+    h2 {
+        color: #beac5a !important;
+    }
+    .container {
+      margin-top: 30px;
+    }
+    .table thead {
+      background-color: #beac5a;
+      color: white;
+    }
+    .table-striped tbody tr:nth-of-type(odd) {
+      background-color: #f9f9f9;
+    }
+    .btn-view {
+      color: #fff;
+      background-color: #474c55;
+      border: none;
+    }
+    .btn-view:hover {
+      background-color: #2c2f36;
+    }
+  </style>
