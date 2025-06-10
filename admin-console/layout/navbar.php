@@ -25,17 +25,34 @@
                 <li class="nav-item">
                     <a class="nav-link <?= $currentPage == 'applicants.php' ? 'active' : '' ?>" href="applicants.php">Applicants</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link <?= $currentPage == 'edit-massages.php' ? 'active' : '' ?>" href="edit-massages.php">Edit Massages</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle <?= in_array($currentPage, [
+                        'edit-massages.php',
+                        'edit-facials.php',
+                        'edit-waxing.php',
+                        'edit-nails.php',
+                        'edit-lash-n-brow.php'
+                    ]) ? 'active' : '' ?>" href="#" id="editServicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Edit Services
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="editServicesDropdown">
+                        <li>
+                            <a class="dropdown-item <?= $currentPage == 'edit-massages.php' ? 'active' : '' ?>" href="edit-massages.php">Edit Massages</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item <?= $currentPage == 'edit-facials.php' ? 'active' : '' ?>" href="edit-facials.php">Edit Facials</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item <?= $currentPage == 'edit-waxing.php' ? 'active' : '' ?>" href="edit-waxing.php">Edit Waxing</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item <?= $currentPage == 'edit-nails.php' ? 'active' : '' ?>" href="edit-nails.php">Edit Nails</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item <?= $currentPage == 'edit-lash-n-brow.php' ? 'active' : '' ?>" href="edit-lash-n-brow.php">Edit Lash N Brow</a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link <?= $currentPage == 'edit-facials.php' ? 'active' : '' ?>" href="edit-facials.php">Edit Facials</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?= $currentPage == 'edit-waxing.php' ? 'active' : '' ?>" href="edit-waxing.php">Edit Waxing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?= $currentPage == 'edit-nails.php' ? 'active' : '' ?>" href="edit-nails.php">Edit Nails</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="auth/logout.php">Logout</a>

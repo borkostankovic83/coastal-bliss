@@ -1,10 +1,10 @@
 <?php
 session_start();
 require_once "../../database.php";
-require_once('layout/header.php');  // Include the header
-require_once('layout/navbar.php');  // Include the navbar
+require_once('layout/header.php');
+require_once('layout/navbar.php');
 $conn = getDatabaseConnection();
-
+$head_title = "Admin Panel | Edit Massages";
 /*******************
  * PROCESS REQUESTS
  *******************/
