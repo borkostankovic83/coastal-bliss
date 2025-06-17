@@ -2,7 +2,14 @@
 <div id="successMessage" style="display: none; color: green; margin-top: 1rem;">
   Application submitted successfully!
 </div>
+  <div class="container">
 
+    <div class="modal-body" style="height: 700px; padding: 0;">
+      <iframe src="https://www.yocale.com/widget/coastal-bliss-wellness?locations=165570"
+              width="100%" height="100%" frameborder="0" style="border: none;"></iframe>
+    </div>
+
+  </div>
   <div class="container">
     <h3>🌿 We're Hiring at Coastal Bliss Wellness! 🌿</h3>
     <p>Join our serene, natural spa located in beautiful Rehoboth Beach, DE.</p>
