@@ -1,6 +1,6 @@
 <ul class="navigation">
     <li><a href="index.php">Home</a></li>
-    <li><a href="page-about.php">About</a></li>
+    <!-- <li><a href="page-about.php">About</a></li> -->
     <li class="dropdown">
         <a href="page-services.php">Services</a>
         <ul>
