@@ -10,7 +10,7 @@ require_once "../database.php";
 $conn = getDatabaseConnection();
 
 // Query facial treatments ordered by section and price
-$facials_sql = "SELECT * FROM facials ORDER BY section ASC, price ASC";
+$facials_sql = "SELECT * FROM facials ORDER BY section ASC, sort_order ASC, id ASC";
 $result = mysqli_query($conn, $facials_sql);
 $facials = [];
 while ($row = mysqli_fetch_assoc($result)) {

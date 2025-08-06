@@ -80,14 +80,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_facials'])) {
         $duration    = mysqli_real_escape_string($conn, $data['duration']);
         $description = mysqli_real_escape_string($conn, $data['description']);
         $section     = mysqli_real_escape_string($conn, $data['section']);
-        
+        $sort_order  = isset($data['sort_order']) ? (int)$data['sort_order'] : 0; 
+
         $update_sql = "
             UPDATE facials 
                SET name        = '$name',
                    price       = '$price',
                    duration    = '$duration',
                    description = '$description',
-                   section     = '$section'
+                   section     = '$section',
+                   sort_order  = $sort_order
              WHERE id = $facialId
         ";
         mysqli_query($conn, $update_sql);
@@ -308,6 +310,7 @@ while ($row = mysqli_fetch_assoc($result)) {
       <thead>
         <tr>
           <th>ID</th>
+          <th>Sort</th>
           <th>Facial Name</th>
           <th>Price ($)</th>
           <th>Duration</th>
@@ -320,6 +323,9 @@ while ($row = mysqli_fetch_assoc($result)) {
         <?php foreach($facials as $facial): ?>
           <tr id="facial-row-<?php echo $facial['id']; ?>">
             <td><?php echo htmlspecialchars($facial['id']); ?></td>
+            <td>
+              <input type="number" name="facials[<?php echo $facial['id']; ?>][sort_order]" value="<?php echo htmlspecialchars($facial['sort_order']); ?>" style="width:60px;">
+            </td>
             <td>
               <input type="text" name="facials[<?php echo $facial['id']; ?>][name]" value="<?php echo htmlspecialchars($facial['name']); ?>">
             </td>
