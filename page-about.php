@@ -1,12 +1,20 @@
 <?php 
     $head_title="Coastal Bliss| About Us";
-?>
 
-<?php require_once('parts/header/header.php'); ?>
-
-<?php
+	require_once('parts/header/header.php'); 
 	$page_title = "About Us";
 	require_once('parts/page-title.php');
+
+	require_once "../database.php";
+	$conn = getDatabaseConnection();
+
+	$work_time = [];
+	$res = mysqli_query($conn, "SELECT `key`, `value` FROM site_content");
+	while ($row = mysqli_fetch_assoc($res)) {
+    	$work_time[$row['key']] = $row['value'];
+	}
+	$open_hours = json_decode($work_time['open_hours'] ?? '{}', true);
+
 ?>
 
 <!-- About Section -->
@@ -36,16 +44,15 @@
 		<div class="content-column col-xl-4 col-lg-6 col-md-6">
 		<div class="inner-column">
 			<div class="sec-title mb-0">
-			<span class="sub-title">Get to know us</span>
-			<h2 class="words-slide-up">Beauty and <strong>Spa <span>Center</span></strong></h2>
-			<div class="text">Proin efficitur, mauris vel condimentum pulvinar, velit orci consectetur ligula, eget egestas magna mi ut arcu. Phasellus nec odio orci.</div>
+				<span class="sub-title">Get to know us</span>
+				<h2 class="words-slide-up">Welcome to Coastal Bliss Wellness</h2>
+				<div class="text">At Coastal Bliss, we believe in holistic wellness and personalized care. Founded by friends Vesna Josic and Milena Stankovic, 
+					our mission is to create a serene environment where every guest feels valued from "good morning to goodbye.
+					" We offer facials, massages, lash & brow services, waxing, manicures, and pedicures using natural and organic products whenever possible.</div>
+				<div class="text">Located at 323C Rehoboth Ave, we opened our doors on June 18, 2025. Whether you’re from the local community or visiting the coast, we invite you to experience true relaxation and rejuvenation.</div>
 			</div>
-			<ul class="list-style">
-			<li><figure class="icon"><img src="images/icons/theme-icon4.png" alt="Image"></figure> Velit orci consectetur ligula, eget egestas magn</li>
-			<li><figure class="icon"><img src="images/icons/theme-icon4.png" alt="Image"></figure> Pelit orci consectetur ligula</li>
-			<li><figure class="icon"><img src="images/icons/theme-icon4.png" alt="Image"></figure> Eget egestas magn</li>
-			</ul>
-			<div class="author-box">
+			
+			<!-- <div class="author-box">
 			<div class="inner d-block d-sm-flex">
 				<button type="submit" class="theme-btn btn-style-two btn pricing-btn mb-4 mb-sm-0"><span class="btn-title">Learn More</span></button>
 				<figure class="thumb"><img src="images/resource/about1-2.png" alt="Image"></figure>
@@ -56,7 +63,7 @@
 				<div class="name">Milena - <span class="designation">Founder</span></div>
 				</div>
 			</div>
-			</div>
+			</div> -->
 		</div>
 		</div>
 
@@ -67,13 +74,11 @@
 			<h4 class="title">Opening Hours</h4>
 			</div>
 			<div class="content">
-			<div class="time-box">
-				<div class="opening-days">Wed to Mon:</div>
-				<div class="opening-hours">09:00 am - 7:00 pm</div>
-			</div>
+	
 			<div class="time-box m-0">
-				<div class="opening-days">Tue:</div>
-				<div class="opening-hours">Closed</div>
+				<?php foreach ($open_hours as $day => $hours): ?>
+              <li><?= htmlspecialchars($day) ?>: <span class="opening-days"><?= htmlspecialchars($hours) ?></span></li>
+            <?php endforeach; ?>
 			</div>
 			<div class="bg bg-image" style="background-image: url(./images/resource/about1-5.png)"></div>
 			</div>
@@ -84,7 +89,136 @@
 </div>
 </section>
 <!--End About Section -->
+ <!-- Gallery Section -->
+  <section class="gallery-section">
+    <div class="container">
+      <h2 class="gallery-title">Our Space in Photos</h2>
+      <div class="row g-3">
+        <!-- Repeat this block for each image -->
+        <div class="col-6 col-md-4 gallery-item">
+          <a href="images/gallery1.jpg" class="glightbox" data-gallery="spa-gallery">
+            <img src="images/gallery1.jpg" alt="Cozy manicure station" class="img-fluid">
+            <div class="overlay"><i class="fa fa-eye"></i></div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 gallery-item">
+          <a href="images/gallery2.jpg" class="glightbox" data-gallery="spa-gallery">
+            <img src="images/gallery2.jpg" alt="Tranquil treatment room" class="img-fluid">
+            <div class="overlay"><i class="fa fa-eye"></i></div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 gallery-item">
+          <a href="images/gallery7.jpg" class="glightbox" data-gallery="spa-gallery">
+            <img src="images/gallery7.jpg" alt="Reception area" class="img-fluid">
+            <div class="overlay"><i class="fa fa-eye"></i></div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 gallery-item">
+          <a href="images/gallery4.jpg" class="glightbox" data-gallery="spa-gallery">
+            <img src="images/gallery4.jpg" alt="Natural products display" class="img-fluid">
+            <div class="overlay"><i class="fa fa-eye"></i></div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 gallery-item">
+          <a href="images/gallery5.jpg" class="glightbox" data-gallery="spa-gallery">
+            <img src="images/gallery5.jpg" alt="Co-founders Vesna & Milena" class="img-fluid">
+            <div class="overlay"><i class="fa fa-eye"></i></div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 gallery-item">
+          <a href="images/gallery6.jpg" class="glightbox" data-gallery="spa-gallery">
+            <img src="images/gallery6.jpg" alt="Coastal decor detail" class="img-fluid">
+            <div class="overlay"><i class="fa fa-eye"></i></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
+<!-- Gallery Section -->
+<section class="gallery-section pt-100">
+  <div class="outer-box">
+    <div class="row g-3">
+      <!-- Big Image Left -->
+      <div class="col-lg-6">
+        <div class="gallery-block h-100">
+          <div class="inner-box h-100">
+            <div class="image-box h-100">
+              <figure class="image m-0 h-100" style="height:100%;">
+                <a class="lightbox-image" href="images/gallery1.jpg">
+                  <img src="images/gallery1.jpg" alt="Image" class="img-fluid w-100 h-100 object-fit-cover" style="min-height:300px;">
+                </a>
+              </figure>
+              <a class="icon" href="images/gallery1.jpg"><i class="fa-sharp fa-light fa-eye"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Four Small Images Right -->
+      <div class="col-lg-6">
+        <div class="row g-3">
+          <div class="col-6">
+            <div class="gallery-block">
+              <div class="inner-box">
+                <div class="image-box">
+                  <figure class="image m-0">
+                    <a class="lightbox-image" href="images/gallery2.jpg">
+                      <img src="images/gallery2.jpg" alt="Image" class="img-fluid w-100 object-fit-cover" style="min-height:140px;">
+                    </a>
+                  </figure>
+                  <a class="icon" href="page-about.php"><i class="fa-sharp fa-light fa-eye"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="gallery-block">
+              <div class="inner-box">
+                <div class="image-box">
+                  <figure class="image m-0">
+                    <a class="lightbox-image" href="images/gallery4.jpg">
+                      <img src="images/gallery4.jpg" alt="Image" class="img-fluid w-100 object-fit-cover" style="min-height:140px;">
+                    </a>
+                  </figure>
+                  <a class="icon" href="page-about.php"><i class="fa-sharp fa-light fa-eye"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="gallery-block">
+              <div class="inner-box">
+                <div class="image-box">
+                  <figure class="image m-0">
+                    <a class="lightbox-image" href="images/gallery5.jpg">
+                      <img src="images/gallery5.jpg" alt="Image" class="img-fluid w-100 object-fit-cover" style="min-height:140px;">
+                    </a>
+                  </figure>
+                  <a class="icon" href="page-about.php"><i class="fa-sharp fa-light fa-eye"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="gallery-block">
+              <div class="inner-box">
+                <div class="image-box">
+                  <figure class="image m-0">
+                    <a class="lightbox-image" href="images/gallery6.jpg">
+                      <img src="images/gallery6.jpg" alt="Image" class="img-fluid w-100 object-fit-cover" style="min-height:140px;">
+                    </a>
+                  </figure>
+                  <a class="icon" href="page-about.php"><i class="fa-sharp fa-light fa-eye"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Gallery Section -->
 <!-- Client Section -->
 <section class="clients-section">
 <div class="auto-container">

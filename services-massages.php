@@ -25,7 +25,7 @@
         FROM massage_categories mc
         JOIN massages m ON mc.id = m.category_id
         JOIN massage_options mo ON m.id = mo.massage_id
-        ORDER BY mc.title, m.name, mo.duration
+        ORDER BY mc.id, m.id, mo.id
     ";
     $result = mysqli_query($conn, $sql);
     if (!$result) {
