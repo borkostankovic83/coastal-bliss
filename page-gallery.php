@@ -98,38 +98,62 @@
       <div class="row g-3">
         <!-- Repeat this block for each image -->
         <div class="col-6 col-md-4 gallery-item">
-          <a href="images/gallery1.jpg" class="glightbox" data-gallery="spa-gallery">
-            <img src="images/gallery1.jpg" alt="Cozy manicure station" class="img-fluid">
+          <a href="images/gallery/gallery1.jpg" class="glightbox" data-gallery="spa-gallery">
+            <img src="images/gallery/gallery1.jpg" alt="Cozy manicure station" class="img-fluid">
             <div class="overlay"><i class="fa fa-eye"></i></div>
           </a>
         </div>
         <div class="col-6 col-md-4 gallery-item">
-          <a href="images/gallery2.jpg" class="glightbox" data-gallery="spa-gallery">
-            <img src="images/gallery2.jpg" alt="Tranquil treatment room" class="img-fluid">
-            <div class="overlay"><i class="fa fa-eye"></i></div>
-          </a>
-        </div>
-        <!-- <div class="col-6 col-md-4 gallery-item">
-          <a href="images/gallery7.jpg" class="glightbox" data-gallery="spa-gallery">
-            <img src="images/gallery7.jpg" alt="Reception area" class="img-fluid">
-            <div class="overlay"><i class="fa fa-eye"></i></div>
-          </a>
-        </div> -->
-        <!-- <div class="col-6 col-md-4 gallery-item">
-          <a href="images/gallery4.jpg" class="glightbox" data-gallery="spa-gallery">
-            <img src="images/gallery4.jpg" alt="Natural products display" class="img-fluid">
-            <div class="overlay"><i class="fa fa-eye"></i></div>
-          </a>
-        </div> -->
-        <div class="col-6 col-md-4 gallery-item">
-          <a href="images/gallery5.jpg" class="glightbox" data-gallery="spa-gallery">
-            <img src="images/gallery5.jpg" alt="Co-founders Vesna & Milena" class="img-fluid">
+          <a href="images/gallery/gallery2.jpg" class="glightbox" data-gallery="spa-gallery">
+            <img src="images/gallery/gallery2.jpg" alt="Tranquil treatment room" class="img-fluid">
             <div class="overlay"><i class="fa fa-eye"></i></div>
           </a>
         </div>
         <div class="col-6 col-md-4 gallery-item">
-          <a href="images/gallery6.jpg" class="glightbox" data-gallery="spa-gallery">
-            <img src="images/gallery6.jpg" alt="Coastal decor detail" class="img-fluid">
+          <a href="images/gallery/gallery5.jpg" class="glightbox" data-gallery="spa-gallery">
+            <img src="images/gallery/gallery5.jpg" alt="Co-founders Vesna & Milena" class="img-fluid">
+            <div class="overlay"><i class="fa fa-eye"></i></div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 gallery-item">
+          <a href="images/gallery/gallery6.jpg" class="glightbox" data-gallery="spa-gallery">
+            <img src="images/gallery/gallery6.jpg" alt="Coastal decor detail" class="img-fluid">
+            <div class="overlay"><i class="fa fa-eye"></i></div>
+          </a>
+        </div>
+         <div class="col-6 col-md-4 gallery-item">
+          <a href="images/gallery/image0.jpeg" class="glightbox" data-gallery="spa-gallery">
+            <img src="images/gallery/image0.jpeg" alt="Coastal decor detail" class="img-fluid">
+            <div class="overlay"><i class="fa fa-eye"></i></div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 gallery-item">
+          <a href="images/gallery/image1.jpeg" class="glightbox" data-gallery="spa-gallery">
+            <img src="images/gallery/image1.jpeg" alt="Coastal decor detail" class="img-fluid">
+            <div class="overlay"><i class="fa fa-eye"></i></div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 gallery-item">
+          <a href="images/gallery/image2.jpeg" class="glightbox" data-gallery="spa-gallery">
+            <img src="images/gallery/image2.jpeg" alt="Coastal decor detail" class="img-fluid">
+            <div class="overlay"><i class="fa fa-eye"></i></div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 gallery-item">
+          <a href="images/gallery/image3.jpeg" class="glightbox" data-gallery="spa-gallery">
+            <img src="images/gallery/image3.jpeg" alt="Coastal decor detail" class="img-fluid">
+            <div class="overlay"><i class="fa fa-eye"></i></div>
+          </a>
+        </div>
+         <div class="col-6 col-md-4 gallery-item">
+          <a href="images/gallery/image4.jpeg" class="glightbox" data-gallery="spa-gallery">
+            <img src="images/gallery/image4.jpeg" alt="Coastal decor detail" class="img-fluid">
+            <div class="overlay"><i class="fa fa-eye"></i></div>
+          </a>
+        </div>
+         <div class="col-6 col-md-4 gallery-item">
+          <a href="images/gallery/image6.jpeg" class="glightbox" data-gallery="spa-gallery">
+            <img src="images/gallery/image6.jpeg" alt="Coastal decor detail" class="img-fluid">
             <div class="overlay"><i class="fa fa-eye"></i></div>
           </a>
         </div>
