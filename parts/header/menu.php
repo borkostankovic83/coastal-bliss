@@ -13,5 +13,6 @@
             <li><a href="services-packages.php">Packages</a></li>
         </ul>
     </li>
+    <li><a href="page-career.php">Career</a></li>
     <li><a href="page-contact.php">Contact</a></li>
 </ul>

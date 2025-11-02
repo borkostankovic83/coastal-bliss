@@ -1,5 +1,5 @@
 <?php 
-    $head_title="Purerelax | Spa & Beauty PHP Template | Gallery";
+    $head_title="Gallery";
 ?>
 
 <?php require_once('parts/header/header.php'); ?>
