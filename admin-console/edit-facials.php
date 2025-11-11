@@ -341,6 +341,7 @@ while ($row = mysqli_fetch_assoc($result)) {
             <td>
               <select name="facials[<?php echo $facial['id']; ?>][section]">
                 <option value="Basic Facials" <?php if($facial['section'] === "Basic Facials") echo "selected"; ?>>Basic Facials</option>
+                <option value="Signature Facials" <?php if($facial['section'] === "Signature Facials") echo "selected"; ?>>Signature Facials</option>
                 <option value="Extended Facials" <?php if($facial['section'] === "Extended Facials") echo "selected"; ?>>Extended Facials</option>
               </select>
             </td>
@@ -430,6 +431,7 @@ while ($row = mysqli_fetch_assoc($result)) {
         <td>
           <select id="new_section" name="section" required>
             <option value="Basic Facials">Basic Facials</option>
+            <option value="Signature Facials">Signature Facials</option>
             <option value="Extended Facials">Extended Facials</option>
           </select>
         </td>

@@ -52,103 +52,121 @@ while ($row = mysqli_fetch_assoc($addons_result)) {
     <div class="container">
         <img src="images/Sorella_wordmark-gold.png" alt="Sorella Apothecary" class="img-center">
         
+        <?php
+        // Define the correct display order
+        $sectionOrder = ['Basic Facials', 'Signature Facials', 'Extended Facials'];
+
+        // Sort the facials array based on this order
+        $sortedFacials = [];
+        foreach ($sectionOrder as $sectionName) {
+            if (isset($facials[$sectionName])) {
+                $sortedFacials[$sectionName] = $facials[$sectionName];
+            }
+        }
+        ?>
         <!-- Display Facials Dynamically by Section -->
-        <?php foreach ($facials as $section => $facialGroup): ?>
-            <div class="mb-5">
-                <?php if ($section == 'Basic Facials'): ?>
-                    <div class="mb-5 facials-section"></div>
-                    <h3 style="color: #9f8958">Everyday Glow</h3>
-                    <div class="mb-5 facials-section"></div>
-                <?php else: ?>
-                    <div class="mb-5 facials-section"></div>
-                    <h3 style="color: #9f8958">Extend the moment. Elevate the glow.</h3>
-                    <div class="mb-5 facials-section"></div>
-                <?php endif; ?>
+        <?php foreach ($sortedFacials as $section => $facialGroup): ?>
 
-                <?php foreach ($facialGroup as $facial): ?>
-                    <div class="mb-5">
-                        <h3 class="facial-heading"><?php echo htmlspecialchars($facial['name']); ?></h3>
-                        <h4 class="text-gray">$<?php echo number_format($facial['price'], 2); ?> (<?php echo htmlspecialchars($facial['duration']); ?>)</h4>
-                        <p class="text-dark"><?php echo nl2br(htmlspecialchars($facial['description'])); ?></p>
 
-                        <?php
-                        // Retrieve options dynamically for this specific facial
-                        $stmt = $conn->prepare("SELECT option_title, option_description FROM facial_options WHERE facial_id = ?");
-                        $stmt->bind_param("i", $facial['id']);
-                        $stmt->execute();
-                        $result = $stmt->get_result();
-                        $options = $result->fetch_all(MYSQLI_ASSOC);
-                        $stmt->close();
-
-                        // Display options
-                        if (!empty($options)) {
-                            echo "<ul>";
-                            foreach ($options as $option) {
-                                echo "<li>";
-                                echo "<span class='text-gold'>" . htmlspecialchars($option['option_title']) . "</span> ";
-                                echo "<span>" . htmlspecialchars($option['option_description']) . "</span>";
-                                echo "</li>";
-                            }
-                            echo "</ul>";
-                            echo "<p>Each facial includes a relaxing massage, exfoliation, and customized mask for the ultimate glow.</p>";
-                            echo "<div class='mb-5 facials-section'></div>";
-                        }
-                        ?>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-        <?php endforeach; ?>
-
+        <!-- Section Header -->
+    <div class="mb-5 facials-section"></div>
+    <?php if ($section == 'Basic Facials'): ?>
+        <h3 style="color: #9f8958">Everyday Glow</h3>
         <div class="mb-5 facials-section"></div>
-        
-        <!-- Display Facial Add-Ons Dynamically -->
-        <div class="mb-5 facials-section">
-            <h3 class="facial-heading">Enhance Any Facial</h3>
-            <?php foreach ($addons as $addon_row): ?>
-                <h4 class="addon-heading">$<?php echo number_format($addon_row['price'], 2); ?> Add-On</h4>
-                <ul class="text-dark">
-                    <?php 
-                    // Explode the concatenated add-on entries by the "##" separator.
-                    $add_on_items = explode('##', $addon_row['addon_group']);
-                    foreach ($add_on_items as $item): 
-                        // Split by "::" to get the id and the rest
-                        $temp = explode('::', $item, 2);
-                        $id = trim($temp[0]);
-                        $rest = isset($temp[1]) ? $temp[1] : '';
 
-                        // Now, check if sub-options are present using "||" separator.
-                        // We assume that if "||" is found, the first segment is the main text.
-                        $parts = explode('||', $rest);
-                        // The main add-on text (name: description) is in $parts[0]
-                        // Any additional parts become sub-options.
-                        $mainText = trim($parts[0]);
-                        $subOptions = array_slice($parts, 1);
-                    ?>
-                        <li>
-                            <!-- Here, we can style the main add-on text -->
-                            <span class="text-gold"><?php 
-                                // Extract the name by splitting at ": "
-                                $temp2 = explode(': ', $mainText, 2);
-                                echo htmlspecialchars(trim($temp2[0])); 
-                            ?></span>: 
-                            <span><?php 
-                                echo isset($temp2[1]) ? htmlspecialchars(trim($temp2[1])) : ''; 
-                            ?></span>
-                            
-                            <?php if (!empty($subOptions)): ?>
-                                <ul class="sub-option-list mt-2 mb-3">
-                                    <?php foreach ($subOptions as $option): ?>
-                                        <li><?php echo htmlspecialchars(trim($option)); ?></li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            <?php endif; ?>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            <?php endforeach; ?>
+    <?php elseif ($section == 'Signature Facials'): ?>
+        <h3 style="color: #9f8958">Our Signature Facials</h3>
+        <p style="color: #555; font-size: 1rem; margin-top: 0.5rem;">
+            Experience the essence of our spa with facials crafted to rejuvenate, restore, and reveal your natural radiance.
+        </p>
+        <div class="mb-5 facials-section"></div>
+
+    <?php else: ?>
+        <h3 style="color: #9f8958">Extend the moment. Elevate the glow.</h3>
+        <div class="mb-5 facials-section"></div>
+    <?php endif; ?>
+
+    <!-- Facial Items -->
+    <?php foreach ($facialGroup as $facial): ?>
+        <div class="mb-5">
+            <h3 class="facial-heading"><?php echo htmlspecialchars($facial['name']); ?></h3>
+            <h4 class="text-gray">$<?php echo number_format($facial['price'], 2); ?> (<?php echo htmlspecialchars($facial['duration']); ?>)</h4>
+            <p class="text-dark"><?php echo nl2br(htmlspecialchars($facial['description'])); ?></p>
+
+            <?php
+            // Retrieve options dynamically for this specific facial
+            $stmt = $conn->prepare("SELECT option_title, option_description FROM facial_options WHERE facial_id = ?");
+            $stmt->bind_param("i", $facial['id']);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $options = $result->fetch_all(MYSQLI_ASSOC);
+            $stmt->close();
+
+            // Display options
+            if (!empty($options)) {
+                echo "<ul>";
+                foreach ($options as $option) {
+                    echo "<li>";
+                    echo "<span class='text-gold'>" . htmlspecialchars($option['option_title']) . "</span> ";
+                    echo "<span>" . htmlspecialchars($option['option_description']) . "</span>";
+                    echo "</li>";
+                }
+                echo "</ul>";
+                echo "<p>Each facial includes a relaxing massage, exfoliation, and customized mask for the ultimate glow.</p>";
+                echo "<div class='mb-5 facials-section'></div>";
+            }
+            ?>
         </div>
-        <img src="images/Feed-Your-Skin-Treat-Your-Soul-.png" alt="Sorella Apothecary" class="img-center">
-    </div>
+    <?php endforeach; ?>
+
+<?php endforeach; ?>
+
+<!-- Divider -->
+<div class="mb-5 facials-section"></div>
+
+<!-- Display Facial Add-Ons Dynamically -->
+<div class="mb-5 facials-section">
+    <h3 class="facial-heading">Enhance Any Facial</h3>
+    <?php foreach ($addons as $addon_row): ?>
+        <h4 class="addon-heading">$<?php echo number_format($addon_row['price'], 2); ?> Add-On</h4>
+        <ul class="text-dark">
+            <?php 
+            // Explode the concatenated add-on entries by "##"
+            $add_on_items = explode('##', $addon_row['addon_group']);
+            foreach ($add_on_items as $item): 
+                $temp = explode('::', $item, 2);
+                $id = trim($temp[0]);
+                $rest = isset($temp[1]) ? $temp[1] : '';
+                $parts = explode('||', $rest);
+                $mainText = trim($parts[0]);
+                $subOptions = array_slice($parts, 1);
+            ?>
+                <li>
+                    <span class="text-gold">
+                        <?php 
+                        $temp2 = explode(': ', $mainText, 2);
+                        echo htmlspecialchars(trim($temp2[0])); 
+                        ?>
+                    </span>: 
+                    <span>
+                        <?php echo isset($temp2[1]) ? htmlspecialchars(trim($temp2[1])) : ''; ?>
+                    </span>
+
+                    <?php if (!empty($subOptions)): ?>
+                        <ul class="sub-option-list mt-2 mb-3">
+                            <?php foreach ($subOptions as $option): ?>
+                                <li><?php echo htmlspecialchars(trim($option)); ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endforeach; ?>
+</div>
+
+<img src="images/Feed-Your-Skin-Treat-Your-Soul-.png" alt="Sorella Apothecary" class="img-center">
+</div>
 </section>
 <?php require_once('parts/footer/footer.php'); ?>
 
