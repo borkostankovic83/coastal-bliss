@@ -1,4 +1,15 @@
 
+<div class="text-end mt-3 pe-4">
+  <a
+    href="https://www.google.com/maps/place/?q=place_id:ChIJ6fGQyIG3uIkRs_LIBvlYUNI"
+    target="_blank"
+    class="text-decoration-none text-primary fw-semibold"
+  >
+    View all reviews on Google →
+  </a>
+</div>
+
+
 <div class="container">
   <img src="images/bf-sale-2026.png" alt="Coastal Bliss Wellness Logo" >
 </div>
@@ -12,25 +23,39 @@ $url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=$placeI
 $response = file_get_contents($url);
 $data = json_decode($response, true);
 
-$reviews = $data['result']['reviews'] ?? [];
+$place = $data['result'] ?? [];
+$reviews = $place['reviews'] ?? [];
 ?>
 
-<!-- ✅ Include Bootstrap 5 (add this to your <head> if not already there) -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <div class="container-fluid py-5 bg-light">
-  <h2 class="text-center mb-4 fw-bold">What Our Customers Say</h2>
-<div class="d-flex justify-content-end pe-4 mt-4">
-  <a
-    href="https://search.google.com/local/writereview?placeid=ChIJ6fGQyIG3uIkRs_LIBvlYUNI"
-    target="_blank"
-    class="btn btn-warning btn-lg fw-semibold px-4 py-2 shadow-sm"
-  >
-    ★ Review Us on Google
-  </a>
-</div>
+  <div class="d-flex justify-content-between align-items-center px-4 flex-wrap mb-3">
+    <div>
+      <h2 class="fw-bold mb-1"><?= htmlspecialchars($place['name'] ?? 'Our Spa') ?></h2>
+      <?php if (!empty($place['formatted_address'])): ?>
+        <p class="text-muted mb-1"><?= htmlspecialchars($place['formatted_address']) ?></p>
+      <?php endif; ?>
+      <?php if (!empty($place['rating'])): ?>
+        <p class="mb-0 text-warning fs-5">
+          <?= str_repeat('⭐', round($place['rating'])) ?>
+          <span class="text-dark"><?= $place['rating'] ?>/5</span>
+          <span class="text-secondary">(<?= $place['user_ratings_total'] ?> reviews)</span>
+        </p>
+      <?php endif; ?>
+    </div>
 
+    <div class="mt-3 mt-md-0">
+      <a
+        href="https://search.google.com/local/writereview?placeid=<?= $placeId ?>"
+        target="_blank"
+        class="btn btn-warning btn-lg fw-semibold px-4 py-2 shadow-sm"
+      >
+        ★ Review Us on Google
+      </a>
+    </div>
+  </div>
 
   <?php if (!empty($reviews)): ?>
     <div id="reviewsCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -43,13 +68,13 @@ $reviews = $data['result']['reviews'] ?? [];
                 <div class="card-body text-center">
                   <h5 class="card-title fw-semibold"><?= htmlspecialchars($review['author_name']) ?></h5>
                   <p class="text-warning mb-2">
-                    <?php for ($i = 0; $i < $review['rating']; $i++) echo "⭐"; ?>
+                    <?= str_repeat('⭐', $review['rating']) ?>
                   </p>
                   <p class="card-text fst-italic text-muted">"<?= htmlspecialchars($review['text']) ?>"</p>
                 </div>
                 <div class="card-footer bg-white border-0 text-end">
                   <small class="text-secondary">
-                    <?= date("F j, Y", strtotime($review['time'])) ?>
+                    <?= date("F j, Y", $review['time']) ?>
                   </small>
                 </div>
               </div>
@@ -59,7 +84,6 @@ $reviews = $data['result']['reviews'] ?? [];
 
       </div>
 
-      <!-- Carousel Controls -->
       <button class="carousel-control-prev" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon"></span>
       </button>
@@ -105,37 +129,34 @@ $reviews = $data['result']['reviews'] ?? [];
   })();
   </script>
 
-  <style>
-.card {
-  border-radius: 1rem;
-}
-.card-text {
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  filter: invert(1);
-}
-@media (max-width: 768px) {
-  .card {
-    margin: 0 1rem;
-  }
-}
-.btn-warning {
-  background-color: #fbbc05;
-  border: none;
-  transition: all 0.3s ease;
-}
-.btn-warning:hover {
-  background-color: #e0a800;
-  transform: translateY(-2px);
-}
-@media (max-width: 768px) {
-  .d-flex.justify-content-end {
-    justify-content: center !important; /* center the button on mobile */
-  }
-}
-
-
-</style>
+ <style>
+ .card {
+   border-radius: 1rem;
+ }
+ .card-text {
+   font-size: 1.1rem;
+   line-height: 1.6;
+ }
+ .carousel-control-prev-icon,
+ .carousel-control-next-icon {
+   filter: invert(1);
+ }
+ .btn-warning {
+   background-color: #fbbc05;
+   border: none;
+   transition: all 0.3s ease;
+ }
+ .btn-warning:hover {
+   background-color: #e0a800;
+   transform: translateY(-2px);
+ }
+ @media (max-width: 768px) {
+   .d-flex.justify-content-between {
+     flex-direction: column;
+     text-align: center;
+   }
+   .d-flex.justify-content-end {
+     justify-content: center !important;
+   }
+ }
+ </style>
