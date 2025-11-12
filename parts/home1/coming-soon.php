@@ -37,11 +37,13 @@
   </script>
 </div>
 <div style="margin-top: 20px"></div>
-<div class="container">
+  <!-- <div class="container"> -->
 
-  <!-- <div class="modal-body" style="height: 700px; padding: 0;">
-    <iframe src="https://www.yocale.com/widget/coastal-bliss-wellness?locations=165570"
-            width="100%" height="100%" frameborder="0" style="border: none;"></iframe>
-  </div> -->
+    <!-- <div class="modal-body" style="height: 700px; padding: 0;">
+      <iframe src="https://www.yocale.com/widget/coastal-bliss-wellness?locations=165570"
+              width="100%" height="100%" frameborder="0" style="border: none;"></iframe>
+    </div> -->
+    <div class="embedsocial-hashtag" data-ref="2082f57e6c1dfcf1aee3e702453c811610349aac"> <a class="feed-powered-by-es feed-powered-by-es-slider-img es-widget-branding" href="https://embedsocial.com/social-media-aggregator/" target="_blank" title="Instagram widget"> <img src="https://embedsocial.com/cdn/icon/embedsocial-logo.webp" alt="EmbedSocial"> <div class="es-widget-branding-text">Instagram widget</div> </a> </div> <script> (function(d, s, id) { var js; if (d.getElementById(id)) {return;} js = d.createElement(s); js.id = id; js.src = "https://embedsocial.com/cdn/ht.js"; d.getElementsByTagName("head")[0].appendChild(js); }(document, "script", "EmbedSocialHashtagScript")); </script>
 
-</div>
+  <!-- </div> -->
+</div> 
