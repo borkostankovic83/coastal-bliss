@@ -75,7 +75,7 @@ while ($row = mysqli_fetch_assoc($addons_result)) {
         <div class="mb-5 facials-section"></div>
 
     <?php elseif ($section == 'Signature Facials'): ?>
-        <h3 style="color: #9f8958">Our Signature Facials</h3>
+        <h3 style="color: #9f8958">Our Advanced Facials</h3>
         <p style="color: #555; font-size: 1rem; margin-top: 0.5rem;">
             Experience the essence of our spa with facials crafted to rejuvenate, restore, and reveal your natural radiance.
         </p>
