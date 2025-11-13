@@ -91,8 +91,7 @@ foreach ($reviewsToShow as $r) {
 file_put_contents($shownFile, json_encode($shown));
 ?>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 
 <div class="container-fluid py-5 bg-light">
     <div class="d-flex justify-content-between align-items-center px-4 flex-wrap mb-3">
@@ -207,17 +206,7 @@ es-header-btn {
     backgroundColor: #beac5c !important;
 }
 /* ===== Coastal Bliss Black Friday Promo ===== */
-.black-friday-section {
-  background: url('your-background.jpg') no-repeat center center/cover;
-  background-color: #fdfdfd; /* fallback */
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem 2rem;
-  color: #1a1a1a;
-  font-family: 'Playfair Display', serif;
-}
+/*  */
 
 .black-friday-container {
   max-width: 1100px;
@@ -287,14 +276,13 @@ es-header-btn {
 }
 
 @media (max-width: 768px) {
-  .black-friday-container {
-    padding: 2rem;
+  /* Scope these adjustments only to the black-friday section so header/nav isn't affected */
+  .black-friday-section .d-flex.justify-content-between {
+    flex-direction: column;
+    text-align: center;
   }
-  .black-friday-header h1 {
-    font-size: 2.2rem;
-  }
-  .black-friday-content {
-    font-size: 0.95rem;
+  .black-friday-section .d-flex.justify-content-end {
+    justify-content: center !important;
   }
 }
 
