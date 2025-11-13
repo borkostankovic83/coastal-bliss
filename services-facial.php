@@ -3,7 +3,6 @@ $head_title = "Coastal Bliss | Facials";
 require_once('parts/header/header.php');
 
 $page_title = "Services - Facials";
-require_once('parts/page-title.php');
 
 // Connect to database
 require_once "../database.php";
@@ -48,6 +47,19 @@ while ($row = mysqli_fetch_assoc($addons_result)) {
 };
 
 ?>
+<section class="page-title" style="background-image: url(images/slider/1.png);">
+
+    <div class="image-curve"></div>
+    <div class="auto-container">
+        <div class="title-outer text-center">
+            <h1 class="title"><?php if(isset($page_title)&&!empty($page_title)) { echo $page_title; } ?></h1>
+            <ul class="page-breadcrumb">
+                <li><a href="index.php">Home</a></li>
+                <li><?php if(isset($page_title)&&!empty($page_title)) { echo $page_title; } ?></li>
+            </ul>
+        </div>
+    </div>
+</section>
 <section id="services" class="py-5 container">
     <div class="container">
         <img src="images/Sorella_wordmark-gold.png" alt="Sorella Apothecary" class="img-center">

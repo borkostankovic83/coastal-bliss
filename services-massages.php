@@ -6,7 +6,7 @@
 
 <?php
     $page_title = "Services - Massages";
-    require_once('parts/page-title.php');
+    
 
     // Database connection
     require_once "../database.php";
@@ -65,6 +65,19 @@
     }
 
 ?>
+<section class="page-title" style="background-image: url(images/slider/3.png);">
+
+    <div class="image-curve"></div>
+    <div class="auto-container">
+        <div class="title-outer text-center">
+            <h1 class="title"><?php if(isset($page_title)&&!empty($page_title)) { echo $page_title; } ?></h1>
+            <ul class="page-breadcrumb">
+                <li><a href="index.php">Home</a></li>
+                <li><?php if(isset($page_title)&&!empty($page_title)) { echo $page_title; } ?></li>
+            </ul>
+        </div>
+    </div>
+</section>
 
 <section id="services" class="py-5 container">
     <div class="container">

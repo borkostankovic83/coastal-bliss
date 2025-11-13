@@ -1,7 +1,45 @@
+<section class="black-friday-section">
+  <div class="black-friday-container">
+    <div class="black-friday-header">
+      <h1>BLACK FRIDAY</h1>
+      <h2>Sale</h2>
+      <p>BUY $100, GET $100</p>
+    </div>
 
-<div class="container">
-  <img src="images/bf-sale-2026.png" alt="Coastal Bliss Wellness Logo" >
-</div>
+    <div class="black-friday-content">
+      <p>
+        This Black Friday, indulge in the ultimate spa experience with our exclusive gift certificate promotion! 
+        <strong>For every $100 you spend</strong>, you’ll receive four (4) $25 promotional gift cards absolutely free.
+      </p>
+
+      <h3 style="color:#beac5c; margin:0; font-weight:600;">Standard Gift Cards:</h3>
+      <ul>
+        <li>Never expire.</li>
+        <li><strong>Valid starting December 1st, 2025.</strong></li>
+        <li>Usable for spa services, retail purchases, or gratuities.</li>
+        <li>Must be presented at checkout.</li>
+      </ul>
+
+      <h3 style="color:#beac5c; margin:0; font-weight:600;">Promotional $25 Gift Cards:</h3>
+      <ul>
+        <li><strong>Valid from January 1st to December 31st, 2026.</strong></li>
+        <li>Redeemable for any 60-minute service or longer.</li>
+        <li>Limited to one (1) per person, per visit.</li>
+        <li>Cannot be used for products or gratuities.</li>
+      </ul>
+    </div>
+
+    <div class="black-friday-footer">
+      <p>
+        <strong>The sale starts Saturday, November 15th</strong>, and purchases can be made in-store or by phone.<br>
+        Take advantage of this fantastic offer and give the gift of relaxation!
+      </p>
+      <p><strong>CASH IS PREFERRED;</strong> if using a card, a 3% processing fee will be charged.</p>
+    </div>
+  </div>
+</section>
+
+
 
 <?php
 $apiKey = 'AIzaSyCbKyOl-dKHONVxbqScOMBQOlaJ9Uju_zI';
@@ -113,7 +151,7 @@ file_put_contents($shownFile, json_encode($shown));
         </div>
 
         <div class="d-flex justify-content-end pe-4 mt-3">
-            <a href="https://www.google.com/maps/place/?q=place_id:<?= $placeId ?>" target="_blank" class="btn btn-link fw-semibold">
+            <a href="https://www.google.com/maps/place/?q=place_id:<?= $placeId ?>" target="_blank" class="btn btn-link fw-semibold" style="color: #beac5c;">
                 View All Reviews on Google →
             </a>
         </div>
@@ -159,10 +197,105 @@ file_put_contents($shownFile, json_encode($shown));
 .card { border-radius: 1rem; }
 .card-text { font-size: 1.1rem; line-height: 1.6; }
 .carousel-control-prev-icon, .carousel-control-next-icon { filter: invert(1); }
-.btn-warning { background-color: #fbbc05; border: none; transition: all 0.3s ease; }
-.btn-warning:hover { background-color: #e0a800; transform: translateY(-2px); }
+.btn-warning { background-color: #beac5c; border: none; transition: all 0.3s ease; }
+.btn-warning:hover { background-color: #beac5c; transform: translateY(-2px); }
 @media (max-width: 768px) {
   .d-flex.justify-content-between { flex-direction: column; text-align: center; }
   .d-flex.justify-content-end { justify-content: center !important; }
 }
+es-header-btn {
+    backgroundColor: #beac5c !important;
+}
+/* ===== Coastal Bliss Black Friday Promo ===== */
+.black-friday-section {
+  background: url('your-background.jpg') no-repeat center center/cover;
+  background-color: #fdfdfd; /* fallback */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  color: #1a1a1a;
+  font-family: 'Playfair Display', serif;
+}
+
+.black-friday-container {
+  max-width: 1100px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 3rem 4rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.black-friday-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.black-friday-header h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #000;
+}
+
+.black-friday-header h2 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: #b6922e;
+  font-family: 'Great Vibes', cursive;
+  margin-top: -0.5rem;
+}
+
+.black-friday-header p {
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  font-weight: bold;
+  margin-top: 1rem;
+  letter-spacing: 2px;
+}
+
+.black-friday-content {
+  margin-top: 2rem;
+  line-height: 1.8;
+}
+
+.black-friday-content h3 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #000;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.black-friday-content ul {
+  list-style: disc;
+  margin-left: 1.5rem;
+  font-size: 1rem;
+}
+
+.black-friday-footer {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-style: italic;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.black-friday-footer strong {
+  font-weight: bold;
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .black-friday-container {
+    padding: 2rem;
+  }
+  .black-friday-header h1 {
+    font-size: 2.2rem;
+  }
+  .black-friday-content {
+    font-size: 0.95rem;
+  }
+}
+
 </style>

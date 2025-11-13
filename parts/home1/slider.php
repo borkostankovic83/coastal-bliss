@@ -1,129 +1,49 @@
-<section class="main-slider">
-	<div class="image-curve"></div>
-	<div class="rev_slider_wrapper fullwidthbanner-container" id="rev_slider_one_wrapper" data-source="gallery">
-		<div class="rev_slider fullwidthabanner" id="rev_slider_one" data-version="5.4.1">
-			<ul>
-				<!-- Slide 1 -->
-				<li data-index="rs-1" data-transition="zoomout">
-					<!-- MAIN IMAGE -->
-					<img src="images/main-slider/bg-slider1-1.png" alt="" class="rev-slidebg">
-					<div class="tp-caption" 
-						data-paddingbottom="[15,15,15,15]"
-						data-paddingleft="[15,15,15,15]"
-						data-paddingright="[0,0,0,0]"
-						data-paddingtop="[10,10,10,10]"
-						data-responsive_offset="on"
-						data-type="text" data-height="none"
-						data-width="['750','750','750','750']"
-						data-whitespace="normal"
-						data-hoffset="['1228','0','0','0']"
-						data-voffset="['-270','-175','-175','-175']"
-						data-x="['left','left','left','left']"
-						data-y="['middle','middle','middle','middle']"
-						data-textalign="['top','top','top','top']"
-						data-frames='[{"delay":1100,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-						<figure class="image image-style-one bounce-y"><img src="images/main-slider/slide1-3.png" alt="Image"></figure>
-					</div>
-					<div class="tp-caption" 
-						data-paddingbottom="[15,15,15,15]"
-						data-paddingleft="[15,15,15,15]"
-						data-paddingright="[0,0,0,0]"
-						data-paddingtop="[10,10,10,10]"
-						data-responsive_offset="on"
-						data-type="text" data-height="none"
-						data-width="['750','750','750','750']"
-						data-whitespace="normal"
-						data-hoffset="['0','0','0','0']"
-						data-voffset="['-232','-250','-150','-150']"
-						data-x="['left','left','center','left']"
-						data-y="['middle','middle','middle','middle']"
-						data-textalign="['top','top','top','top']"
-						data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-						<span class="sub-title">Professional Styling Since 1990</span>
-					</div>
-					<div class="tp-caption" 
-						data-paddingbottom="[0,0,0,0]"
-						data-paddingleft="[15,15,15,15]"
-						data-paddingright="[15,15,15,15]"
-						data-paddingtop="[0,0,0,0]"
-						data-responsive_offset="on"
-						data-type="text" data-height="none"
-						data-width="['950','750','750','480']"
-						data-whitespace="normal"
-						data-hoffset="['0','0','0','0']"
-						data-voffset="['-120','-90','-40','-40']"
-						data-x="['left','left','center','center']"
-						data-y="['middle','middle','middle','middle']"
-						data-textalign="['top','top','top','top']"
-						data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-						<h1 class="title">The Essence <br> Of Beauty</h1>
-					</div>
-					<div class="tp-caption" data-paddingbottom="[0,0,0,0]"
-						data-paddingleft="[15,15,0,5]"
-						data-paddingright="[15,15,15,15]"
-						data-paddingtop="[0,0,0,0]"
-						data-responsive_offset="on"
-						data-type="text" data-height="none"
-						data-width="['700','750','700','450']"
-						data-whitespace="normal"
-						data-hoffset="['0','0','0','0']"
-						data-voffset="['16','110','90','100']"
-						data-x="['left','left','center','center']"
-						data-y="['middle','middle','middle','middle']"
-						data-textalign="['top','top','top','top']"
-						data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-						<a href="page-contact.php" class="theme-btn btn-style-one"><span class="btn-title">Book Now</span></a>
-					</div>
-					<div class="tp-caption" data-paddingbottom="[0,0,0,0]"
-						data-paddingleft="[15,15,15,15]"
-						data-paddingright="[15,15,15,15]"
-						data-paddingtop="[0,0,0,0]"
-						data-responsive_offset="on"
-						data-type="text" data-height="none"
-						data-whitespace="normal"
-						data-hoffset="['433','820','820','820']"
-						data-voffset="['270','-75','-75','-75']"
-						data-x="['left','left','center','center']"
-						data-y="['middle','middle','middle','middle']"
-						data-textalign="['top','top','top','top']"
-						data-frames='[{"delay":1100,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-						<figure class="image"><img src="images/main-slider/slide1-4.png" alt="Image"></figure>
-					</div>
-					<div class="tp-caption" data-paddingbottom="[0,0,0,0]"
-						data-paddingleft="[15,15,15,15]"
-						data-paddingright="[15,15,15,15]"
-						data-paddingtop="[0,0,0,0]"
-						data-responsive_offset="on"
-						data-type="text" data-height="none"
-						data-width="['750','750','750','750']"
-						data-whitespace="normal"
-						data-hoffset="['537','500','820','820']"
-						data-voffset="['22','40','-75','-75']"
-						data-x="['left','left','center','center']"
-						data-y="['middle','middle','middle','middle']"
-						data-textalign="['top','top','top','top']"
-						data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"x:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-						<figure class="image"><img src="images/main-slider/slide1-2.png" alt="Image"></figure>
-					</div>
-					<div class="tp-caption" 
-						data-paddingbottom="[15,15,15,15]"
-						data-paddingleft="[15,15,15,15]"
-						data-paddingright="[0,0,0,0]"
-						data-paddingtop="[10,10,10,10]"
-						data-responsive_offset="on"
-						data-type="text" data-height="none"
-						data-width="['1666','1050','750','750']"
-						data-whitespace="normal"
-						data-hoffset="['-100','0','0','0']"
-						data-voffset="['345','380','440','350']"
-						data-x="['left','left','center','center']"
-						data-y="['middle','middle','middle','middle']"
-						data-textalign="['top','top','top','top']"
-						data-frames='[{"delay":1200,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-						<span class="style-title">Purerelax</span>
-					</div>
-				</li>
-			</ul>
+
+
+<section class="py-5">
+	<div class="container-fluid">	
+				<?php
+		
+		// Try project-local images first, then site-root images
+		$projectImgDir = realpath(__DIR__ . '/../../images/slider');
+		$siteImgDir    = realpath($_SERVER['DOCUMENT_ROOT'] . '/images/slider');
+		
+		$imgDir = $projectImgDir ?: $siteImgDir;
+		$files = [];
+		if ($imgDir && is_dir($imgDir)) {
+			$files = glob($imgDir . '/*.{jpg,jpeg,png,gif,webp}', GLOB_BRACE);
+			sort($files);
+		}
+		
+		$carouselId = 'homeCarousel_' . md5(__FILE__);
+		$docRoot = realpath($_SERVER['DOCUMENT_ROOT']);
+		?>
+		<?php if (!empty($files)): ?>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+		<div id="<?= $carouselId ?>" class="carousel slide" data-bs-ride="carousel">
+		  <div class="carousel-inner">
+			<?php foreach ($files as $i => $f):
+				$real = str_replace('\\','/', realpath($f));
+				// Build web path by removing document root from real path -> ensures correct "/images/..." or "/coastal-bliss/images/..."
+				$webPath = '/' . ltrim(str_replace(str_replace('\\','/',$docRoot), '', $real), '/');
+				$alt = htmlspecialchars(basename($f));
+			?>
+			  <div class="carousel-item <?= $i === 0 ? 'active' : '' ?>">
+				<img src="<?= $webPath ?>" class="d-block w-100" alt="<?= $alt ?>" style="object-fit:cover; max-height:600px;">
+			  </div>
+			<?php endforeach; ?>
+		  </div>
+		
+		  <button class="carousel-control-prev" type="button" data-bs-target="#<?= $carouselId ?>" data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span>
+		  </button>
+		  <button class="carousel-control-next" type="button" data-bs-target="#<?= $carouselId ?>" data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span>
+		  </button>
 		</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+		<?php else: ?>
+		<!-- No slider images found in images/slider -->
+		<?php endif; ?>
 	</div>
-</section>
+</div>

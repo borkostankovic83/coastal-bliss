@@ -2,7 +2,6 @@
 $head_title = "Coastal Bliss | Packages";
 require_once('parts/header/header.php');
 $page_title = "Services - Packages";
-require_once('parts/page-title.php');
 require_once "../database.php";
 $conn = getDatabaseConnection();
 
@@ -23,7 +22,19 @@ if ($packages) {
     }
 }
 ?>
+<section class="page-title" style="background-image: url(images/slider/2.png);">
 
+    <div class="image-curve"></div>
+    <div class="auto-container">
+        <div class="title-outer text-center">
+            <h1 class="title"><?php if(isset($page_title)&&!empty($page_title)) { echo $page_title; } ?></h1>
+            <ul class="page-breadcrumb">
+                <li><a href="index.php">Home</a></li>
+                <li><?php if(isset($page_title)&&!empty($page_title)) { echo $page_title; } ?></li>
+            </ul>
+        </div>
+    </div>
+</section>
 <section id="services" class="py-5" style="background: linear-gradient(120deg, #f8f6f2 0%, #f3f7fa 100%);">
     <div class="container">
         <?php foreach ($packages as $package): ?>
