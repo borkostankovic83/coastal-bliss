@@ -37,8 +37,15 @@
       <p><strong>CASH IS PREFERRED;</strong> if using a card, a 3% processing fee will be charged.</p>
     </div>
   </div>
+
 </section>
 
+<div class="container text-center my-3">
+    <img src="https://storage.googleapis.com/hmail-reach-backend-assets/gallery/63f7ae3b83774813748a20d062394079/690e651a8dc5b.jpg"
+         alt="Black Friday Promo"
+         class="img-fluid mx-auto d-block"
+         style="max-width:100%; height:auto; border:0;">
+</div>
 
 
 <?php
@@ -212,92 +219,37 @@ es-header-btn {
 /* ===== Coastal Bliss Black Friday Promo ===== */
 .black-friday-section {
   background: url('your-background.jpg') no-repeat center center/cover;
-  background-color: #fdfdfd; 
-  min-height: 100vh;
+  background-color: #fdfdfd;
+  min-height: auto; /* don't force full viewport height */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem 2rem;
+  padding: 2rem 1rem; /* reduced vertical space */
   color: #1a1a1a;
   font-family: 'Playfair Display', serif;
-} 
+}
 
 .black-friday-container {
   max-width: 1100px;
   width: 100%;
   background: rgba(255, 255, 255, 0.95);
-  border-radius: 20px;
-  padding: 3rem 4rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem 2rem; /* tighter inner padding */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
-.black-friday-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
+/* reduce spacing between header/content/footer */
+.black-friday-header { margin-bottom: 1rem; }
+.black-friday-content { margin-top: 1rem; }
+.black-friday-footer { margin-top: 1.25rem; }
 
-.black-friday-header h1 {
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  letter-spacing: 2px;
-  font-weight: 700;
-  color: #000;
-}
-
-.black-friday-header h2 {
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  color: #b6922e;
-  font-family: 'Great Vibes', cursive;
-  margin-top: -0.5rem;
-}
-
-.black-friday-header p {
-  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
-  font-weight: bold;
-  margin-top: 1rem;
-  letter-spacing: 2px;
-}
-
-.black-friday-content {
-  margin-top: 2rem;
-  line-height: 1.8;
-}
-
-.black-friday-content h3 {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: #000;
-  text-transform: uppercase;
-  margin-bottom: 0.75rem;
-}
-
-.black-friday-content ul {
-  list-style: disc;
-  margin-left: 1.5rem;
-  font-size: 1rem;
-}
-
-.black-friday-footer {
-  margin-top: 2.5rem;
-  text-align: center;
-  font-style: italic;
-  color: #333;
-  font-size: 1.1rem;
-}
-
-.black-friday-footer strong {
-  font-weight: bold;
-  color: #000;
-}
-
+/* responsive scaling */
 @media (max-width: 768px) {
-  /* Scope these adjustments only to the black-friday section so header/nav isn't affected */
-  .black-friday-section .d-flex.justify-content-between {
-    flex-direction: column;
-    text-align: center;
-  }
-  .black-friday-section .d-flex.justify-content-end {
-    justify-content: center !important;
-  }
+  .black-friday-container { padding: 1rem; border-radius: 12px; }
+  .black-friday-header h1 { font-size: 2rem; }
+  .black-friday-header h2 { font-size: 1.25rem; }
 }
 
+/* override any stray spacer DIVs that follow this section */
+.black-friday-section + div[style*="margin-top"], .black-friday-section + .spacer { margin-top: 0 !important; }
 </style>
