@@ -47,7 +47,7 @@ while ($row = mysqli_fetch_assoc($addons_result)) {
 };
 
 ?>
-<section class="page-title" style="background-image: url(images/slider/1.png);">
+<section class="page-title" style="background-image: url(images/slider/8.png);">
 
     <div class="image-curve"></div>
     <div class="auto-container">

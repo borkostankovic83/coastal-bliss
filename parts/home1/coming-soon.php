@@ -206,7 +206,17 @@ es-header-btn {
     backgroundColor: #beac5c !important;
 }
 /* ===== Coastal Bliss Black Friday Promo ===== */
-/*  */
+.black-friday-section {
+  background: url('your-background.jpg') no-repeat center center/cover;
+  background-color: #fdfdfd; 
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  color: #1a1a1a;
+  font-family: 'Playfair Display', serif;
+} 
 
 .black-friday-container {
   max-width: 1100px;
