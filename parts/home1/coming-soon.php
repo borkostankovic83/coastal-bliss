@@ -42,8 +42,12 @@
 
 
 <?php
-$apiKey = 'AIzaSyCbKyOl-dKHONVxbqScOMBQOlaJ9Uju_zI';
-$placeId = 'ChIJ6fGQyIG3uIkRs_LIBvlYUNI';
+// Load config
+$config = include('./../config.php');
+
+// Read Google API key and Place ID from config with safe fallbacks
+$apiKey  = $config['google_api_key'];
+$placeId = $config['google_place_id'];
 
 // Local cache files
 $cacheFile = __DIR__ . '/reviews.json';
