@@ -5,8 +5,8 @@
 				<?php
 		
 		// Try project-local images first, then site-root images
-		$projectImgDir = realpath(__DIR__ . '/../../images/slider');
-		$siteImgDir    = realpath($_SERVER['DOCUMENT_ROOT'] . '/images/slider');
+		$projectImgDir = realpath(__DIR__ . '/../../images/slider/slides');
+		$siteImgDir    = realpath($_SERVER['DOCUMENT_ROOT'] . '/images/slider/slides');
 		
 		$imgDir = $projectImgDir ?: $siteImgDir;
 		$files = [];
