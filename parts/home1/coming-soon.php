@@ -1,18 +1,26 @@
 <section class="black-friday-section">
   <div class="black-friday-container">
-    <div class="black-friday-header">
-      <h1>BLACK FRIDAY</h1>
-      <h2>Sale</h2>
-      <p>BUY $100, GET $100</p>
+
+    <!-- HEADER -->
+    <div class="black-friday-header" style="text-align:center;">
+      <h1 style="color:#c40000; font-size:48px; margin:0; font-weight:800;">EXTENDED!</h1>
+      <h1 style="font-size:60px; margin:0; font-weight:800;">BLACK FRIDAY</h1>
+      <h2 style="font-size:48px; margin:0; color:#d2a74d; font-family:'Great Vibes', cursive;">Sale</h2>
+      <p style="font-size:28px; letter-spacing:6px; font-weight:700; margin-top:10px;">
+        BUY $100, GET $100
+      </p>
+      <p style="margin-top:0; font-size:18px;">Available while supplies last.</p>
     </div>
 
+    <!-- CONTENT -->
     <div class="black-friday-content">
-      <p>
+      <p style="font-size:16px;">
         This Black Friday, indulge in the ultimate spa experience with our exclusive gift certificate promotion! 
         <strong>For every $100 you spend</strong>, you’ll receive four (4) $25 promotional gift cards absolutely free.
+        That's <strong>$100 in extra spa bliss</strong> to enjoy throughout 2026.
       </p>
 
-      <h3 style="color:#beac5c; margin:0; font-weight:600;">Standard Gift Cards:</h3>
+      <h3 style="color:#beac5c; margin:0; font-weight:700;">Standard Gift Cards:</h3>
       <ul>
         <li>Never expire.</li>
         <li><strong>Valid starting December 1st, 2025.</strong></li>
@@ -20,25 +28,31 @@
         <li>Must be presented at checkout.</li>
       </ul>
 
-      <h3 style="color:#beac5c; margin:0; font-weight:600;">Promotional $25 Gift Cards:</h3>
+      <h3 style="color:#beac5c; margin:0; font-weight:700;">Promotional $25 Gift Cards:</h3>
       <ul>
         <li><strong>Valid from January 1st to December 31st, 2026.</strong></li>
         <li>Redeemable for any 60-minute service or longer.</li>
         <li>Limited to one (1) per person, per visit.</li>
         <li>Cannot be used for products or gratuities.</li>
+        <li>Cannot be combined with other offers, promotions, or discounts.</li>
+        <li><strong>MUST</strong> be presented at checkout as they are not trackable.</li>
       </ul>
     </div>
 
-    <div class="black-friday-footer">
-      <p>
-        <strong>The sale starts Saturday, November 15th</strong>, and purchases can be made in-store or by phone.<br>
+    <!-- FOOTER -->
+    <div class="black-friday-footer" style="margin-top:20px;">
+      <p style="font-size:16px;">
+        <strong>The sale starts Saturday, November 1st</strong>, and purchases can be made in-store or by phone.<br>
         Take advantage of this fantastic offer and give the gift of relaxation!
       </p>
-      <p><strong>CASH IS PREFERRED;</strong> if using a card, a 3% processing fee will be charged.</p>
+      <p style="font-size:16px;">
+        <strong>CASH IS PREFERRED;</strong> if using a card, a 3% processing fee will be charged.
+      </p>
     </div>
-  </div>
 
+  </div>
 </section>
+
 
 <div class="container text-center my-3">
     <img src="https://storage.googleapis.com/hmail-reach-backend-assets/gallery/63f7ae3b83774813748a20d062394079/690e651a8dc5b.jpg"
