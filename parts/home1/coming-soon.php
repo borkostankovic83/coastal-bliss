@@ -53,7 +53,6 @@
   </div>
 </section>
 
-
 <div class="container text-center my-3">
     <img src="https://storage.googleapis.com/hmail-reach-backend-assets/gallery/63f7ae3b83774813748a20d062394079/690e651a8dc5b.jpg"
          alt="Black Friday Promo"
@@ -117,14 +116,15 @@ file_put_contents($shownFile, json_encode($shown));
 ?>
 
 
-
 <div class="container-fluid py-5 bg-light">
-    <div class="d-flex justify-content-between align-items-center px-4 flex-wrap mb-3">
+  <div class="d-flex justify-content-between align-items-center px-4 flex-wrap mb-3">
         <div>
             <h2 class="fw-bold mb-1"><?= htmlspecialchars($place['name'] ?? 'Our Spa') ?></h2>
+
             <?php if (!empty($place['formatted_address'])): ?>
                 <p class="text-muted mb-1"><?= htmlspecialchars($place['formatted_address']) ?></p>
             <?php endif; ?>
+
             <?php if (!empty($place['rating'])): ?>
                 <p class="mb-0 text-warning fs-5">
                     <?= str_repeat('⭐', round($place['rating'])) ?>
@@ -151,14 +151,40 @@ file_put_contents($shownFile, json_encode($shown));
                         <div class="d-flex justify-content-center">
                             <div class="card shadow-sm border-0 mx-3" style="max-width: 700px;">
                                 <div class="card-body text-center">
-                                    <h5 class="card-title fw-semibold"><?= htmlspecialchars($review['author_name']) ?></h5>
+
+                                    <!-- Reviewer Image + Name -->
+                                    <div class="d-flex flex-column align-items-center mb-3">
+                                        <?php if (!empty($review['profile_photo_url'])): ?>
+                                            <img 
+                                                src="<?= htmlspecialchars($review['profile_photo_url']) ?>" 
+                                                alt="<?= htmlspecialchars($review['author_name']) ?>" 
+                                                class="rounded-circle mb-2" 
+                                                width="70" height="70"
+                                                style="object-fit: cover;">
+                                        <?php else: ?>
+                                            <div class="rounded-circle bg-secondary mb-2 d-flex justify-content-center align-items-center"
+                                                 style="width:70px; height:70px; color:white; font-size:28px;">
+                                                <?= strtoupper(substr($review['author_name'], 0, 1)) ?>
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <h5 class="fw-semibold mb-0"><?= htmlspecialchars($review['author_name']) ?></h5>
+                                    </div>
+
+                                    <!-- Stars -->
                                     <p class="text-warning mb-2">
                                         <?= str_repeat('⭐', $review['rating']) ?>
                                     </p>
-                                    <p class="card-text fst-italic text-muted">"<?= htmlspecialchars($review['text']) ?>"</p>
+
+                                    <!-- Text -->
+                                    <p class="card-text fst-italic text-muted">
+                                        "<?= htmlspecialchars($review['text']) ?>"
+                                    </p>
                                 </div>
                                 <div class="card-footer bg-white border-0 text-end">
-                                    <small class="text-secondary"><?= date("F j, Y", $review['time']) ?></small>
+                                    <small class="text-secondary">
+                                        <?= date("F j, Y", $review['time']) ?>
+                                    </small>
                                 </div>
                             </div>
                         </div>
@@ -175,8 +201,11 @@ file_put_contents($shownFile, json_encode($shown));
         </div>
 
         <div class="d-flex justify-content-end pe-4 mt-3">
-            <a href="https://www.google.com/maps/place/?q=place_id:<?= $placeId ?>" target="_blank" class="btn btn-link fw-semibold" style="color: #beac5c;">
-                View All Reviews on Google →
+            <a href="https://www.google.com/maps/place/?q=place_id:<?= $placeId ?>" 
+               target="_blank" 
+               class="btn btn-link fw-semibold"
+               style="color:#beac5c;">
+               View All Reviews on Google →
             </a>
         </div>
     <?php else: ?>
