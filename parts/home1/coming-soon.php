@@ -1,4 +1,4 @@
-<section class="black-friday-section">
+<!-- <section class="black-friday-section">
   <div class="black-friday-container">
     <div class="black-friday-header">
       <h1>BLACK FRIDAY</h1>
@@ -38,8 +38,13 @@
     </div>
   </div>
 
-</section>
-
+</section> -->
+<div class="container text-center my-3">
+ <img src="https://ecp.yusercontent.com/mail?url=https%3A%2F%2Fstorage.googleapis.com%2Fhmail-reach-backend-assets%2Fgallery%2F63f7ae3b83774813748a20d062394079%2F693f037f71a6c.png&t=1765862952&ymreqid=3111b27e-8691-31bf-1c1b-e30006015c00&sig=dFeo4gIHcMzW5hWQ7o_.rw--~D"
+         alt="New YearPromo"
+         class="img-fluid mx-auto d-block"
+         style="max-width:100%; height:auto; border:0;">
+</div>
 <div class="container text-center my-3">
     <img src="https://storage.googleapis.com/hmail-reach-backend-assets/gallery/63f7ae3b83774813748a20d062394079/690e651a8dc5b.jpg"
          alt="Black Friday Promo"
