@@ -1,57 +1,9 @@
-<section class="black-friday-section">
-  <div class="black-friday-container">
-
-    <!-- HEADER -->
-    <div class="black-friday-header" style="text-align:center;">
-      <h1 style="color:#c40000; font-size:48px; margin:0; font-weight:800;">EXTENDED!</h1>
-      <h1 style="font-size:60px; margin:0; font-weight:800;">BLACK FRIDAY</h1>
-      <h2 style="font-size:48px; margin:0; color:#d2a74d; font-family:'Great Vibes', cursive;">Sale</h2>
-      <p style="font-size:28px; letter-spacing:6px; font-weight:700; margin-top:10px;">
-        BUY $100, GET $100
-      </p>
-      <p style="margin-top:0; font-size:18px;">Available while supplies last.</p>
-    </div>
-
-    <!-- CONTENT -->
-    <div class="black-friday-content">
-      <p style="font-size:16px;">
-        This Black Friday, indulge in the ultimate spa experience with our exclusive gift certificate promotion! 
-        <strong>For every $100 you spend</strong>, you’ll receive four (4) $25 promotional gift cards absolutely free.
-        That's <strong>$100 in extra spa bliss</strong> to enjoy throughout 2026.
-      </p>
-
-      <h3 style="color:#beac5c; margin:0; font-weight:700;">Standard Gift Cards:</h3>
-      <ul>
-        <li>Never expire.</li>
-        <li><strong>Valid starting December 1st, 2025.</strong></li>
-        <li>Usable for spa services, retail purchases, or gratuities.</li>
-        <li>Must be presented at checkout.</li>
-      </ul>
-
-      <h3 style="color:#beac5c; margin:0; font-weight:700;">Promotional $25 Gift Cards:</h3>
-      <ul>
-        <li><strong>Valid from January 1st to December 31st, 2026.</strong></li>
-        <li>Redeemable for any 60-minute service or longer.</li>
-        <li>Limited to one (1) per person, per visit.</li>
-        <li>Cannot be used for products or gratuities.</li>
-        <li>Cannot be combined with other offers, promotions, or discounts.</li>
-        <li><strong>MUST</strong> be presented at checkout as they are not trackable.</li>
-      </ul>
-    </div>
-
-    <!-- FOOTER -->
-    <div class="black-friday-footer" style="margin-top:20px;">
-      <p style="font-size:16px;">
-        <strong>The sale starts Saturday, November 1st</strong>, and purchases can be made in-store or by phone.<br>
-        Take advantage of this fantastic offer and give the gift of relaxation!
-      </p>
-      <p style="font-size:16px;">
-        <strong>CASH IS PREFERRED;</strong> if using a card, a 3% processing fee will be charged.
-      </p>
-    </div>
-
-  </div>
-</section>
+<div class="container text-center my-3">
+    <img src="https://ecp.yusercontent.com/mail?url=https%3A%2F%2Fstorage.googleapis.com%2Fhmail-reach-backend-assets%2Fgallery%2F63f7ae3b83774813748a20d062394079%2F693f037f71a6c.png&t=1765866860&ymreqid=3111b27e-8691-31bf-1c8d-13000201ee00&sig=ZJAp5iswbUHm8XyX1_31uA--~D"
+         alt="New Years Promo"
+         class="img-fluid mx-auto d-block"
+         style="max-width:100%; height:auto; border:0;">
+</div>
 
 <div class="container text-center my-3">
     <img src="https://storage.googleapis.com/hmail-reach-backend-assets/gallery/63f7ae3b83774813748a20d062394079/690e651a8dc5b.jpg"
