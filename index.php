@@ -8,7 +8,7 @@
 
 
 <?php
-
+    require_once('parts/home1/banner.php');
     require_once('parts/home1/slider.php');
 //     require_once('parts/home1/about.php');
     require_once('parts/home1/coming-soon.php');
