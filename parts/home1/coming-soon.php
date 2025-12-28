@@ -1,4 +1,4 @@
-<div class="container text-center my-3">
+<!-- <div class="container text-center my-3">
     <img src="https://ecp.yusercontent.com/mail?url=https%3A%2F%2Fstorage.googleapis.com%2Fhmail-reach-backend-assets%2Fgallery%2F63f7ae3b83774813748a20d062394079%2F693f037f71a6c.png&t=1765866860&ymreqid=3111b27e-8691-31bf-1c8d-13000201ee00&sig=ZJAp5iswbUHm8XyX1_31uA--~D"
          alt="New Years Promo"
          class="img-fluid mx-auto d-block"
@@ -10,7 +10,7 @@
          alt="Black Friday Promo"
          class="img-fluid mx-auto d-block"
          style="max-width:100%; height:auto; border:0;">
-</div>
+</div> -->
 
 
 <?php
