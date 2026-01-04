@@ -33,7 +33,8 @@
                         'edit-nails.php',
                         'edit-lash-n-brow.php',
                         'edit-info.php',
-                        'edit-packages.php'
+                        'edit-packages.php',
+                        'edit-homepage.php'
                     ]) ? 'active' : '' ?>" href="#" id="editServicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Edit Services
                     </a>
@@ -58,6 +59,9 @@
                         </li>
                         <li>
                             <a class="dropdown-item <?= $currentPage == 'edit-packages.php' ? 'active' : '' ?>" href="edit-packages.php">Edit Packages</a>
+                        </li>
+                         <li>
+                            <a class="dropdown-item <?= $currentPage == 'edit-homepage.php' ? 'active' : '' ?>" href="edit-homepage.php">Edit Homepage</a>
                         </li>
                     </ul>
                 </li>
