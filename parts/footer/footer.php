@@ -58,8 +58,13 @@ $open_hours = json_decode($footer_data['open_hours'] ?? '{}', true);
   <div class="auto-container">
     <div class="inner-container">
       <figure class="image"><img src="images/icons/footer-bottom-img-1.png" alt="Image"></figure>
-      <div class="copyright-text">&copy; Coastal Bliss Wellness<a href="index.php"></a></div>
-      <a class="link" href="index.php">Terms & Conditions</a>
+      <div class="copyright-text">
+        &copy; Coastal Bliss Wellness
+      </div>
+
+      <!-- <a class="link" href="terms.php">Terms & Conditions</a> -->
+      <a class="link" href="parts/footer/cancellation-policy.php" target="_blank">Terms & Cancellation Policy</a>
+      <!-- <a class="link" href="privacy-policy.php">Privacy Policy</a> -->
     </div>
   </div>
 </div>
