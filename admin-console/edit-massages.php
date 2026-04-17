@@ -68,24 +68,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_massages'])) {
         }
     }
     
-    // Insert new options for existing massages (new options added via dynamic fields)
-    if (isset($_POST['new_options']) && is_array($_POST['new_options'])) {
-        foreach ($_POST['new_options'] as $massage_id => $optionGroup) {
-            if (is_array($optionGroup)) {
-                foreach ($optionGroup as $option) {
-                    // We only want to insert if duration is provided (non-empty)
-                    if (!empty(trim($option['duration']))) {
-                        $dur = trim($option['duration']);
-                        $price = isset($option['price']) ? floatval($option['price']) : 0;
-                        $stmt = $conn->prepare("INSERT INTO massage_options (massage_id, duration, price) VALUES (?, ?, ?)");
-                        $stmt->bind_param("isd", $massage_id, $dur, $price);
-                        $stmt->execute();
-                        $stmt->close();
-                    }
-                }
+   if (isset($_POST['new_options']) && is_array($_POST['new_options'])) {
+
+    foreach ($_POST['new_options'] as $massage_id => $data) {
+
+        $durations = $data['duration'] ?? [];
+        $prices    = $data['price'] ?? [];
+
+        if (!is_array($durations) || !is_array($prices)) {
+            continue;
+        }
+
+        $count = min(count($durations), count($prices));
+
+        for ($i = 0; $i < $count; $i++) {
+
+            $dur = trim($durations[$i]);
+            $priceRaw = $prices[$i];
+
+            // skip empty rows
+            if ($dur === '' || $priceRaw === '' || $priceRaw === null) {
+                continue;
             }
+
+            $price = floatval($priceRaw);
+
+            $stmt = $conn->prepare("
+                INSERT INTO massage_options (massage_id, duration, price)
+                VALUES (?, ?, ?)
+            ");
+            $stmt->bind_param("isd", $massage_id, $dur, $price);
+            $stmt->execute();
+            $stmt->close();
         }
     }
+}
     
     header("Location: edit-massages.php");
     exit();
@@ -350,11 +367,22 @@ while ($row = mysqli_fetch_assoc($result)) {
 // Function to add a new option field for an existing massage
 function addOption(massageId) {
     let container = document.getElementById('new-option-' + massageId);
-    let html = '<div class="row mb-2">' +
-               '<div class="col-md-6"><input type="text" name="new_options[' + massageId + '][][duration]" class="form-control" placeholder="Duration (e.g., 60 min)"></div>' +
-               '<div class="col-md-4"><input type="number" step="0.01" name="new_options[' + massageId + '][][price]" class="form-control" placeholder="Price"></div>' +
-               '<div class="col-md-2"><button type="button" class="btn btn-danger" onclick="this.parentElement.parentElement.remove()">Remove</button></div>' +
-               '</div>';
+    let html =
+    '<div class="row mb-2 option-row">' +
+
+        '<div class="col-md-6">' +
+            '<input type="text" name="new_options[' + massageId + '][duration][]" class="form-control" placeholder="Duration (e.g., 60 min)">' +
+        '</div>' +
+
+        '<div class="col-md-4">' +
+            '<input type="number" step="0.01" name="new_options[' + massageId + '][price][]" class="form-control" placeholder="Price">' +
+        '</div>' +
+
+        '<div class="col-md-2">' +
+            '<button type="button" class="btn btn-danger" onclick="this.closest(\'.option-row\').remove()">Remove</button>' +
+        '</div>' +
+
+    '</div>';
     container.insertAdjacentHTML('beforeend', html);
 }
 
