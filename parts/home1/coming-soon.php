@@ -21,6 +21,15 @@ $hero_images = $hero_enabled && !empty($home['hero_images'])
 
 // Limit to 5 images max
 $hero_images = array_slice($hero_images, 0, 5);
+
+$host = $_SERVER['HTTP_HOST'];
+
+// Detect local environment
+if ($host === 'localhost' || str_contains($host, '127.0.0.1')) {
+    define('BASE_URL', 'http://localhost/coastal-bliss');
+} else {
+    define('BASE_URL', 'https://coastalblissrehoboth.com');
+}
 ?>
 
 <?php if ($hero_enabled && !empty($hero_images)): ?>
@@ -90,7 +99,7 @@ foreach ($reviewsToShow as $r) {
 file_put_contents($shownFile, json_encode($shown));
 ?>
 
-<a href="/coastal-bliss/page-book.php" class="floating-book-btn">
+<a href="<?= BASE_URL ?>/page-book.php" class="floating-book-btn">
   Book Now
 </a>
 
