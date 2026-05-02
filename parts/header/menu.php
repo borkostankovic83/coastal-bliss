@@ -1,5 +1,6 @@
 <ul class="navigation">
     <li><a href="index.php">Home</a></li>
+    <li><a href="page-book.php">Book</a></li>
     <li><a href="page-giftcards.php">Gift Cards</a></li>
     <li><a href="page-gallery.php">About</a></li>
     <!-- <li><a href="page-gallery.php">Gallery</a></li> -->

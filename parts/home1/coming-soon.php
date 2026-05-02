@@ -90,7 +90,9 @@ foreach ($reviewsToShow as $r) {
 file_put_contents($shownFile, json_encode($shown));
 ?>
 
-
+<a href="/coastal-bliss/page-book.php" class="floating-book-btn">
+  Book Now
+</a>
 
 <div class="container-fluid py-5 bg-light">
     <div class="d-flex justify-content-between align-items-center px-4 flex-wrap mb-3">
@@ -158,38 +160,11 @@ file_put_contents($shownFile, json_encode($shown));
     <?php endif; ?>
 </div>
 
-
-
-<!-- <script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-e43999ba-f7b1-4df8-961c-cc0b7b077d63" data-elfsight-app-lazy></div> -->
 </div>
 <div style="margin-top: 20px"></div>
     <div class="embedsocial-hashtag" data-ref="2082f57e6c1dfcf1aee3e702453c811610349aac"> <a class="feed-powered-by-es feed-powered-by-es-slider-img es-widget-branding" href="https://embedsocial.com/social-media-aggregator/" target="_blank" title="Instagram widget"> <img src="https://embedsocial.com/cdn/icon/embedsocial-logo.webp" alt="EmbedSocial"> <div class="es-widget-branding-text">Instagram widget</div> </a> </div> <script> (function(d, s, id) { var js; if (d.getElementById(id)) {return;} js = d.createElement(s); js.id = id; js.src = "https://embedsocial.com/cdn/ht.js"; d.getElementsByTagName("head")[0].appendChild(js); }(document, "script", "EmbedSocialHashtagScript")); </script>
 </div>
-<script>
-  (function() {
-    var s = document.createElement('script');
-    s.type = 'text/javascript';
-    s.async = true;
-    s.src = 'https://app.yocale.com/tentacle/tentacle.v1.0.0.js';
-    var x = document.getElementsByTagName('script')[0];
-    x.parentNode.insertBefore(s, x);
-    s.onload = s.onreadystatechange = function() {
-      if (!this.readyState || this.readyState === 'complete') {
-        Tentacle.run({
-          business: 'coastal-bliss-wellness',
-          type:'FLOATING',
-          label:'Book Appointment',
-          labelColor:'#FFFFFF',
-          iconColor:'#FFFFFF',
-          backgroundColor:'#9CD948',
-          disableIcon:false,
-          buttonStyles:{}
-        });
-      }
-    };
-  })();
-  </script>
+
 
  <style>
 .card { border-radius: 1rem; }
@@ -284,6 +259,36 @@ es-header-btn {
   color: #000;
 }
 
+.floating-book-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #beac5a;
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  z-index: 999;
+  transition: all 0.3s ease;
+  bottom: 100px;
+}
+.floating-book-btn {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(190,172,90,0.6); }
+  70% { box-shadow: 0 0 0 15px rgba(190,172,90,0); }
+  100% { box-shadow: 0 0 0 0 rgba(190,172,90,0); }
+}
+.floating-book-btn:hover {
+  background: #a8954c;
+  transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
   .black-friday-container {
     padding: 2rem;
@@ -293,6 +298,9 @@ es-header-btn {
   }
   .black-friday-content {
     font-size: 0.95rem;
+  }
+  .floating-book-btn {
+    bottom: 14px;
   }
 }
 </style>

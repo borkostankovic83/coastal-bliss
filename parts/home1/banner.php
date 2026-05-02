@@ -2,6 +2,6 @@
   <strong>Accessibility Notice:</strong>
   Coastal Bliss Wellness is located in a historic building and requires use of stairs.
   Our space is not wheelchair accessible. Please
-  <a href="/contact.php" class="alert-link">contact us</a> prior to booking if you have mobility concerns.
+  <a href="page-contact.php" class="alert-link">contact us</a> prior to booking if you have mobility concerns.
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>

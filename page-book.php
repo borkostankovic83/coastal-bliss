@@ -1,13 +1,13 @@
 <?php 
-    $head_title="Coastal Bliss| Gift Cards";
+    $head_title="Coastal Bliss| Book";
 
 	require_once('parts/header/header.php'); 
-	$page_title = "Gift Cards";
+	$page_title = "Book";
 ?>
 
 
 <!-- Start main-content -->
-<section class="page-title" style="background-image: url(images/background/giftcards_background.jpg);">
+<section class="page-title" style="background-image: url(images/background/background-space-free-photo.jpg);">
 
     <div class="image-curve"></div>
     <div class="auto-container">
@@ -38,7 +38,7 @@
 <div style="width:100%; height:100vh; overflow:hidden; position:relative;">
   
   <iframe
-    src="https://login.meevo.com/CoastalBlissWellness/egft?locationId=503285"
+    src="https://login.meevo.com/CoastalBlissWellness/ob?locationId=503285"
     style="
       position:absolute;
       top:0;
