@@ -17,6 +17,9 @@
                     <a class="nav-link <?= $currentPage == 'inquiries.php' ? 'active' : '' ?>" href="inquiries.php">Inquiries</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link <?= $currentPage == 'change-password.php' ? 'active' : '' ?>" href="change-password.php">Change Password</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link <?= $currentPage == 'register_user.php' ? 'active' : '' ?>" href="register_user.php">Register User</a>
                 </li>
                 <li class="nav-item">
